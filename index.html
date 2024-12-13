@@ -3,36 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leaflet Map Example</title>
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+oF91d0g8HTjWmWx5Tq4Zd/R9OYyO9hcm03Sy6Wj0=" crossorigin=""/>
+  <title>Muskegon City Zoning Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
-    /* Map container size */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
     #map {
-      height: 500px;
       width: 100%;
+      height: 600px;
+    }
+    h1 {
+      text-align: center;
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>Muskegon Zoning Map</h1>
+  <h1>Muskegon City Zoning Map</h1>
   <div id="map"></div>
 
-  <!-- Leaflet JavaScript -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1jXCR2B9u6CE0p51A6BhEZ0Q5HULIk7HRH2wOlpU=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // Initialize the map and set its view to a given geographical point and zoom level
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    // Initialize the map
+    const map = L.map('map').setView([43.2342, -86.1935], 12); // Center of Muskegon City
 
-    // Add the OpenStreetMap tiles
+    // Add a base map (OpenStreetMap)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Add a marker and a popup
-    var marker = L.marker([51.5, -0.09]).addTo(map);
-    marker.bindPopup("<b>Hello World!</b><br>This is a Leaflet map.").openPopup();
+    // Load the GeoJSON data
+    fetch('MuskegonCityMuskegonCountyMI-ZoningDistricts.geojson')
+      .then(response => response.json())
+      .then(data => {
+        L.geoJSON(data, {
+          style: function () {
+            return { color: 'blue', weight: 1, fillOpacity: 0.3 };
+          },
+          onEachFeature: function (feature, layer) {
+            const properties = feature.properties;
+            const popupContent = `
+              <strong>District:</strong> ${properties["Full District Name"] || "N/A"}<br>
+              <strong>Type:</strong> ${properties["Type of Zoning District"] || "N/A"}<br>
+              <strong>Status:</strong> ${properties["Status"] || "N/A"}<br>
+              <strong>Last Updated:</strong> ${properties["Last Updated"] || "N/A"}
+            `;
+            layer.bindPopup(popupContent);
+          }
+        }).addTo(map);
+      })
+      .catch(error => console.error('Error loading GeoJSON:', error));
   </script>
 </body>
 </html>
