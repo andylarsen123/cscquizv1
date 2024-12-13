@@ -36,25 +36,46 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
+    // Create an object to store layers by zoning district type
+    const districtLayers = {};
+
     // Load the GeoJSON data
     fetch('MuskegonCityMuskegonCountyMI-ZoningDistricts.geojson')
       .then(response => response.json())
       .then(data => {
-        L.geoJSON(data, {
-          style: function () {
-            return { color: 'blue', weight: 1, fillOpacity: 0.3 };
-          },
-          onEachFeature: function (feature, layer) {
-            const properties = feature.properties;
-            const popupContent = `
-              <strong>District:</strong> ${properties["Full District Name"] || "N/A"}<br>
-              <strong>Type:</strong> ${properties["Type of Zoning District"] || "N/A"}<br>
-              <strong>Status:</strong> ${properties["Status"] || "N/A"}<br>
-              <strong>Last Updated:</strong> ${properties["Last Updated"] || "N/A"}
-            `;
-            layer.bindPopup(popupContent);
+        // Go through each feature in the GeoJSON
+        data.features.forEach(feature => {
+          const type = feature.properties["Type of Zoning District"] || "Unknown";
+          
+          // Create a layer for the feature
+          const layer = L.geoJSON(feature, {
+            style: { color: 'blue', weight: 1, fillOpacity: 0.3 },
+            onEachFeature: function (feature, layer) {
+              const properties = feature.properties;
+              const popupContent = `
+                <strong>District:</strong> ${properties["Full District Name"] || "N/A"}<br>
+                <strong>Type:</strong> ${type}<br>
+                <strong>Status:</strong> ${properties["Status"] || "N/A"}<br>
+                <strong>Last Updated:</strong> ${properties["Last Updated"] || "N/A"}
+              `;
+              layer.bindPopup(popupContent);
+            }
+          });
+
+          // Add the layer to the corresponding type in the districtLayers object
+          if (!districtLayers[type]) {
+            districtLayers[type] = L.layerGroup();
           }
-        }).addTo(map);
+          districtLayers[type].addLayer(layer);
+        });
+
+        // Add all layers to the map by default
+        for (let type in districtLayers) {
+          districtLayers[type].addTo(map);
+        }
+
+        // Add layer control to toggle visibility
+        L.control.layers(null, districtLayers, { collapsed: false }).addTo(map);
       })
       .catch(error => console.error('Error loading GeoJSON:', error));
   </script>
