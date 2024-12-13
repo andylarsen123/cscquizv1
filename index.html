@@ -69,13 +69,20 @@
           districtLayers[type].addLayer(layer);
         });
 
+        // Sort the district types alphabetically
+        const sortedDistrictTypes = Object.keys(districtLayers).sort();
+
+        // Create a sorted layer control object
+        const sortedLayers = {};
+        sortedDistrictTypes.forEach(type => {
+          sortedLayers[type] = districtLayers[type];
+        });
+
         // Add all layers to the map by default
-        for (let type in districtLayers) {
-          districtLayers[type].addTo(map);
-        }
+        Object.values(sortedLayers).forEach(layerGroup => layerGroup.addTo(map));
 
         // Add layer control to toggle visibility
-        L.control.layers(null, districtLayers, { collapsed: false }).addTo(map);
+        L.control.layers(null, sortedLayers, { collapsed: false }).addTo(map);
       })
       .catch(error => console.error('Error loading GeoJSON:', error));
   </script>
