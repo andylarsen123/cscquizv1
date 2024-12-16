@@ -5,86 +5,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muskegon City Zoning Map</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.6.1/dist/geosearch.css" />
   <style>
     body {
-      font-family: Montserrat, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
     #map {
-      width: 150%;
+      width: 100%;
       height: 600px;
     }
     h1 {
       text-align: center;
       padding: 1rem;
     }
+    #filter {
+      margin: 10px;
+      padding: 10px;
+      background: white;
+      position: absolute;
+      top: 80px;
+      left: 10px;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    #filter select {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
   <h1>Muskegon City Zoning Map</h1>
   <div id="map"></div>
+  <div id="filter">
+    <label for="zoneType">Filter by Zoning Type:</label>
+    <select id="zoneType">
+      <option value="all">All</option>
+    </select>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-geosearch@3.6.1/dist/geosearch.umd.js"></script>
   <script>
-    // Initialize the map
-    const map = L.map('map').setView([43.2342, -86.1935], 12); // Center of Muskegon City
+    const map = L.map('map').setView([43.2342, -86.1935], 12);
 
-    // Add a base map (OpenStreetMap)
+    // Add base map layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Create an object to store layers by zoning district type
-    const districtLayers = {};
+    // GeoSearch plugin for address search
+    const provider = new GeoSearch.OpenStreetMapProvider();
+    const search = new GeoSearch.GeoSearchControl({
+      provider: provider,
+      style: 'bar',
+      showMarker: true,
+      autoClose: true
+    });
+    map.addControl(search);
 
-    // Load the GeoJSON data
+    // Object to store layers by zoning type
+    let districtLayers = {};
+    let allZonesLayer;
+
+    // Load GeoJSON data
     fetch('MuskegonCityMuskegonCountyMI-ZoningDistricts.geojson')
       .then(response => response.json())
       .then(data => {
-        // Go through each feature in the GeoJSON
-        data.features.forEach(feature => {
-          const type = feature.properties["Type of Zoning District"] || "Unknown";
-          
-          // Create a layer for the feature
-          const layer = L.geoJSON(feature, {
-            style: { color: 'blue', weight: 1, fillOpacity: 0.3 },
-            onEachFeature: function (feature, layer) {
-              const properties = feature.properties;
-              const popupContent = `
-                <strong>District:</strong> ${properties["Full District Name"] || "N/A"}<br>
-                <strong>Type:</strong> ${type}<br>
-                <strong>Status:</strong> ${properties["Status"] || "N/A"}<br>
-                <strong>Last Updated:</strong> ${properties["Last Updated"] || "N/A"}
-              `;
-              layer.bindPopup(popupContent);
+        allZonesLayer = L.geoJSON(data, {
+          style: { color: 'blue', weight: 1, fillOpacity: 0.3 },
+          onEachFeature: function (feature, layer) {
+            const properties = feature.properties;
+            const popupContent = `
+              <strong>District:</strong> ${properties["Full District Name"] || "N/A"}<br>
+              <strong>Type:</strong> ${properties["Type of Zoning District"] || "N/A"}<br>
+              <strong>Status:</strong> ${properties["Status"] || "N/A"}<br>
+              <strong>Last Updated:</strong> ${properties["Last Updated"] || "N/A"}
+            `;
+            layer.bindPopup(popupContent);
+
+            const type = properties["Type of Zoning District"] || "Unknown";
+
+            if (!districtLayers[type]) {
+              districtLayers[type] = L.layerGroup();
+              addFilterOption(type);
             }
-          });
-
-          // Add the layer to the corresponding type in the districtLayers object
-          if (!districtLayers[type]) {
-            districtLayers[type] = L.layerGroup();
+            districtLayers[type].addLayer(layer);
           }
-          districtLayers[type].addLayer(layer);
         });
 
-        // Sort the district types alphabetically
-        const sortedDistrictTypes = Object.keys(districtLayers).sort();
+        allZonesLayer.addTo(map);
 
-        // Create a sorted layer control object
-        const sortedLayers = {};
-        sortedDistrictTypes.forEach(type => {
-          sortedLayers[type] = districtLayers[type];
-        });
-
-        // Add all layers to the map by default
-        Object.values(sortedLayers).forEach(layerGroup => layerGroup.addTo(map));
-
-        // Add layer control to toggle visibility
-        L.control.layers(null, sortedLayers, { collapsed: false }).addTo(map);
+        // Add all layers to the map
+        for (let type in districtLayers) {
+          districtLayers[type].addTo(map);
+        }
       })
       .catch(error => console.error('Error loading GeoJSON:', error));
+
+    // Populate the filter dropdown
+    function addFilterOption(type) {
+      const select = document.getElementById('zoneType');
+      const option = document.createElement('option');
+      option.value = type;
+      option.textContent = type;
+      select.appendChild(option);
+    }
+
+    // Filter functionality
+    document.getElementById('zoneType').addEventListener('change', function() {
+      const selectedType = this.value;
+      map.eachLayer(layer => {
+        if (layer instanceof L.LayerGroup) {
+          map.removeLayer(layer);
+        }
+      });
+
+      if (selectedType === 'all') {
+        allZonesLayer.addTo(map);
+      } else if (districtLayers[selectedType]) {
+        districtLayers[selectedType].addTo(map);
+      }
+    });
   </script>
 </body>
 </html>
