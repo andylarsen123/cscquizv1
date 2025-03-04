@@ -1,22 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuzzFeed-Style Quiz</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div id="quiz-container">
-        <h2 id="question">Question text here</h2>
-        <div id="answers"></div>
-        <button id="next-btn" style="display:none;">Next</button>
-    </div>
-    <div id="result" style="display:none;">
-        <h2>Your Result:</h2>
-        <p id="result-text"></p>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+#quiz-container {
+    background: white;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#answers button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#answers button:hover {
+    background: #0056b3;
+}
+
+#next-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#result {
+    background: white;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
