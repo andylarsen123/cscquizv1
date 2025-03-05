@@ -54,8 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const quizContainer = document.getElementById("quiz-container");
   const resultContainer = document.getElementById("result");
   const resultText = document.getElementById("result-text");
+  const backBtn = document.getElementById("back-btn"); // Back button element
 
   let currentQuestionIndex = 0;  // Track which question is currently active
+  let questionHistory = []; // Track question history for "Back" functionality
 
   // Load the question and its possible answers
   function loadQuestion() {
@@ -79,9 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
       answersEl.appendChild(btn);
     });
 
-    // Hide quiz and show result
+    // Ensure quiz container is visible and result is hidden
     quizContainer.style.display = "block";
     resultContainer.style.display = "none";
+    backBtn.style.display = questionHistory.length > 0 ? "block" : "none"; // Show back button only if there's a history
   }
 
   // Handle the user's answer selection
@@ -92,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       showResult(answer.result); // Show result if available
     } else if (answer.followUp !== undefined) {
       console.log("Follow-up question, moving to index:", answer.followUp); // Debugging follow-up
+      questionHistory.push(currentQuestionIndex); // Save current question index for the "Back" button
       currentQuestionIndex = answer.followUp; // Move to the follow-up question
       loadQuestion(); // Load the next question
     }
@@ -102,8 +106,18 @@ document.addEventListener("DOMContentLoaded", function () {
     quizContainer.style.display = "none"; // Hide the quiz
     resultContainer.style.display = "block"; // Show the result container
     resultText.innerHTML = result; // Display the result
+    backBtn.style.display = "none"; // Hide the back button on result page
   }
+
+  // Back button functionality
+  backBtn.addEventListener("click", function () {
+    if (questionHistory.length > 0) {
+      currentQuestionIndex = questionHistory.pop(); // Go back to the previous question in history
+      loadQuestion(); // Load the previous question
+    }
+  });
 
   // Start the quiz by loading the first question
   loadQuestion();
 });
+
