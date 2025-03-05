@@ -73,4 +73,37 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create a button for each answer option
     questionData.answers.forEach(answer => {
       const btn = document.createElement("button");
-      btn.textContent = answe
+      btn.textContent = answer.text;
+      btn.classList.add("answer-btn");
+      btn.onclick = () => handleAnswer(answer);
+      answersEl.appendChild(btn);
+    });
+
+    // Hide quiz and show result
+    quizContainer.style.display = "block";
+    resultContainer.style.display = "none";
+  }
+
+  // Handle the user's answer selection
+  function handleAnswer(answer) {
+    console.log("Button clicked:", answer.text);
+
+    if (answer.result) {
+      showResult(answer.result); // Show result if available
+    } else if (answer.followUp !== undefined) {
+      console.log("Follow-up question, moving to index:", answer.followUp); // Debugging follow-up
+      currentQuestionIndex = answer.followUp; // Move to the follow-up question
+      loadQuestion(); // Load the next question
+    }
+  }
+
+  // Show the result after answering
+  function showResult(result) {
+    quizContainer.style.display = "none"; // Hide the quiz
+    resultContainer.style.display = "block"; // Show the result container
+    resultText.innerHTML = result; // Display the result
+  }
+
+  // Start the quiz by loading the first question
+  loadQuestion();
+});
