@@ -22,15 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "Are you familiar with floodplains?",
       answers: [
         { text: "Yes", result: "A" },
-        { 
-          text: "No", 
+        {
+          text: "No",
           result: `<strong>Floodplains</strong><br>
           Floodplains are low-lying areas prone to flooding. This flooding may result from rainfall, storm surges, or other causes.<br><br>
           <strong>Why it supports resilience:</strong><br>
-          Floodplain maps, created by FEMA, help identify areas at risk of flooding and can be used as a tool for creating overlay districts. 
+          Floodplain maps, created by FEMA, help identify areas at risk of flooding and can be used as a tool for creating overlay districts.
           According to EGLE, of the 1,776 communities in Michigan (including cities, villages, and townships), about 1,004 currently have FEMA-developed floodplain maps.<br><br>
           <strong>How it is used:</strong><br>
-          Local governments can use floodplain maps to establish flood zones and regulate where and how development can occur in those areas. 
+          Local governments can use floodplain maps to establish flood zones and regulate where and how development can occur in those areas.
           To view flood maps specific to your community, visit <a href='https://www.fema.gov/flood-maps' target='_blank'>fema.gov/flood-maps</a>.<br><br>
           <strong>Possible obstacles to implementation:</strong><br>
           Maps may become inaccurate due to frequently changing climate patterns and accelerated climate change.<br>
@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
         { text: "C", result: "C" },
         { text: "D", result: "D" }
       ]
-    }  // This was missing the closing brackets
-  ];  // Missing the closing bracket for the array
+    }
+  ]; // <-- Closing the array properly
 
   const questionEl = document.getElementById("question");
   const answersEl = document.getElementById("answers");
@@ -87,4 +87,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     quizContainer.style.display = "block";
-    resultContaine
+    resultContainer.style.display = "none";
+    backBtn.style.display = history.length > 0 ? "block" : "none";
+    startOverBtn.style.display = "none";  // Hide Start Over button initially
+  }
+
+  function handleAnswer(answer) {
+    console.log("Button clicked:", answer.text);
+    history.push(currentQuestionIndex);
+
+    if (answer.result) {
+      showResult(answer.result);
+    } else if (answer.followUp !== undefined) {
+      console.log("Follow-up question, moving to index:", answer.followUp);
+      currentQuestionIndex = answer.followUp;
+      loadQuestion();
+    }
+  }
+
+  function showResult(result) {
+    quizContainer.style.display = "none";
+    resultContainer.style.display = "block";
+    resultText.innerHTML = result;
+    backBtn.style.display = "block";
+    startOverBtn.style.display = "block";  // Show Start Over button when result is shown
+  }
+
+  backBtn.addEventListener("click", function () {
+    if (history.length > 0) {
+      currentQuestionIndex = history.pop();
+      loadQuestion();
+    }
+  });
+
+  startOverBtn.addEventListener("click", function () {
+    history = [];
+    currentQuestionIndex = 0;
+    loadQuestion();
+  });
+
+  loadQuestion();
+});
