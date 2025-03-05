@@ -103,8 +103,16 @@ document.addEventListener("DOMContentLoaded", function () {
     resultContainer.style.display = "block"; // Show the result container
     resultText.innerHTML = result; // Display the result
   }
+  
+    // Function to restart the quiz
+    function startOver() {
+        currentQuestion = 0; // Reset to the first question
+        loadQuestion(); // Reload the first question
+        startOverBtn.style.display = "none"; // Hide Start Over button during quiz
+    }
 
-  // Start the quiz by loading the first question
-  loadQuestion();
+    startOverBtn.addEventListener("click", startOver);
+
+    // Start the quiz when the page loads
+    loadQuestion();
 });
-
