@@ -74,6 +74,14 @@ body {
     background: darkred;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adds spacing between buttons */
+    margin-top: 15px;
+}
+
 #result {
     text-align: left !important;
 }
