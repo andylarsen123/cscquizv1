@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "Are you familiar with Floodplains?", // Follow-up for Environmental Protection
+      question: "Are you familiar with floodplains?", // Follow-up for Environmental Protection
       answers: [
         { text: "Yes", result: "A" },
         { text: "No", result: "B" }
