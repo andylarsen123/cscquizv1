@@ -6,27 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "What's built there right now?",
       answers: [
         { text: "Residential", followUp: 1 },
-        { text: "Commercial", followUp: 1 },  // Updated to point to "What's the main concern?"
-        { text: "Infrastructure", followUp: 4 }
+        { text: "Commercial", followUp: 4 },  // Updated to point to "What's the main concern?"
+        { text: "Industrial", followUp: 5 }
       ]
     },
     {
-      question: "What's the main concern?",
+      question: "Residential: What's the main concern?",
       answers: [
         { text: "Extreme Weather Events", followUp: 2 },
         { text: "New Development", followUp: 1 },  // This already points to "What's the main concern?"
-        { text: "Zoning", followUp: 4 }
+        { text: "Zoning", followUp: 1 }
       ]
     },
     {
-      question: "Are you familiar with floodplains?",
+      question: "Residential: Are you familiar with floodplains?",
       answers: [
         { text: "Yes", followUp: 3 },  // Corrected to follow the "Does your community lack any of the following tools?" question (index 3)
         { text: "No", result: `<strong>Floodplains</strong><br>Floodplains are low-lying areas prone to flooding...</strong>` }
       ]
     },
     {
-      question: "Does your community lack any of the following tools?",
+      question: "Residential: Does your community lack any of the following tools?",
       answers: [
         { text: "Design standards", result: `<strong>Design Standards:</strong><br>The Michigan Zoning Enabling Act...` },
         { text: "Building moving standards", result: "Placeholder for Building Moving Standards" },
@@ -34,14 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "What's the main concern?",
+      question: "Commercial: What's the main concern?",
       answers: [
         { text: "A", result: "A" },
         { text: "B", result: "B" }
       ]
     },
     {
-      question: "What's the main concern?",
+      question: "Industrial: What's the main concern?",
       answers: [
         { text: "C", result: "C" },
         { text: "D", result: "D" }
