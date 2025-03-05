@@ -7,15 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
       answers: [
         { text: "Residential", followUp: 1 }, // Points to "What is the main concern?"
         { text: "Commercial", result: "Shoreline District" }, // Direct result for Commercial
-        { text: "Infrastructure", followUp: 2 } // Points to "Are there runoff concerns?"
+        { text: "Infrastructure", followUp: 5 } // Points to "Are there runoff concerns?"
       ]
     },
     {
       question: "What is the main concern?", // Follow-up for Residential
       answers: [
-        { text: "Environmental Protection", followUp: 3 }, // Follow-up to "Are you familiar with Floodplains?"
-        { text: "New Development", followUp: 4 }, // Follow-up to "Are there design standards in place?"
-        { text: "Zoning", followUp: 5 } // Follow-up to "Has the shoreline moved considerably?"
+        { text: "Environmental Protection", followUp: 2 }, // Follow-up to "Are you familiar with Floodplains?"
+        { text: "New Development", followUp: 3 }, // Follow-up to "Are there design standards in place?"
+        { text: "Zoning", followUp: 4 } // Follow-up to "Has the shoreline moved considerably?"
       ]
     },
     {
@@ -73,37 +73,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create a button for each answer option
     questionData.answers.forEach(answer => {
       const btn = document.createElement("button");
-      btn.textContent = answer.text;
-      btn.classList.add("answer-btn");
-      btn.onclick = () => handleAnswer(answer);
-      answersEl.appendChild(btn);
-    });
-
-    // Hide quiz and show result
-    quizContainer.style.display = "block";
-    resultContainer.style.display = "none";
-  }
-
-  // Handle the user's answer selection
-  function handleAnswer(answer) {
-    console.log("Button clicked:", answer.text);
-
-    if (answer.result) {
-      showResult(answer.result); // Show result if available
-    } else if (answer.followUp !== undefined) {
-      console.log("Follow-up question, moving to index:", answer.followUp); // Debugging follow-up
-      currentQuestionIndex = answer.followUp; // Move to the follow-up question
-      loadQuestion(); // Load the next question
-    }
-  }
-
-  // Show the result after answering
-  function showResult(result) {
-    quizContainer.style.display = "none"; // Hide the quiz
-    resultContainer.style.display = "block"; // Show the result container
-    resultText.innerHTML = result; // Display the result
-  }
-
-  // Start the quiz by loading the first question
-  loadQuestion();
-});
+      btn.textContent = answe
