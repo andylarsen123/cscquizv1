@@ -24,6 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
+      question: "What is the main concern?", // New question
+      answers: [
+        { text: "Environmental Protection", result: "Environmental protection is key in maintaining the health of the shoreline." },
+        { text: "New Development", result: "New development can introduce risks and challenges for shoreline resilience." },
+        { text: "Zoning", result: "Zoning regulations can help manage shoreline development and protect resources." }
+      ]
+    },
+    {
       question: "Are there runoff concerns?",
       answers: [
         { text: "Yes", result: "B" },
@@ -70,7 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (answer.result) {
       showResult(answer.result);
     } else if (answer.followUp) {
-      currentQuestion++; // Move to next question
+      currentQuestion++; // Move to the next question
+      loadQuestion();
+    } else {
+      // If the answer triggers a follow-up question
+      currentQuestion++; // Move to next question (which is the "main concern" question)
       loadQuestion();
     }
   }
@@ -84,4 +96,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz
   loadQuestion();
 });
-
