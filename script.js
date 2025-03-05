@@ -3,22 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const questions = [
     {
-      question: "What's built there right now?",
-      answers: [
-        { text: "Residential", followUp: 1 },
-        { text: "Commercial", followUp: 3 },
-        { text: "Infrastructure", followUp: 4 }
-      ]
-    },
-    {
-      question: "What's the main concern?",
-      answers: [
-        { text: "Extreme Weather Events", followUp: 2 },
-        { text: "New Development", followUp: 3 },
-        { text: "Zoning", followUp: 4 }
-      ]
-    },
-    {
       question: "Are you familiar with floodplains?",
       answers: [
         { text: "Yes", followUp: 5 },
@@ -79,14 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "What's the main concern?",
+      question: "What's your main concern?",
       answers: [
         { text: "A", result: "A" },
         { text: "B", result: "B" }
       ]
     },
     {
-      question: "What's the main concern?",
+      question: "What's your main concern?",
       answers: [
         { text: "C", result: "C" },
         { text: "D", result: "D" }
