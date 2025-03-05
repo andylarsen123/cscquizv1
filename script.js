@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Load the question and its possible answers
   function loadQuestion() {
-    console.log("Loading question:", currentQuestionIndex);
+    console.log("Loading question:", currentQuestionIndex); // Debug: Check current question index
     const questionData = questions[currentQuestionIndex];
     if (!questionData) {
       console.error("No question found at index", currentQuestionIndex);
@@ -91,11 +91,19 @@ document.addEventListener("DOMContentLoaded", function () {
     if (answer.result) {
       showResult(answer.result); // Show result if available
     } else if (answer.followUp !== undefined) {
-      // Move to the follow-up question based on the followUp index
-      currentQuestionIndex = answer.followUp;
+      console.log("Follow-up question, moving to index:", answer.followUp); // Debugging follow-up
+      currentQuestionIndex = answer.followUp; // Move to the follow-up question
       loadQuestion(); // Load the next question
     }
   }
 
   // Show the result after answering
   function showResult(result) {
+    quizContainer.style.display = "none"; // Hide the quiz
+    resultContainer.style.display = "block"; // Show the result container
+    resultText.innerHTML = result; // Display the result
+  }
+
+  // Start the quiz by loading the first question
+  loadQuestion();
+});
