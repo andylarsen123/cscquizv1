@@ -5,21 +5,42 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "What's built there right now?",
       answers: [
-        { text: "Residential", followUp: 1 }, // Points to the "What is the main concern?" question
+        { text: "Residential", followUp: 1 }, // Points to "What is the main concern?"
         { text: "Commercial", result: "Shoreline District" }, // Direct result for Commercial
-        { text: "Infrastructure", followUp: 2 } // Points to the "Are there runoff concerns?" question
+        { text: "Infrastructure", followUp: 2 } // Points to "Are there runoff concerns?"
       ]
     },
     {
-      question: "What is the main concern?", // Follow-up question for Residential
+      question: "What is the main concern?", // Follow-up for Residential
       answers: [
-        { text: "Environmental Protection", result: "Environmental protection is key to maintaining the health of the shoreline." },
-        { text: "New Development", result: "New development can introduce risks and challenges for shoreline resilience." },
-        { text: "Zoning", result: "Zoning regulations help manage shoreline development and protect resources." }
+        { text: "Environmental Protection", followUp: 3 }, // Follow-up to "Are you familiar with Floodplains?"
+        { text: "New Development", followUp: 4 }, // Follow-up to "Are there design standards in place?"
+        { text: "Zoning", followUp: 5 } // Follow-up to "Has the shoreline moved considerably?"
       ]
     },
     {
-      question: "Are there runoff concerns?", // Follow-up question for Infrastructure
+      question: "Are you familiar with Floodplains?", // Follow-up for Environmental Protection
+      answers: [
+        { text: "Yes", result: "A" },
+        { text: "No", result: "B" }
+      ]
+    },
+    {
+      question: "Are there design standards in place?", // Follow-up for New Development
+      answers: [
+        { text: "Yes", result: "A" },
+        { text: "No", result: "B" }
+      ]
+    },
+    {
+      question: "Has the shoreline moved considerably in the past few years?", // Follow-up for Zoning
+      answers: [
+        { text: "Yes", result: "Dynamic Zoning" },
+        { text: "No", result: "Shoreline District" }
+      ]
+    },
+    {
+      question: "Are there runoff concerns?", // Follow-up for Infrastructure
       answers: [
         { text: "Yes", result: "B" },
         { text: "No", result: "A" }
@@ -78,11 +99,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Show the result after answering
   function showResult(result) {
-    quizContainer.style.display = "none"; // Hide the quiz
-    resultContainer.style.display = "block"; // Show the result container
-    resultText.innerHTML = result; // Display the result
-  }
-
-  // Start the quiz by loading the first question
-  loadQuestion();
-});
