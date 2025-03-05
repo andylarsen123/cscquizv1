@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "What's built there right now?",
       answers: [
         { text: "Residential", followUp: 1 },
-        { text: "Commercial", result: "Shoreline District" },
-        { text: "Infrastructure", followUp: 5 }
+        { text: "Commercial", followUp: 3 },
+        { text: "Infrastructure", followUp: 4 }
       ]
     },
     {
