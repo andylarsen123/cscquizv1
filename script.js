@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "What's the main concern?",
       answers: [
-        { text: "Environmental Protection", followUp: 2 },
+        { text: "Extreme Weather Events", followUp: 2 },
         { text: "New Development", followUp: 3 },
         { text: "Zoning", followUp: 4 }
       ]
