@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "What is the main concern?",
+      question: "What's the main concern?",
       answers: [
         { text: "Environmental Protection", followUp: 2 },
         { text: "New Development", followUp: 3 },
@@ -41,17 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "Are there design standards in place?",
+      question: "What's the main concern?",
       answers: [
-        { text: "Yes", result: "A" },
-        { text: "No", result: "B" }
+        { text: "A", result: "A" },
+        { text: "B", result: "B" }
       ]
     },
     {
-      question: "Has the shoreline moved considerably in the past few years?",
+      question: "What's the main concern?",
       answers: [
-        { text: "Yes", result: "Dynamic Zoning" },
-        { text: "No", result: "Shoreline District" }
+        { text: "C", result: "C" },
+        { text: "D", result: "D" }
       ]
     },
     {
