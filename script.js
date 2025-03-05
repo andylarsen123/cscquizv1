@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     quizContainer.style.display = "block";
     resultContainer.style.display = "none";
     backBtn.style.display = history.length > 0 ? "block" : "none";
+    startOverBtn.style.display = "none";  // Hide Start Over button initially
   }
 
   function handleAnswer(answer) {
@@ -116,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     resultContainer.style.display = "block";
     resultText.innerHTML = result;
     backBtn.style.display = "block";
+    startOverBtn.style.display = "block";  // Show Start Over button when result is shown
   }
 
   backBtn.addEventListener("click", function () {
@@ -133,3 +135,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadQuestion();
 });
+
