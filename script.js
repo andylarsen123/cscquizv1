@@ -5,42 +5,42 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "What's built there right now?",
       answers: [
-        { text: "Residential", followUp: 1 }, // Points to "What is the main concern?"
-        { text: "Commercial", result: "Shoreline District" }, // Direct result for Commercial
-        { text: "Infrastructure", followUp: 5 } // Points to "Are there runoff concerns?"
+        { text: "Residential", followUp: 1 },
+        { text: "Commercial", result: "Shoreline District" },
+        { text: "Infrastructure", followUp: 5 }
       ]
     },
     {
-      question: "What is the main concern?", // Follow-up for Residential
+      question: "What is the main concern?",
       answers: [
-        { text: "Environmental Protection", followUp: 2 }, // Follow-up to "Are you familiar with Floodplains?"
-        { text: "New Development", followUp: 3 }, // Follow-up to "Are there design standards in place?"
-        { text: "Zoning", followUp: 4 } // Follow-up to "Has the shoreline moved consideraly?"
+        { text: "Environmental Protection", followUp: 2 },
+        { text: "New Development", followUp: 3 },
+        { text: "Zoning", followUp: 4 }
       ]
     },
     {
-      question: "Are you familiar with floodplains?", // Follow-up for Environmental Protection
-      answers: [
-        { text: "Yes", result: "A" },
-        { text: "No", result: "B" }
-      ]
-    },
-    {
-      question: "Are there design standards in place?", // Follow-up for New Development
+      question: "Are you familiar with Floodplains?",
       answers: [
         { text: "Yes", result: "A" },
         { text: "No", result: "B" }
       ]
     },
     {
-      question: "Has the shoreline moved considerably in the past few years?", // Follow-up for Zoning
+      question: "Are there design standards in place?",
+      answers: [
+        { text: "Yes", result: "A" },
+        { text: "No", result: "B" }
+      ]
+    },
+    {
+      question: "Has the shoreline moved considerably in the past few years?",
       answers: [
         { text: "Yes", result: "Dynamic Zoning" },
         { text: "No", result: "Shoreline District" }
       ]
     },
     {
-      question: "Are there runoff concerns?", // Follow-up for Infrastructure
+      question: "Are there runoff concerns?",
       answers: [
         { text: "Yes", result: "B" },
         { text: "No", result: "A" }
@@ -57,23 +57,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const backBtn = document.getElementById("back-btn");
   const startOverBtn = document.getElementById("start-over-btn");
 
-  let currentQuestionIndex = 0;  // Track which question is currently active
-  let questionHistory = []; // Track the history of questions
+  let currentQuestionIndex = 0;
+  let questionHistory = []; 
 
-  // Load the question and its possible answers
+  // Load a question
   function loadQuestion() {
-    console.log("Loading question:", currentQuestionIndex); // Debug: Check current question index
+    console.log("Loading question:", currentQuestionIndex);
     const questionData = questions[currentQuestionIndex];
     if (!questionData) {
       console.error("No question found at index", currentQuestionIndex);
       return;
     }
 
-    // Display the question and reset answers
     questionEl.textContent = questionData.question;
-    answersEl.innerHTML = ""; // Clear previous answers
+    answersEl.innerHTML = "";
 
-    // Create a button for each answer option
     questionData.answers.forEach(answer => {
       const btn = document.createElement("button");
       btn.textContent = answer.text;
@@ -82,54 +80,54 @@ document.addEventListener("DOMContentLoaded", function () {
       answersEl.appendChild(btn);
     });
 
-    // Hide result and show quiz
     quizContainer.style.display = "block";
     resultContainer.style.display = "none";
 
-    // Hide the "Back" button if we're at the first question
-    backBtn.style.display = currentQuestionIndex === 0 ? "none" : "inline-block";
-    startOverBtn.style.display = "none"; // Hide "Start Over" button during quiz
-
-    // Ensure the "Back" button works properly
-    backBtn.onclick = () => goBack();
+    backBtn.style.display = questionHistory.length > 0 ? "inline-block" : "none";
+    startOverBtn.style.display = "none";
   }
 
-  // Handle the user's answer selection
+  // Handle answer selection
   function handleAnswer(answer) {
     console.log("Button clicked:", answer.text);
 
-    // Save the current question index in history before moving to the next question
     if (answer.followUp !== undefined) {
       questionHistory.push(currentQuestionIndex);
-    }
-
-    if (answer.result) {
-      showResult(answer.result); // Show result if available
-    } else if (answer.followUp !== undefined) {
-      currentQuestionIndex = answer.followUp; // Move to the follow-up question
-      loadQuestion(); // Load the next question
+      currentQuestionIndex = answer.followUp;
+      loadQuestion();
+    } else if (answer.result) {
+      showResult(answer.result);
     }
   }
 
-  // Show the result after answering
+  // Show result
   function showResult(result) {
-    quizContainer.style.display = "none"; // Hide the quiz
-    resultContainer.style.display = "block"; // Show the result container
-    resultText.innerHTML = result; // Display the result
+    quizContainer.style.display = "none";
+    resultContainer.style.display = "block";
+    resultText.innerHTML = result;
 
-    // Show "Start Over" button after showing the result
     startOverBtn.style.display = "inline-block";
-    backBtn.style.display = "none"; // Hide "Back" button after quiz ends
+    backBtn.style.display = "none";
   }
 
   // Go back to the previous question
   function goBack() {
     if (questionHistory.length > 0) {
-      currentQuestionIndex = questionHistory.pop(); // Pop the last question from history
-      loadQuestion(); // Load the previous question
+      currentQuestionIndex = questionHistory.pop();
+      loadQuestion();
     }
   }
 
-  // Start the quiz by loading the first question
+  // Restart quiz
+  function startOver() {
+    currentQuestionIndex = 0;
+    questionHistory = []; // Clear history
+    loadQuestion();
+  }
+
+  backBtn.onclick = goBack;
+  startOverBtn.onclick = startOver;
+
+  // Start quiz
   loadQuestion();
 });
