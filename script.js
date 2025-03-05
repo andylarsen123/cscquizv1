@@ -1,22 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM fully loaded and parsed");
 
-  // Define the questions and answers
   const questions = [
     {
       question: "What's built there right now?",
       answers: [
-        { text: "Residential", followUp: true }, // Trigger the "What is the main concern?" question
-        { text: "Commercial", result: "Shoreline District" }, // Immediate result for Commercial
-        { text: "Infrastructure", followUp: true }  // Trigger the "Are there runoff concerns?" question
+        { text: "Residential", followUp: 1 }, // Points to the "What is the main concern?" question
+        { text: "Commercial", result: "Shoreline District" }, // Direct result for Commercial
+        { text: "Infrastructure", followUp: 2 } // Points to the "Are there runoff concerns?" question
       ]
     },
     {
       question: "What is the main concern?", // Follow-up question for Residential
       answers: [
-        { text: "Environmental Protection", result: "Environmental protection is key in maintaining the health of the shoreline." },
+        { text: "Environmental Protection", result: "Environmental protection is key to maintaining the health of the shoreline." },
         { text: "New Development", result: "New development can introduce risks and challenges for shoreline resilience." },
-        { text: "Zoning", result: "Zoning regulations can help manage shoreline development and protect resources." }
+        { text: "Zoning", result: "Zoning regulations help manage shoreline development and protect resources." }
       ]
     },
     {
@@ -35,16 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultContainer = document.getElementById("result");
   const resultText = document.getElementById("result-text");
 
-  let currentQuestion = 0;
+  let currentQuestionIndex = 0;  // Track which question is currently active
 
-  // Load the first question
+  // Load the question and its possible answers
   function loadQuestion() {
-    console.log("Loading question:", currentQuestion);
-    const questionData = questions[currentQuestion];
+    console.log("Loading question:", currentQuestionIndex);
+    const questionData = questions[currentQuestionIndex];
     if (!questionData) {
-      console.error("No question found at index", currentQuestion);
+      console.error("No question found at index", currentQuestionIndex);
       return;
     }
+
+    // Display the question and reset answers
     questionEl.textContent = questionData.question;
     answersEl.innerHTML = ""; // Clear previous answers
 
@@ -52,39 +53,36 @@ document.addEventListener("DOMContentLoaded", function () {
     questionData.answers.forEach(answer => {
       const btn = document.createElement("button");
       btn.textContent = answer.text;
-      btn.classList.add("answer-btn"); // Add styling class
+      btn.classList.add("answer-btn");
       btn.onclick = () => handleAnswer(answer);
       answersEl.appendChild(btn);
     });
 
-    // Ensure the quiz container is visible and result is hidden
+    // Hide quiz and show result
     quizContainer.style.display = "block";
     resultContainer.style.display = "none";
   }
 
-  // Handle the selected answer
+  // Handle the user's answer selection
   function handleAnswer(answer) {
     console.log("Button clicked:", answer.text);
+
     if (answer.result) {
-      showResult(answer.result); // Show the result if available
-    } else if (answer.followUp) {
-      // Handle follow-up questions
-      if (answer.text === "Residential") {
-        currentQuestion = 1; // Move to "What is the main concern?" question
-      } else if (answer.text === "Infrastructure") {
-        currentQuestion = 2; // Move to "Are there runoff concerns?" question
-      }
-      loadQuestion(); // Load the appropriate follow-up question
+      showResult(answer.result); // Show result if available
+    } else if (answer.followUp !== undefined) {
+      // Move to the follow-up question based on the followUp index
+      currentQuestionIndex = answer.followUp;
+      loadQuestion(); // Load the next question
     }
   }
 
-  // Display the result
+  // Show the result after answering
   function showResult(result) {
-    quizContainer.style.display = "none"; // Hide the quiz container
+    quizContainer.style.display = "none"; // Hide the quiz
     resultContainer.style.display = "block"; // Show the result container
     resultText.innerHTML = result; // Display the result
   }
 
-  // Start the quiz
+  // Start the quiz by loading the first question
   loadQuestion();
 });
