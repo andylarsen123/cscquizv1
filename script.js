@@ -130,5 +130,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz by loading the first question
   loadQuestion();
 });
-
-
