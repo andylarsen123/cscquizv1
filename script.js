@@ -53,18 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <strong>Example:</strong> Saugatuck Township’s Development Prohibition (Sec. 18-30):<br>
         “All development shall be prohibited within Areas of Special Flood Hazard established in section 18-28.”`
         },
-        { text: "Building moving standards", result: `<strong>Building Moving Standards:</strong><br>
-        Building moving standards are local regulations or guidelines that govern the relocation of structures at risk due to shoreline erosion or other environmental factors. These standards may require, allow, or provide guidance on moving buildings away from vulnerable areas.<br><br>
-        <strong>Why it supports resilience:</strong><br>
-        This process typically involves relocating structures away from the shoreline to reduce exposure to hazards like flooding, storm surges, or further erosion.<br><br>
-        <strong>How it is used:</strong><br>
-        Building moving standards established by local governments facilitate the relocation of buildings from shorelines that are experiencing continuous erosion.<br><br>
-        <strong>Possible obstacles to implementation:</strong><br>
-        The costs associated with moving an entire structure can be significant.<br>
-        Finding suitable space to relocate or establish standards can be difficult, especially if the surrounding area is already developed.<br><br>
-        <strong>Example:</strong> Pere Marquette Township’s intentions for their High Risk Erosion Overlay Zone (Sec. 109-19.01):<br>
-        “(b) Regulate the density of development of lands in the High Risk Erosion Overlay Zone to ensure the ability to move a readily moveable structure within its lot or building area, to reduce potential problems with obtaining potable well water and properly operating septic systems in light of the conditions in the area and the lack of public water and sewer service, and to be consistent with the general single-family residence character of the vicinity.”`
-        },
+        { text: "Building moving standards", result: "Placeholder for Building Moving Standards" },
         { text: "Non-Conformities/Variance standards", result: "Placeholder for Non-Conformities/Variance standards" }
       ]
     },
