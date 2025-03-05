@@ -29,41 +29,46 @@ const questions = [
     }
 ];
 
-let currentQuestion = 0;
-
+// Get elements
 const questionEl = document.getElementById("question");
 const answersEl = document.getElementById("answers");
+const quizContainer = document.getElementById("quiz-container");
 const resultContainer = document.getElementById("result");
 const resultText = document.getElementById("result-text");
+
+let currentQuestion = 0;
 
 function loadQuestion() {
     const questionData = questions[currentQuestion];
     questionEl.textContent = questionData.question;
-    answersEl.innerHTML = "";  // Clear previous answers
+    answersEl.innerHTML = ""; // Clear previous answers
 
     questionData.answers.forEach(answer => {
         const btn = document.createElement("button");
         btn.textContent = answer.text;
+        btn.classList.add("answer-btn"); // Apply CSS for visibility
         btn.onclick = () => handleAnswer(answer);
         answersEl.appendChild(btn);
     });
 
-    resultContainer.style.display = "none";  // Hide result section
+    quizContainer.style.display = "block"; // Ensure quiz is visible
+    resultContainer.style.display = "none"; // Hide result section
 }
 
 function handleAnswer(answer) {
     if (answer.result) {
         showResult(answer.result);
     } else if (answer.followUp) {
-        currentQuestion++;  // Move to the next question
+        currentQuestion++; // Move to the next question
         loadQuestion();
     }
 }
 
 function showResult(result) {
-    document.getElementById("quiz-container").style.display = "none";
-    resultContainer.style.display = "block";
-    resultText.innerHTML = result;  // Use innerHTML to display formatted text
+    quizContainer.style.display = "none"; // Hide quiz
+    resultContainer.style.display = "block"; // Show results
+    resultText.innerHTML = result; // Use innerHTML for formatted content
 }
 
+// Start quiz
 loadQuestion();
