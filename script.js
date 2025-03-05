@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "Are you familiar with floodplains?", // Follow-up for Environmental Protection
+      question: "Are you familiar with Floodplains?", // Follow-up for Environmental Protection
       answers: [
         { text: "Yes", result: "A" },
         { text: "No", result: "B" }
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const backBtn = document.getElementById("back-btn"); // Back button element
 
   let currentQuestionIndex = 0;  // Track which question is currently active
-  let questionHistory = []; // Track question history for "Back" functionality
+  let lastQuestionIndex = null;  // Track the last question for the back button
 
   // Load the question and its possible answers
   function loadQuestion() {
@@ -84,18 +84,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ensure quiz container is visible and result is hidden
     quizContainer.style.display = "block";
     resultContainer.style.display = "none";
-    backBtn.style.display = questionHistory.length > 0 ? "block" : "none"; // Show back button only if there's a history
+    backBtn.style.display = lastQuestionIndex !== null ? "block" : "none"; // Show back button if there's a last question
   }
 
   // Handle the user's answer selection
   function handleAnswer(answer) {
     console.log("Button clicked:", answer.text);
 
+    // If there is a result, show it directly
     if (answer.result) {
-      showResult(answer.result); // Show result if available
+      showResult(answer.result);
     } else if (answer.followUp !== undefined) {
-      console.log("Follow-up question, moving to index:", answer.followUp); // Debugging follow-up
-      questionHistory.push(currentQuestionIndex); // Save current question index for the "Back" button
+      lastQuestionIndex = currentQuestionIndex; // Save the current question index for the "Back" button
       currentQuestionIndex = answer.followUp; // Move to the follow-up question
       loadQuestion(); // Load the next question
     }
@@ -111,8 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Back button functionality
   backBtn.addEventListener("click", function () {
-    if (questionHistory.length > 0) {
-      currentQuestionIndex = questionHistory.pop(); // Go back to the previous question in history
+    if (lastQuestionIndex !== null) {
+      currentQuestionIndex = lastQuestionIndex; // Go back to the previous question
+      lastQuestionIndex = null; // Reset lastQuestionIndex to prevent going back further
       loadQuestion(); // Load the previous question
     }
   });
@@ -120,4 +121,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz by loading the first question
   loadQuestion();
 });
-
