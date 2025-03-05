@@ -104,15 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
     resultText.innerHTML = result; // Display the result
   }
   
-    // Function to restart the quiz
-    function startOver() {
-        currentQuestion = 0; // Reset to the first question
-        loadQuestion(); // Reload the first question
-        startOverBtn.style.display = "none"; // Hide Start Over button during quiz
-    }
-
-    startOverBtn.addEventListener("click", startOver);
-
     // Start the quiz when the page loads
     loadQuestion();
 });
