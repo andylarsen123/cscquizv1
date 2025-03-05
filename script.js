@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "Are you familiar with floodplains?",
       answers: [
-        { text: "Yes", followUp: 5 },
+        { text: "Yes", followUp: 3 },  // Updated followUp value here
         { 
           text: "No", 
           result: `<strong>Floodplains</strong><br>
