@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "Are you familiar with Floodplains?",
+      question: "Are you familiar with floodplains?",
       answers: [
         { text: "Yes", result: "A" },
         { text: "No", result: "B" }
