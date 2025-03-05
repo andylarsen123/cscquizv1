@@ -1,17 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM fully loaded and parsed");
 
+  // Define the questions and answers
   const questions = [
     {
       question: "What's built there right now?",
       answers: [
-        { text: "Residential", followUp: true }, // No result immediately, but triggers follow-up question
-        { text: "Commercial", result: "Shoreline District" },
-        { text: "Infrastructure", followUp: true }  // This leads to "Are there runoff concerns?" question
+        { text: "Residential", followUp: true }, // Trigger the "What is the main concern?" question
+        { text: "Commercial", result: "Shoreline District" }, // Immediate result for Commercial
+        { text: "Infrastructure", followUp: true }  // Trigger the "Are there runoff concerns?" question
       ]
     },
     {
-      question: "What is the main concern?", // Follow-up question after selecting "Residential"
+      question: "What is the main concern?", // Follow-up question for Residential
       answers: [
         { text: "Environmental Protection", result: "Environmental protection is key in maintaining the health of the shoreline." },
         { text: "New Development", result: "New development can introduce risks and challenges for shoreline resilience." },
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "Are there runoff concerns?", // Follow-up question for "Infrastructure"
+      question: "Are there runoff concerns?", // Follow-up question for Infrastructure
       answers: [
         { text: "Yes", result: "B" },
         { text: "No", result: "A" }
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
-  // Get elements
+  // Get HTML elements
   const questionEl = document.getElementById("question");
   const answersEl = document.getElementById("answers");
   const quizContainer = document.getElementById("quiz-container");
@@ -36,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let currentQuestion = 0;
 
+  // Load the first question
   function loadQuestion() {
     console.log("Loading question:", currentQuestion);
     const questionData = questions[currentQuestion];
@@ -50,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     questionData.answers.forEach(answer => {
       const btn = document.createElement("button");
       btn.textContent = answer.text;
-      btn.classList.add("answer-btn"); // In case we want to add specific styling later
+      btn.classList.add("answer-btn"); // Add styling class
       btn.onclick = () => handleAnswer(answer);
       answersEl.appendChild(btn);
     });
@@ -60,25 +62,27 @@ document.addEventListener("DOMContentLoaded", function () {
     resultContainer.style.display = "none";
   }
 
+  // Handle the selected answer
   function handleAnswer(answer) {
     console.log("Button clicked:", answer.text);
     if (answer.result) {
-      showResult(answer.result); // Show the result directly if there's one
+      showResult(answer.result); // Show the result if available
     } else if (answer.followUp) {
-      // Check if we need to show the "What is the main concern?" question for Residential or "Are there runoff concerns?" for Infrastructure
+      // Handle follow-up questions
       if (answer.text === "Residential") {
-        currentQuestion = 1; // Move to the "What is the main concern?" question
+        currentQuestion = 1; // Move to "What is the main concern?" question
       } else if (answer.text === "Infrastructure") {
-        currentQuestion = 2; // Move to the "Are there runoff concerns?" question
+        currentQuestion = 2; // Move to "Are there runoff concerns?" question
       }
       loadQuestion(); // Load the appropriate follow-up question
     }
   }
 
+  // Display the result
   function showResult(result) {
-    quizContainer.style.display = "none"; // Hide quiz
-    resultContainer.style.display = "block"; // Show result
-    resultText.innerHTML = result; // Use innerHTML for formatting
+    quizContainer.style.display = "none"; // Hide the quiz container
+    resultContainer.style.display = "block"; // Show the result container
+    resultText.innerHTML = result; // Display the result
   }
 
   // Start the quiz
