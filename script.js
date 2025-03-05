@@ -51,6 +51,7 @@ function handleAnswer(answer) {
 function showResult(result) {
     document.getElementById("quiz-container").style.display = "none";
     resultContainer.style.display = "block";
+    resultContainer.querySelector("h2").textContent = "Possible Solution(s):"; // Update heading
     resultText.textContent = result;
 }
 
