@@ -21,16 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "Are you familiar with floodplains?",
       answers: [
-        { text: "Yes", result: "A" },
-        {
-          text: "No",
+        { text: "Yes", followUp: 5 },
+        { 
+          text: "No", 
           result: `<strong>Floodplains</strong><br>
           Floodplains are low-lying areas prone to flooding. This flooding may result from rainfall, storm surges, or other causes.<br><br>
           <strong>Why it supports resilience:</strong><br>
-          Floodplain maps, created by FEMA, help identify areas at risk of flooding and can be used as a tool for creating overlay districts.
+          Floodplain maps, created by FEMA, help identify areas at risk of flooding and can be used as a tool for creating overlay districts. 
           According to EGLE, of the 1,776 communities in Michigan (including cities, villages, and townships), about 1,004 currently have FEMA-developed floodplain maps.<br><br>
           <strong>How it is used:</strong><br>
-          Local governments can use floodplain maps to establish flood zones and regulate where and how development can occur in those areas.
+          Local governments can use floodplain maps to establish flood zones and regulate where and how development can occur in those areas. 
           To view flood maps specific to your community, visit <a href='https://www.fema.gov/flood-maps' target='_blank'>fema.gov/flood-maps</a>.<br><br>
           <strong>Possible obstacles to implementation:</strong><br>
           Maps may become inaccurate due to frequently changing climate patterns and accelerated climate change.<br>
@@ -38,6 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <strong>Example:</strong> Chikaming Township’s Ordinance No. 35<br>
           The ordinance regulates buildings and structures in Chikaming Township’s floodplain district, based on a study that identified floodplains.`
         }
+      ]
+    },
+    {
+      question: "Does your community lack any of the following tools:",
+      answers: [
+        { text: "Design standards", result: "Placeholder for Design Standards result" },
+        { text: "Building moving standards", result: "Placeholder for Building Moving Standards result" },
+        { text: "Non-Conformities/Variance standards", result: "Placeholder for Non-Conformities/Variance Standards result" }
       ]
     },
     {
