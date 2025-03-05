@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "What's built there right now?",
       answers: [
         { text: "Residential", followUp: 1 },
-        { text: "Commercial", followUp: 3 },
+        { text: "Commercial", followUp: 3 },  // No change
         { text: "Infrastructure", followUp: 4 }
       ]
     },
@@ -14,45 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "What's the main concern?",
       answers: [
         { text: "Extreme Weather Events", followUp: 2 },
-        { text: "New Development", followUp: 3 },
+        { text: "New Development", followUp: 5 },  // Redirect to the same main concern question
         { text: "Zoning", followUp: 4 }
       ]
     },
     {
       question: "Are you familiar with floodplains?",
       answers: [
-        { text: "Yes", followUp: 5 },
-        { text: "No", result: `<strong>Floodplains</strong><br>
-        Floodplains are low-lying areas prone to flooding. This flooding may result from rainfall, storm surges, or other causes.<br><br>
-        <strong>Why it supports resilience:</strong><br>
-        Floodplain maps, created by FEMA, help identify areas at risk of flooding and can be used as a tool for creating overlay districts.
-        According to EGLE, of the 1,776 communities in Michigan (including cities, villages, and townships), about 1,004 currently have FEMA-developed floodplain maps.<br><br>
-        <strong>How it is used:</strong><br>
-        Local governments can use floodplain maps to establish flood zones and regulate where and how development can occur in those areas.
-        To view flood maps specific to your community, visit <a href='https://www.fema.gov/flood-maps' target='_blank'>fema.gov/flood-maps</a>.<br><br>
-        <strong>Possible obstacles to implementation:</strong><br>
-        Maps may become inaccurate due to frequently changing climate patterns and accelerated climate change.<br>
-        Communities may face pushback when enforcing restrictions.<br><br>
-        <strong>Example:</strong> Chikaming Township’s Ordinance No. 35<br>
-        The ordinance regulates buildings and structures in Chikaming Township’s floodplain district, based on a study that identified floodplains.`
-        }
+        { text: "Yes", followUp: 6 },  // Updated to lead to "Does your community lack any of the following tools?"
+        { text: "No", result: `<strong>Floodplains</strong><br>Floodplains are low-lying areas prone to flooding...</strong>` }
       ]
     },
     {
       question: "Does your community lack any of the following tools?",
       answers: [
-        { text: "Design standards", result: `<strong>Design Standards:</strong><br>
-        The Michigan Zoning Enabling Act provides broad zoning authority that allows communities to regulate the appearance, form, and site layout of buildings. The act enables communities to establish design standards along with a design review process.<br><br>
-        <strong>Why it supports resilience:</strong><br>
-        Clear standards for construction and land use ensure that new developments or renovations are built to withstand coastal hazards and do not reduce a community's overall resilience.<br><br>
-        <strong>How it is used:</strong><br>
-        Some design standards may include requirements related to landscaping, home designs, and home locations. Landscaping requirements could include preserving and utilizing native vegetation, minimizing impervious surfaces, and prohibiting the clearing or alteration of dunes. Home design standards may encourage reusing existing foundations, avoiding multi-lane or paved driveways, and minimizing erosion by dispersing runoff rather than using a single point of discharge. Additionally, home placement standards may include recommendations to situate homes in areas with lower tree density, build away from the crest of the dune, and orient structures so that their long axis runs across the slope.<br><br>
-        <strong>Possible obstacles to implementation:</strong><br>
-        Striking a balance between development and preservation can be challenging, as these additional requirements can increase development costs.<br>
-        Enforcing design standards can be challenging, leading to inconsistencies in application.<br><br>
-        <strong>Example:</strong> Saugatuck Township’s Development Prohibition (Sec. 18-30):<br>
-        “All development shall be prohibited within Areas of Special Flood Hazard established in section 18-28.”`
-        },
+        { text: "Design standards", result: `<strong>Design Standards:</strong><br>The Michigan Zoning Enabling Act...` },
         { text: "Building moving standards", result: "Placeholder for Building Moving Standards" },
         { text: "Non-Conformities/Variance standards", result: "Placeholder for Non-Conformities/Variance standards" }
       ]
