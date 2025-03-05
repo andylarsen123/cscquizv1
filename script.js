@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const startOverBtn = document.getElementById("start-over-btn");
 
   let currentQuestionIndex = 0;  // Track which question is currently active
-  let previousQuestionIndex = null; // Track the previous question for "Back" button
+  let questionHistory = []; // Track the history of questions
 
   // Load the question and its possible answers
   function loadQuestion() {
@@ -98,10 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleAnswer(answer) {
     console.log("Button clicked:", answer.text);
 
+    // Save the current question index in history before moving to the next question
+    if (answer.followUp !== undefined) {
+      questionHistory.push(currentQuestionIndex);
+    }
+
     if (answer.result) {
       showResult(answer.result); // Show result if available
     } else if (answer.followUp !== undefined) {
-      previousQuestionIndex = currentQuestionIndex; // Save the current question before moving forward
       currentQuestionIndex = answer.followUp; // Move to the follow-up question
       loadQuestion(); // Load the next question
     }
@@ -120,9 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Go back to the previous question
   function goBack() {
-    if (previousQuestionIndex !== null) {
-      currentQuestionIndex = previousQuestionIndex;
-      previousQuestionIndex = null; // Reset previous question index
+    if (questionHistory.length > 0) {
+      currentQuestionIndex = questionHistory.pop(); // Pop the last question from history
       loadQuestion(); // Load the previous question
     }
   }
