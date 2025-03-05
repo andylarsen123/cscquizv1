@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "What's built there right now?",
       answers: [
         { text: "Residential", followUp: 1 },
-        { text: "Commercial", followUp: 3 },  // No change
+        { text: "Commercial", followUp: 1 },  // Updated to point to "What's the main concern?"
         { text: "Infrastructure", followUp: 4 }
       ]
     },
@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "What's the main concern?",
       answers: [
         { text: "Extreme Weather Events", followUp: 2 },
-        { text: "New Development", followUp: 5 },  // Redirect to the same main concern question
+        { text: "New Development", followUp: 1 },  // This already points to "What's the main concern?"
         { text: "Zoning", followUp: 4 }
       ]
     },
     {
       question: "Are you familiar with floodplains?",
       answers: [
-        { text: "Yes", followUp: 6 },  // Updated to lead to "Does your community lack any of the following tools?"
+        { text: "Yes", followUp: 3 },  // Corrected to follow the "Does your community lack any of the following tools?" question (index 3)
         { text: "No", result: `<strong>Floodplains</strong><br>Floodplains are low-lying areas prone to flooding...</strong>` }
       ]
     },
