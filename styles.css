@@ -5,7 +5,7 @@ body {
     padding: 20px;
 }
 
-#quiz-container {
+#quiz-container, #result {
     background: white;
     padding: 20px;
     max-width: 500px;
@@ -24,6 +24,7 @@ body {
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 #answers button:hover {
@@ -38,14 +39,41 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Back Button Styling */
+#back-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#back-btn:hover {
+    background: darkorange;
+}
+
+/* Start Over Button Styling */
+#start-over-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#start-over-btn:hover {
+    background: darkred;
 }
 
 #result {
-    background: white;
-    padding: 20px;
-    max-width: 500px;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: left !important;
 }
