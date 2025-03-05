@@ -3,6 +3,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const questions = [
     {
+      question: "What's built there right now?",
+      answers: [
+        { text: "Residential", followUp: 1 },
+        { text: "Commercial", followUp: 3 },
+        { text: "Infrastructure", followUp: 4 }
+      ]
+    },
+    {
+      question: "What's the main concern?",
+      answers: [
+        { text: "Extreme Weather Events", followUp: 2 },
+        { text: "New Development", followUp: 3 },
+        { text: "Zoning", followUp: 4 }
+      ]
+    },
+    {
       question: "Are you familiar with floodplains?",
       answers: [
         { text: "Yes", followUp: 5 },
@@ -49,34 +65,24 @@ document.addEventListener("DOMContentLoaded", function () {
         <strong>Example:</strong> Pere Marquette Township’s intentions for their High Risk Erosion Overlay Zone (Sec. 109-19.01):<br>
         “(b) Regulate the density of development of lands in the High Risk Erosion Overlay Zone to ensure the ability to move a readily moveable structure within its lot or building area, to reduce potential problems with obtaining potable well water and properly operating septic systems in light of the conditions in the area and the lack of public water and sewer service, and to be consistent with the general single-family residence character of the vicinity.”`
         },
-        { text: "Non-Conformities/Variance standards", result: `<strong>Non-Conformities/Variance Standards:</strong><br>
-        A variance is a legal exception granted by a local zoning board, allowing deviations from standard zoning requirements such as setback distances, building heights, or lot coverage limits. Non-conformities/variance standard defines guidelines for granting a variance.<br><br>
-        <strong>Why it supports resilience:</strong><br>
-        Variance standards can provide a legal pathway for property owners to modify structures or implement resilience measures, such as elevating buildings above flood levels, without being restricted by outdated zoning rules. At the same time, local governments can prohibit variances in certain districts, such as shoreline districts created to protect the community.<br><br>
-        <strong>How it is used:</strong><br>
-        To obtain a variance, property owners must demonstrate that strict adherence to zoning laws would cause undue hardship beyond their control. Setting forth non-conformities/variance standards can eliminate variance requests that do not align with the community’s long-term plan.<br><br>
-        <strong>Possible obstacles to implementation:</strong><br>
-        New standards can lead to disputes, legal appeals, and/or community opposition.<br><br>
-        <strong>Example:</strong> City of St. Joseph’s “ED-OD” Edgewater Beach Overlay District’s Standards (Sec. 9-7):<br>
-        “9.7.3 E. In the event the provisions of the EB-OD render nonconforming any structure which is existing or which is the subject of a valid building permit and under construction on the effective date of this amendment, this shall not be deemed a voluntary action of the property owner and will not disqualify the parcel from receiving a hardship planned unit development under the procedures described in this ordinance for lands within the EB-OD or a hardship planned unit development or variance if on lands adjacent to the EB-OD. F. Variances shall not be permitted within the EB-OD.”`
-        }
+        { text: "Non-Conformities/Variance standards", result: "Placeholder for Non-Conformities/Variance standards" }
       ]
     },
     {
-      question: "What's your main concern?",
+      question: "What's the main concern?",
       answers: [
         { text: "A", result: "A" },
         { text: "B", result: "B" }
       ]
     },
     {
-      question: "What's your main concern?",
+      question: "What's the main concern?",
       answers: [
         { text: "C", result: "C" },
         { text: "D", result: "D" }
       ]
     }
-  ];
+  ]; // <-- Closing the array properly
 
   const questionEl = document.getElementById("question");
   const answersEl = document.getElementById("answers");
@@ -127,27 +133,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function showResult(resultHtml) {
+  function showResult(result) {
     quizContainer.style.display = "none";
     resultContainer.style.display = "block";
-    resultText.innerHTML = resultHtml;
+    resultText.innerHTML = result;
+    backBtn.style.display = "block";
+    startOverBtn.style.display = "block";  // Show Start Over button when result is shown
   }
 
-  function back() {
-    console.log("Going back to previous question...");
-    currentQuestionIndex = history.pop();
-    loadQuestion();
-  }
+  backBtn.addEventListener("click", function () {
+    if (history.length > 0) {
+      currentQuestionIndex = history.pop();
+      loadQuestion();
+    }
+  });
 
-  function startOver() {
-    console.log("Starting over...");
+  startOverBtn.addEventListener("click", function () {
     history = [];
     currentQuestionIndex = 0;
     loadQuestion();
-  }
-
-  backBtn.addEventListener("click", back);
-  startOverBtn.addEventListener("click", startOver);
+  });
 
   loadQuestion();
 });
