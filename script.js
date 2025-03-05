@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
       answers: [
         { text: "Environmental Protection", followUp: 2 }, // Follow-up to "Are you familiar with Floodplains?"
         { text: "New Development", followUp: 3 }, // Follow-up to "Are there design standards in place?"
-        { text: "Zoning", followUp: 4 } // Follow-up to "Has the shoreline moved considerably?"
+        { text: "Zoning", followUp: 4 } // Follow-up to "Has the shoreline moved consideraly?"
       ]
     },
     {
-      question: "Are you familiar with Floodplains?", // Follow-up for Environmental Protection
+      question: "Are you familiar with floodplains?", // Follow-up for Environmental Protection
       answers: [
         { text: "Yes", result: "A" },
         { text: "No", result: "B" }
