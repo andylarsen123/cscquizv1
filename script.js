@@ -53,14 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
         { text: "C", result: "C" },
         { text: "D", result: "D" }
       ]
-    },
-    {
-      question: "Are there runoff concerns?",
-      answers: [
-        { text: "Yes", result: "B" },
-        { text: "No", result: "A" }
-      ]
-    }
   ];
 
   const questionEl = document.getElementById("question");
