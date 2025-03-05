@@ -53,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
         { text: "C", result: "C" },
         { text: "D", result: "D" }
       ]
-  ];
+    }  // This was missing the closing brackets
+  ];  // Missing the closing bracket for the array
 
   const questionEl = document.getElementById("question");
   const answersEl = document.getElementById("answers");
@@ -86,45 +87,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     quizContainer.style.display = "block";
-    resultContainer.style.display = "none";
-    backBtn.style.display = history.length > 0 ? "block" : "none";
-    startOverBtn.style.display = "none";  // Hide Start Over button initially
-  }
-
-  function handleAnswer(answer) {
-    console.log("Button clicked:", answer.text);
-    history.push(currentQuestionIndex);
-
-    if (answer.result) {
-      showResult(answer.result);
-    } else if (answer.followUp !== undefined) {
-      console.log("Follow-up question, moving to index:", answer.followUp);
-      currentQuestionIndex = answer.followUp;
-      loadQuestion();
-    }
-  }
-
-  function showResult(result) {
-    quizContainer.style.display = "none";
-    resultContainer.style.display = "block";
-    resultText.innerHTML = result;
-    backBtn.style.display = "block";
-    startOverBtn.style.display = "block";  // Show Start Over button when result is shown
-  }
-
-  backBtn.addEventListener("click", function () {
-    if (history.length > 0) {
-      currentQuestionIndex = history.pop();
-      loadQuestion();
-    }
-  });
-
-  startOverBtn.addEventListener("click", function () {
-    history = [];
-    currentQuestionIndex = 0;
-    loadQuestion();
-  });
-
-  loadQuestion();
-});
-
+    resultContaine
