@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { text: "D", result: "D" }
       ]
     }
-  ]; // <-- Closing the array properly
+  ];
 
   const questionEl = document.getElementById("question");
   const answersEl = document.getElementById("answers");
