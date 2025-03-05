@@ -19,10 +19,25 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "Are you familiar with floodplains?",
+      question: "Are you familiar with Floodplains?",
       answers: [
         { text: "Yes", result: "A" },
-        { text: "No", result: "B" }
+        { 
+          text: "No", 
+          result: `<strong>Floodplains</strong><br>
+          Floodplains are low-lying areas prone to flooding. This flooding may result from rainfall, storm surges, or other causes.<br><br>
+          <strong>Why it supports resilience:</strong><br>
+          Floodplain maps, created by FEMA, help identify areas at risk of flooding and can be used as a tool for creating overlay districts. 
+          According to EGLE, of the 1,776 communities in Michigan (including cities, villages, and townships), about 1,004 currently have FEMA-developed floodplain maps.<br><br>
+          <strong>How it is used:</strong><br>
+          Local governments can use floodplain maps to establish flood zones and regulate where and how development can occur in those areas. 
+          To view flood maps specific to your community, visit <a href='https://www.fema.gov/flood-maps' target='_blank'>fema.gov/flood-maps</a>.<br><br>
+          <strong>Possible obstacles to implementation:</strong><br>
+          Maps may become inaccurate due to frequently changing climate patterns and accelerated climate change.<br>
+          Communities may face pushback when enforcing restrictions.<br><br>
+          <strong>Example:</strong> Chikaming Township’s Ordinance No. 35<br>
+          The ordinance regulates buildings and structures in Chikaming Township’s floodplain district, based on a study that identified floodplains.`
+        }
       ]
     },
     {
@@ -48,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   ];
 
-  // Get HTML elements
   const questionEl = document.getElementById("question");
   const answersEl = document.getElementById("answers");
   const quizContainer = document.getElementById("quiz-container");
@@ -58,9 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const startOverBtn = document.getElementById("start-over-btn");
 
   let currentQuestionIndex = 0;
-  let questionHistory = []; 
+  let history = [];
 
-  // Load a question
   function loadQuestion() {
     console.log("Loading question:", currentQuestionIndex);
     const questionData = questions[currentQuestionIndex];
@@ -82,52 +95,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
     quizContainer.style.display = "block";
     resultContainer.style.display = "none";
-
-    backBtn.style.display = questionHistory.length > 0 ? "inline-block" : "none";
-    startOverBtn.style.display = "none";
+    backBtn.style.display = history.length > 0 ? "block" : "none";
   }
 
-  // Handle answer selection
   function handleAnswer(answer) {
     console.log("Button clicked:", answer.text);
+    history.push(currentQuestionIndex);
 
-    if (answer.followUp !== undefined) {
-      questionHistory.push(currentQuestionIndex);
+    if (answer.result) {
+      showResult(answer.result);
+    } else if (answer.followUp !== undefined) {
+      console.log("Follow-up question, moving to index:", answer.followUp);
       currentQuestionIndex = answer.followUp;
       loadQuestion();
-    } else if (answer.result) {
-      showResult(answer.result);
     }
   }
 
-  // Show result
   function showResult(result) {
     quizContainer.style.display = "none";
     resultContainer.style.display = "block";
     resultText.innerHTML = result;
-
-    startOverBtn.style.display = "inline-block";
-    backBtn.style.display = "none";
+    backBtn.style.display = "block";
   }
 
-  // Go back to the previous question
-  function goBack() {
-    if (questionHistory.length > 0) {
-      currentQuestionIndex = questionHistory.pop();
+  backBtn.addEventListener("click", function () {
+    if (history.length > 0) {
+      currentQuestionIndex = history.pop();
       loadQuestion();
     }
-  }
+  });
 
-  // Restart quiz
-  function startOver() {
+  startOverBtn.addEventListener("click", function () {
+    history = [];
     currentQuestionIndex = 0;
-    questionHistory = []; // Clear history
     loadQuestion();
-  }
+  });
 
-  backBtn.onclick = goBack;
-  startOverBtn.onclick = startOver;
-
-  // Start quiz
   loadQuestion();
 });
