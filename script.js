@@ -5,29 +5,29 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "What are the areas of concern?",
       answers: [
-        { text: "Residential Development", followUp: 1 },
-        { text: "Commercial Development", followUp:  },  
-        { text: "Industrial Development", followUp:  },
-        { text: "Public Open Space", followUp:  },
-        { text: "Infrastructure/Institutions", followUp:  },
-        { text: "Historic Resources", followUp:  },
-        { text: "Tourism/Economic Development", followUp: }
+        { text: "Residential Development", followUp: 2 },
+        { text: "Commercial Development", followUp: 2 },  
+        { text: "Industrial Development", followUp: 2 },
+        { text: "Public Open Space", followUp: 2 },
+        { text: "Infrastructure/Institutions", followUp: 2 },
+        { text: "Historic Resources", followUp: 2 },
+        { text: "Tourism/Economic Development", followUp: 2 }
       ]
     },
     {
-      question: "Residential Development: What's the main hazard?",
+      question: "Residential Development: What's the main hazard?",  // this is followup 1
       answers: [
         { text: "Public trust access", followUp: 2 },
         { text: "Coastal flooding", followUp: 1 },  // This already points to "What's the main concern?"
         { text: "Erosion", followUp: 1 },
         { text: "Natural features protection", followUp: 2 },
-        { text: "Bluff stability", followUp: },
-        { text: "Building/Infrastructure protection", followUp: },
-        { text: "Urban heat", followUp: },
+        { text: "Bluff stability", followUp: 1 },
+        { text: "Building/Infrastructure protection", followUp: 2 },
+        { text: "Urban heat", followUp: 2 },
       ]
     },
     {
-      question: "Residential Development: Are you familiar with floodplains?", // this is follow up 2
+      question: "Are you familiar with floodplains?", // this is follow up 2
       answers: [
         { text: "Yes", followUp: 3 },  // Corrected to follow the "Does your community lack any of the following tools?" question (index 3)
         { text: "No", result: `<strong>Floodplains</strong><br>Floodplains are low-lying areas prone to flooding...</strong>` }
