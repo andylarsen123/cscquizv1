@@ -44,21 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "Residential Development: Does your community lack any of the following tools?", // this is follow up 3
       answers: [
-        { text: "Shoreline setbacks", result: "<strong>Design Standards:</strong><br>
-        The Michigan Zoning Enabling Act provides broad zoning authority that allows communities to regulate the appearance, form, and site layout of buildings. The act enables communities to establish design standards along with a design review process.<br><br>
-
-        <strong>Why it supports resilience:</strong><br>
-        Clear standards for construction and land use ensure that new developments or renovations are built to withstand coastal hazards and do not reduce a community's overall resilience.<br><br>
-
-        <strong>How it is used:</strong><br>
-        Some design standards may include requirements related to landscaping, home designs, and home locations. Landscaping requirements could include preserving and utilizing native vegetation, minimizing impervious surfaces, and prohibiting the clearing or alteration of dunes. Home design standards may encourage reusing existing foundations, avoiding multi-lane or paved driveways, and minimizing erosion by dispersing runoff rather than using a single point of discharge. Additionally, home placement standards may include recommendations to situate homes in areas with lower tree density, build away from the crest of the dune, and orient structures so that their long axis runs across the slope.<br><br>
-
-        <strong>Possible obstacles to implementation:</strong><br>
-        Striking a balance between development and preservation can be challenging, as these additional requirements can increase development costs.<br>
-        Enforcing design standards can be challenging, leading to inconsistencies in application.<br><br>
-
-        <strong>Example:</strong> Saugatuck Township’s Development Prohibition (Sec. 18-30):<br>
-        “All development shall be prohibited within Areas of Special Flood Hazard established in section 18-28.”"' },
+        { text: "Shoreline setbacks", result: "<strong>Design Standards:</strong><br>The Michigan Zoning Enabling Act provides broad zoning authority that allows communities to regulate the appearance, form, and site layout of buildings. The act enables communities to establish design standards along with a design review process.<br><br><strong>Why it supports resilience:</strong><br>Clear standards for construction and land use ensure that new developments or renovations are built to withstand coastal hazards and do not reduce a community's overall resilience.<br><br><strong>How it is used:</strong><br>Some design standards may include requirements related to landscaping, home designs, and home locations. Landscaping requirements could include preserving and utilizing native vegetation, minimizing impervious surfaces, and prohibiting the clearing or alteration of dunes. Home design standards may encourage reusing existing foundations, avoiding multi-lane or paved driveways, and minimizing erosion by dispersing runoff rather than using a single point of discharge. Additionally, home placement standards may include recommendations to situate homes in areas with lower tree density, build away from the crest of the dune, and orient structures so that their long axis runs across the slope.<br><br><strong>Possible obstacles to implementation:</strong><br>Striking a balance between development and preservation can be challenging, as these additional requirements can increase development costs.<br>Enforcing design standards can be challenging, leading to inconsistencies in application.<br><br><strong>Example:</strong> Saugatuck Township’s Development Prohibition (Sec. 18-30):<br>“All development shall be prohibited within Areas of Special Flood Hazard established in section 18-28.”" },
         { text: "Shoreline overlay district", result: 'Placeholder for Building Moving Standards' },
         { text: "Shoreline district", result: 'Placeholder for Non-Conformities/Variance standards' },
         { text: "Armoring prohibition", result: 'Placeholder' },
