@@ -3,12 +3,11 @@ body {
     text-align: center;
     background-image: url('https://www.planningmi.org/aws/MAP/asset_manager/get_image/918409?ver=1');
     background-size: cover;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     position: relative;
     height: 100vh;
-    margin: 0;
-    padding: 0;
+    margin: 1;
 }
 
 body::before {
