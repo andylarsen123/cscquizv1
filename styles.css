@@ -1,7 +1,7 @@
 body {
     font-family: Alegreya, sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
     padding: 20px;
 }
 
