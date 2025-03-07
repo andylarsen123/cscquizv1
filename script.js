@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ]
     },
     {
-      question: "Residential Development: What's the main hazard?",  // this is followup 1
+      question: "Residential Development: What's the main hazard?", // this is followup 1
       answers: [
         { text: "Public trust access", followUp: 2 },
         { text: "Coastal flooding", followUp: 1 },  // This already points to "What's the main concern?"
@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
       answers: [
         { text: "Yes", followUp: 3 },  // Corrected to follow the "Does your community lack any of the following tools?" question (index 3)
         { text: "No", result: "<strong>Acknowledging Floodplains:</strong><br>Floodplains are low-lying areas prone to flooding. This flooding may result from rainfall, storm surges, or other causes.<br><br><strong>Why it supports resilience:</strong><br>Floodplain maps, created by FEMA, help identify areas at risk of flooding and can be used as a tool for creating overlay districts. According to EGLE, of the 1,776 communities in Michigan (including cities, villages, and townships), about 1,004 currently have FEMA-developed floodplain maps.<br><br><strong>How it is used:</strong><br>Local governments can use floodplain maps to establish flood zones and regulate where and how development can occur in those areas. To view flood maps specific to your community, visit <a href='https://www.fema.gov/flood-maps' target='_blank'>fema.gov/flood-maps</a><br><br><strong>Possible obstacles to implementation:</strong><br>Maps may become inaccurate due to frequently changing climate patterns and accelerated climate change.<br>Communities may face pushback when enforcing restrictions.<br><br><strong>Example:</strong><br> Chikaming Township’s Ordinance No. 35:<br>The ordinance regulates buildings and structures in Chikaming Township’s floodplain district, based on a study that identified floodplains." },
+      ]
     },
     {
       question: "Residential Development: Does your community lack any of the following tools?", // this is follow up 3
