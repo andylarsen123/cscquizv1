@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         Enforcing design standards can be challenging, leading to inconsistencies in application.<br><br>
 
         <strong>Example:</strong> Saugatuck Township’s Development Prohibition (Sec. 18-30):<br>
-        “All development shall be prohibited within Areas of Special Flood Hazard established in section 18-28.”' },
+        “All development shall be prohibited within Areas of Special Flood Hazard established in section 18-28.”`
         { text: "Shoreline overlay district", result: 'Placeholder for Building Moving Standards' },
         { text: "Shoreline district", result: 'Placeholder for Non-Conformities/Variance standards' },
         { text: "Armoring prohibition", result: 'Placeholder' },
