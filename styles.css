@@ -26,8 +26,7 @@ body::before {
     background: white;
     padding: 20px;
     max-width: 500px;
-    margin-top: 20px;
-    padding-top: 0;
+    margin: auto
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
