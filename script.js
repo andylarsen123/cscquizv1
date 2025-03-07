@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { text: "Natural features protection", followUp: 2 },
         { text: "Bluff stability", followUp: 1 },
         { text: "Building/Infrastructure protection", followUp: 2 },
-        { text: "Urban heat", followUp: 2 },
+        { text: "Urban heat", followUp: 2 }
       ]
     },
     {
@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "Residential Development: Does your community lack any of the following tools?", // this is follow up 3
       answers: [
         { text: "Shoreline setbacks", result: `<strong>Design Standards:</strong><br>The Michigan Zoning Enabling Act...` },
-        { text: "Shoreline overlay district", result: "Placeholder for Building Moving Standards" }
-        { text: "Shoreline district", result: "Placeholder for Non-Conformities/Variance standards" }
-        { text: "Armoring prohibition", result: "Placeholder" },
-        { text: "Policy around land acquisition", result: "placeholder" }
+        { text: "Shoreline overlay district", result: 'Placeholder for Building Moving Standards' },
+        { text: "Shoreline district", result: 'Placeholder for Non-Conformities/Variance standards' },
+        { text: "Armoring prohibition", result: 'Placeholder' },
+        { text: "Policy around land acquisition", result: 'placeholder' }
       ]
     },
     {
