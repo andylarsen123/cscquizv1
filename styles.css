@@ -4,16 +4,15 @@ body {
     text-align: center;
     background-image: url('https://www.planningmi.org/aws/MAP/asset_manager/get_image/918409?ver=1');
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     background-repeat: no-repeat;
-    position: relative;
-    height: 70vh;
+    height: 100vh; /* Ensures the background fills the entire viewport */
+    margin: 0;
+    padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0
-    padding: 0
-}
 }
 
 body::before {
@@ -30,12 +29,10 @@ body::before {
 #quiz-container, #result {
     background: white;
     padding: 20px;
-    padding-bottom: 10px;
-    padding-top: 1px;
     max-width: 500px;
-    margin: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto; /* Adds space on top/bottom */
 }
 
 #answers button {
