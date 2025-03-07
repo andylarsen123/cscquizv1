@@ -46,7 +46,7 @@ body::before {
     background: #0056b3;
     color: white;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 0px;
     font-size: 16px;
 }
 
