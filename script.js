@@ -30,7 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
       question: "Are you familiar with floodplains?", // this is follow up 2
       answers: [
         { text: "Yes", followUp: 3 },  // Corrected to follow the "Does your community lack any of the following tools?" question (index 3)
-        { text: "No", result: `<strong>Floodplains</strong><br>Floodplains are low-lying areas prone to flooding...</strong>` }
+        { text: "No", result: `<strong>Floodplains</strong><br>Floodplains are low-lying areas prone to flooding...
+        
+        
+        
+        
+        
+        
+        
+        </strong>` }
       ]
     },
     {
