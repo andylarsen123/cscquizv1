@@ -15,15 +15,17 @@ body {
 }
 
 #answers button {
+    
     display: block;
     width: 100%;
     margin: 10px 0;
-    padding: 10px;
+    padding: 10px 20px;
+    transition: 0.3s;
     border: none;
-    background: #007BFF;
+    background: linear-gradient(to right, #007bff, #0056b3);
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
 }
 
