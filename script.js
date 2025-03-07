@@ -3,34 +3,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const questions = [
     {
-      question: "What's built there right now?",
+      question: "What are the areas of concern?",
       answers: [
-        { text: "Residential", followUp: 1 },
-        { text: "Commercial", followUp: 4 },  // Updated to point to "What's the main concern?"
-        { text: "Industrial", followUp: 5 }
+        { text: "Residential Development", followUp: 1 },
+        { text: "Commercial Development", followUp:  },  
+        { text: "Industrial Development", followUp:  },
+        { text: "Public Open Space", followUp:  },
+        { text: "Infrastructure/Institutions", followUp:  },
+        { text: "Historic Resources", followUp:  },
+        { text: "Tourism/Economic Development", followUp: }
       ]
     },
     {
-      question: "Residential: What's the main concern?",
+      question: "Residential Development: What's the main hazard?",
       answers: [
-        { text: "Extreme Weather Events", followUp: 2 },
-        { text: "New Development", followUp: 1 },  // This already points to "What's the main concern?"
-        { text: "Zoning", followUp: 1 }
+        { text: "Public trust access", followUp: 2 },
+        { text: "Coastal flooding", followUp: 1 },  // This already points to "What's the main concern?"
+        { text: "Erosion", followUp: 1 },
+        { text: "Natural features protection", followUp: 2 },
+        { text: "Bluff stability", followUp: },
+        { text: "Building/Infrastructure protection", followUp: },
+        { text: "Urban heat", followUp: },
       ]
     },
     {
-      question: "Residential: Are you familiar with floodplains?",
+      question: "Residential Development: Are you familiar with floodplains?", // this is follow up 2
       answers: [
         { text: "Yes", followUp: 3 },  // Corrected to follow the "Does your community lack any of the following tools?" question (index 3)
         { text: "No", result: `<strong>Floodplains</strong><br>Floodplains are low-lying areas prone to flooding...</strong>` }
       ]
     },
     {
-      question: "Residential: Does your community lack any of the following tools?",
+      question: "Residential Development: Does your community lack any of the following tools?", // this is follow up 3
       answers: [
-        { text: "Design standards", result: `<strong>Design Standards:</strong><br>The Michigan Zoning Enabling Act...` },
-        { text: "Building moving standards", result: "Placeholder for Building Moving Standards" },
-        { text: "Non-Conformities/Variance standards", result: "Placeholder for Non-Conformities/Variance standards" }
+        { text: "Shoreline setbacks", result: `<strong>Design Standards:</strong><br>The Michigan Zoning Enabling Act...` },
+        { text: "Shoreline overlay district", result: "Placeholder for Building Moving Standards" }
+        { text: "Shoreline district", result: "Placeholder for Non-Conformities/Variance standards" }
+        { text: "Armoring prohibition", result: "Placeholder" },
+        { text: "Policy around land acquisition", result: "placeholder" }
       ]
     },
     {
