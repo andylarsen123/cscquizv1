@@ -58,7 +58,7 @@ body::before {
 }
 
 #next-btn {
-    margin-top: 10px;
+    margin-top: -20px;
     padding: 10px;
     background: green;
     color: white;
@@ -70,7 +70,7 @@ body::before {
 
 /* Back Button Styling */
 #back-btn {
-    margin-top: 10px;
+    margin-top: -20px;
     padding: 10px 15px;
     background: orange;
     color: white;
@@ -86,7 +86,7 @@ body::before {
 
 /* Start Over Button Styling */
 #start-over-btn {
-    margin-top: 10px;
+    margin-top: -20px;
     padding: 10px 15px;
     background: red;
     color: white;
