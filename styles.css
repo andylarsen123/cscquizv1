@@ -36,7 +36,7 @@ body::before {
     
     display: block;
     width: 100%;
-    margin: 10px 0;
+    margin-top: 1px;
     padding: 10px 20px;
     transition: 0.0s;
     border: none;
@@ -53,7 +53,7 @@ body::before {
 }
 
 #next-btn {
-    margin-top: 10px;
+    margin-top: 1px;
     padding: 10px;
     background: green;
     color: white;
@@ -65,7 +65,7 @@ body::before {
 
 /* Back Button Styling */
 #back-btn {
-    margin-top: 10px;
+    margin-top: 1px;
     padding: 10px 15px;
     background: orange;
     color: white;
@@ -81,7 +81,7 @@ body::before {
 
 /* Start Over Button Styling */
 #start-over-btn {
-    margin-top: 10px;
+    margin-top: 1px;
     padding: 10px 15px;
     background: red;
     color: white;
