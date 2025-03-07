@@ -6,7 +6,7 @@ body {
     background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
-    position: relative;
+    position: bottom;
     height: 50vh;
     margin: 1;
     display: flex;
