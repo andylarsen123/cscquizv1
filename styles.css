@@ -9,6 +9,10 @@ body {
     position: relative;
     height: 100vh;
     margin: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 }
 
 body::before {
