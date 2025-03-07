@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "Residential Development: Does your community lack any of the following tools?", // this is follow up 3
       answers: [
-        { text: "Shoreline setbacks", result: '<strong>Design Standards:</strong><br>
+        { text: "Shoreline setbacks", result: "<strong>Design Standards:</strong><br>
         The Michigan Zoning Enabling Act provides broad zoning authority that allows communities to regulate the appearance, form, and site layout of buildings. The act enables communities to establish design standards along with a design review process.<br><br>
 
         <strong>Why it supports resilience:</strong><br>
@@ -58,8 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         Enforcing design standards can be challenging, leading to inconsistencies in application.<br><br>
 
         <strong>Example:</strong> Saugatuck Township’s Development Prohibition (Sec. 18-30):<br>
-        “All development shall be prohibited within Areas of Special Flood Hazard established in section 18-28.”
-          ' },
+        “All development shall be prohibited within Areas of Special Flood Hazard established in section 18-28.”"' },
         { text: "Shoreline overlay district", result: 'Placeholder for Building Moving Standards' },
         { text: "Shoreline district", result: 'Placeholder for Non-Conformities/Variance standards' },
         { text: "Armoring prohibition", result: 'Placeholder' },
