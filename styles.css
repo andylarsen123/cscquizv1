@@ -27,7 +27,7 @@ body::before {
 
 #company-logo {
     max-width: 200px; /* Adjust size as needed */
-    margin-bottom: 20px; /* Adds spacing below the logo */
+    margin-bottom: 10px; /* Adds spacing below the logo */
 }
 
 #quiz-container, #result {
