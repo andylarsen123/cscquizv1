@@ -29,7 +29,7 @@ body::before {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 200px; /* Adjust size as needed */
+    width: 130px; /* Adjust size as needed */
     height: auto;
     opacity: 0.8; /* Slight transparency */
 }
