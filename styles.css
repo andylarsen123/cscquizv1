@@ -26,8 +26,14 @@ body::before {
 }
 
 #company-logo {
-    max-width: 200px; /* Adjust size as needed */
-    margin-bottom: 0px; /* Adds spacing below the logo */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+    opacity: 0.8; /* Slight transparency */
+}
+
 }
 
 #quiz-container, #result {
