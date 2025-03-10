@@ -17,12 +17,11 @@ body {
 
 body::before {
   content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 102.5%;
-  height: 102.5%;
-  background: rgba(0, 0, 0, 0.6); /* Black overlay with 50% opacity */
+  position: fixed; /* Ensures it covers the full viewport */
+  inset: 0; /* Equivalent to top: 0; left: 0; right: 0; bottom: 0 */
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* Black overlay with 60% opacity */
   z-index: -1; /* Keeps it behind the content */
 }
 
@@ -110,4 +109,8 @@ body::before {
 
 #result {
     text-align: left !important;
+
+}
+html, body {
+    overflow: hidden;
 }
