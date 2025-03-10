@@ -120,6 +120,3 @@ body::before {
     text-align: left !important;
 
 }
-html, body {
-    overflow: hidden;
-}
