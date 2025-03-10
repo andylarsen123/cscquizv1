@@ -25,6 +25,11 @@ body::before {
   z-index: -1; /* Keeps it behind the content */
 }
 
+#company-logo {
+    max-width: 200px; /* Adjust size as needed */
+    margin-bottom: 20px; /* Adds spacing below the logo */
+}
+
 #quiz-container, #result {
     background: white;
     padding: 20px;
