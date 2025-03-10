@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       question: "Residential Development: What's the main hazard?", // this is followup 1
       answers: [
-        { text: "Public trust access", followUp: 3 },
+        { text: "Diminishing public trust access", followUp: 3 },
         { text: "Coastal flooding", followUp: 4 },  // This already points to "What's the main concern?"
         { text: "Erosion", followUp: 5 },
         { text: "Natural features protection", followUp: 5 },
