@@ -119,14 +119,14 @@ document.addEventListener("DOMContentLoaded", function () {
     startOverBtn.style.display = "block";  // Show Start Over button when result is shown
   }
 
-  backBtn.addEventListener("click", function () {
+backBtn.addEventListener("click", function () {
     if (history.length > 0) {
-      currentQuestionIndex = history.pop();
-      loadQuestion();
+        currentQuestionIndex = history.pop();
+        loadQuestion();
     }
-  }
+});  // <-- Missing closing parenthesis was added here
 
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("shorelineModal");
     const overlay = document.getElementById("modalOverlay");
     const infoButton = document.getElementById("infoButton");
@@ -146,14 +146,12 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
         overlay.style.display = "none";
     });
- 
-  });
+});
 
-  startOverBtn.addEventListener("click", function () {
+startOverBtn.addEventListener("click", function () {
     history = [];
     currentQuestionIndex = 0;
     loadQuestion();
-  });
-
-  loadQuestion();
 });
+
+loadQuestion();
