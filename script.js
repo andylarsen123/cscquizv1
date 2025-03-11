@@ -136,24 +136,104 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("shorelineModal");
-    const overlay = document.getElementById("modalOverlay");
-    const infoButton = document.getElementById("infoButton");
-    const closeModal = document.getElementById("closeModal");
+  console.log("DOM fully loaded and parsed");
 
-    infoButton.addEventListener("click", () => {
-        modal.style.display = "block";
-        overlay.style.display = "block";
+  const questions = [
+    // Your questions array
+  ];
+
+  const questionEl = document.getElementById("question");
+  const answersEl = document.getElementById("answers");
+  const quizContainer = document.getElementById("quiz-container");
+  const resultContainer = document.getElementById("result");
+  const resultText = document.getElementById("result-text");
+  const backBtn = document.getElementById("back-btn");
+  const startOverBtn = document.getElementById("start-over-btn");
+
+  let currentQuestionIndex = 0;
+  let history = [];
+
+  function loadQuestion() {
+    console.log("Loading question:", currentQuestionIndex);
+    const questionData = questions[currentQuestionIndex];
+    if (!questionData) {
+      console.error("No question found at index", currentQuestionIndex);
+      return;
+    }
+
+    questionEl.textContent = questionData.question;
+    answersEl.innerHTML = "";
+
+    questionData.answers.forEach(answer => {
+      const btn = document.createElement("button");
+      btn.textContent = answer.text;
+      btn.classList.add("answer-btn");
+      btn.onclick = () => handleAnswer(answer);
+      answersEl.appendChild(btn);
     });
 
-    closeModal.addEventListener("click", () => {
-        modal.style.display = "none";
-        overlay.style.display = "none";
-    });
+    quizContainer.style.display = "block";
+    resultContainer.style.display = "none";
+    backBtn.style.display = history.length > 0 ? "block" : "none";
+    startOverBtn.style.display = "none";  // Hide Start Over button initially
+  }
 
-    overlay.addEventListener("click", () => {
-        modal.style.display = "none";
-        overlay.style.display = "none";
-    });
+  function handleAnswer(answer) {
+    console.log("Button clicked:", answer.text);
+    history.push(currentQuestionIndex);
+
+    if (answer.result) {
+      showResult(answer.result);
+    } else if (answer.followUp !== undefined) {
+      console.log("Follow-up question, moving to index:", answer.followUp);
+      currentQuestionIndex = answer.followUp;
+      loadQuestion();
+    }
+  }
+
+  function showResult(result) {
+    quizContainer.style.display = "none";
+    resultContainer.style.display = "block";
+    resultText.innerHTML = result;
+    backBtn.style.display = "block";
+    startOverBtn.style.display = "block";  // Show Start Over button when result is shown
+  }
+
+  backBtn.addEventListener("click", function () {
+    if (history.length > 0) {
+      currentQuestionIndex = history.pop();
+      loadQuestion();
+    }
+  });
+
+  startOverBtn.addEventListener("click", function () {
+    history = [];
+    currentQuestionIndex = 0;
+    loadQuestion();
+  });
+
+  // Modal functionality
+  const modal = document.getElementById("shorelineModal");
+  const overlay = document.getElementById("modalOverlay");
+  const infoButton = document.getElementById("infoButton");
+  const closeModal = document.getElementById("closeModal");
+
+  infoButton.addEventListener("click", () => {
+    modal.style.display = "block";
+    overlay.style.display = "block";
+  });
+
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+  });
+
+  overlay.addEventListener("click", () => {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+  });
+
+  loadQuestion();
 });
+
 
