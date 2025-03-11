@@ -135,51 +135,80 @@ document.addEventListener("DOMContentLoaded", function () {
   loadQuestion();
 });
 
-// Function to add the "Tool Checklist" button dynamically
-function addToolChecklistButton() {
-    // Check if the button already exists to prevent duplicates
-    if (document.getElementById("tool-checklist-btn")) return;
+// Ensure elements exist before running the script
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to add the "Tool Checklist" button
+    function addToolChecklistButton() {
+        console.log("Adding Tool Checklist button..."); // Debugging
 
-    // Create the button
-    const toolChecklistBtn = document.createElement("button");
-    toolChecklistBtn.textContent = "Tool Checklist";
-    toolChecklistBtn.id = "tool-checklist-btn";
-    toolChecklistBtn.classList.add("tool-checklist-btn"); // Add styles if needed
+        // Check if button already exists to avoid duplicates
+        if (document.getElementById("tool-checklist-btn")) {
+            console.log("Tool Checklist button already exists.");
+            return;
+        }
 
-    // Insert next to "Start Over" button
-    startOverBtn.insertAdjacentElement("afterend", toolChecklistBtn);
+        // Get the Start Over button
+        const startOverBtn = document.getElementById("start-over-btn"); // Update this ID if different
+        if (!startOverBtn) {
+            console.error("Start Over button not found!");
+            return;
+        }
 
-    // Add event listener to show the checklist when clicked
-    toolChecklistBtn.addEventListener("click", showToolChecklist);
-}
+        // Create the button
+        const toolChecklistBtn = document.createElement("button");
+        toolChecklistBtn.textContent = "Tool Checklist";
+        toolChecklistBtn.id = "tool-checklist-btn";
+        toolChecklistBtn.classList.add("tool-checklist-btn"); // Add styles if needed
 
-// Function to display the checklist interface
-function showToolChecklist() {
-    resultContainer.style.display = "block";  // Show the result container
-    resultText.innerHTML = `
-        <strong>Tool Checklist</strong><br>
-        <label><input type="checkbox"> Shoreline setbacks</label><br>
-        <label><input type="checkbox"> Overlay districts</label><br>
-        <label><input type="checkbox"> Zoning ordinances</label><br>
-        <label><input type="checkbox"> Floodplain regulations</label><br>
-        <button onclick="loadQuestion()">Back to Quiz</button>
-    `;
-    quizContainer.style.display = "none"; // Hide the quiz while showing the checklist
-}
+        // Insert next to "Start Over" button
+        startOverBtn.insertAdjacentElement("afterend", toolChecklistBtn);
 
-// Modify `handleAnswer` function to detect "Shoreline setbacks" selection
-function handleAnswer(answer) {
-    console.log("Button clicked:", answer.text);
-    history.push(currentQuestionIndex);
-
-    if (answer.text === "Shoreline setbacks") {
-        addToolChecklistButton(); // Add the button when clicked
+        // Add event listener to show the checklist when clicked
+        toolChecklistBtn.addEventListener("click", showToolChecklist);
     }
 
-    if (answer.result) {
-        showResult(answer.result);
-    } else if (answer.followUp !== undefined) {
-        currentQuestionIndex = answer.followUp;
-        loadQuestion();
+    // Function to display the checklist interface
+    function showToolChecklist() {
+        console.log("Showing Tool Checklist..."); // Debugging
+
+        const resultContainer = document.getElementById("result-container");
+        const resultText = document.getElementById("result-text");
+        const quizContainer = document.getElementById("quiz-container");
+
+        if (!resultContainer || !resultText || !quizContainer) {
+            console.error("One or more required elements are missing!");
+            return;
+        }
+
+        resultContainer.style.display = "block"; // Show result container
+        resultText.innerHTML = `
+            <strong>Tool Checklist</strong><br>
+            <label><input type="checkbox"> Shoreline setbacks</label><br>
+            <label><input type="checkbox"> Overlay districts</label><br>
+            <label><input type="checkbox"> Zoning ordinances</label><br>
+            <label><input type="checkbox"> Floodplain regulations</label><br>
+            <button onclick="loadQuestion()">Back to Quiz</button>
+        `;
+
+        quizContainer.style.display = "none"; // Hide the quiz
     }
-}
+
+    // Modify `handleAnswer` function to detect "Shoreline setbacks" selection
+    function handleAnswer(answer) {
+        console.log("Answer clicked:", answer.text); // Debugging
+
+        if (answer.text === "Shoreline setbacks") {
+            addToolChecklistButton(); // Add button dynamically
+        }
+
+        if (answer.result) {
+            showResult(answer.result);
+        } else if (answer.followUp !== undefined) {
+            currentQuestionIndex = answer.followUp;
+            loadQuestion();
+        }
+    }
+
+    // Attach handleAnswer function globally if needed
+    window.handleAnswer = handleAnswer;
+});
