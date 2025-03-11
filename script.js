@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultText = document.getElementById("result-text");
   const backBtn = document.getElementById("back-btn");
   const startOverBtn = document.getElementById("start-over-btn");
+  const moreInfoBtn = document.getElementById("more-info-btn");  // Add the More Info button
 
   let currentQuestionIndex = 0;
   let history = [];
@@ -176,6 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
     resultContainer.style.display = "none";
     backBtn.style.display = history.length > 0 ? "block" : "none";
     startOverBtn.style.display = "none";  // Hide Start Over button initially
+    moreInfoBtn.style.display = "none";  // Hide More Info button initially
   }
 
   function handleAnswer(answer) {
@@ -197,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
     resultText.innerHTML = result;
     backBtn.style.display = "block";
     startOverBtn.style.display = "block";  // Show Start Over button when result is shown
+    moreInfoBtn.style.display = "block";  // Show More Info button at the end
   }
 
   backBtn.addEventListener("click", function () {
@@ -212,13 +215,12 @@ document.addEventListener("DOMContentLoaded", function () {
     loadQuestion();
   });
 
-  // Modal functionality
+  // Modal functionality for "More Info" button
   const modal = document.getElementById("shorelineModal");
   const overlay = document.getElementById("modalOverlay");
-  const infoButton = document.getElementById("infoButton");
   const closeModal = document.getElementById("closeModal");
 
-  infoButton.addEventListener("click", () => {
+  moreInfoBtn.addEventListener("click", () => {
     modal.style.display = "block";
     overlay.style.display = "block";
   });
@@ -235,5 +237,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadQuestion();
 });
-
-
