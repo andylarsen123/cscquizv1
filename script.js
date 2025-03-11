@@ -131,6 +131,55 @@ document.addEventListener("DOMContentLoaded", function () {
     currentQuestionIndex = 0;
     loadQuestion();
   });
-
+  
   loadQuestion();
 });
+
+// Function to add the "Tool Checklist" button dynamically
+function addToolChecklistButton() {
+    // Check if the button already exists to prevent duplicates
+    if (document.getElementById("tool-checklist-btn")) return;
+
+    // Create the button
+    const toolChecklistBtn = document.createElement("button");
+    toolChecklistBtn.textContent = "Tool Checklist";
+    toolChecklistBtn.id = "tool-checklist-btn";
+    toolChecklistBtn.classList.add("tool-checklist-btn"); // Add styles if needed
+
+    // Insert next to "Start Over" button
+    startOverBtn.insertAdjacentElement("afterend", toolChecklistBtn);
+
+    // Add event listener to show the checklist when clicked
+    toolChecklistBtn.addEventListener("click", showToolChecklist);
+}
+
+// Function to display the checklist interface
+function showToolChecklist() {
+    resultContainer.style.display = "block";  // Show the result container
+    resultText.innerHTML = `
+        <strong>Tool Checklist</strong><br>
+        <label><input type="checkbox"> Shoreline setbacks</label><br>
+        <label><input type="checkbox"> Overlay districts</label><br>
+        <label><input type="checkbox"> Zoning ordinances</label><br>
+        <label><input type="checkbox"> Floodplain regulations</label><br>
+        <button onclick="loadQuestion()">Back to Quiz</button>
+    `;
+    quizContainer.style.display = "none"; // Hide the quiz while showing the checklist
+}
+
+// Modify `handleAnswer` function to detect "Shoreline setbacks" selection
+function handleAnswer(answer) {
+    console.log("Button clicked:", answer.text);
+    history.push(currentQuestionIndex);
+
+    if (answer.text === "Shoreline setbacks") {
+        addToolChecklistButton(); // Add the button when clicked
+    }
+
+    if (answer.result) {
+        showResult(answer.result);
+    } else if (answer.followUp !== undefined) {
+        currentQuestionIndex = answer.followUp;
+        loadQuestion();
+    }
+}
