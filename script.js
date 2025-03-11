@@ -134,3 +134,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadQuestion();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("shorelineModal");
+    const overlay = document.getElementById("modalOverlay");
+    const infoButton = document.getElementById("infoButton");
+    const closeModal = document.getElementById("closeModal");
+
+    infoButton.addEventListener("click", () => {
+        modal.style.display = "block";
+        overlay.style.display = "block";
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+        overlay.style.display = "none";
+    });
+
+    overlay.addEventListener("click", () => {
+        modal.style.display = "none";
+        overlay.style.display = "none";
+    });
+});
+
