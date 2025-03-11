@@ -135,9 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
   loadQuestion();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM fully loaded and parsed");
-
   const questions = [
     // Your questions array
   ];
