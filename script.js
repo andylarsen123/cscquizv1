@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { text: "B", result: "B" }
       ]
     },
+    {
       question: "Shoreline setback: Description and tool checklist", // this is followup 6
       answers: [
         { text: "Shoreline setback: What is it and why does it support resilience?", result: "<strong>Shoreline setbacks:</strong><br>Shoreline setbacks require new development to be a certain distance away from the shoreline, typically measured from the ordinary high-water mark or a reference point.,<br><strong>Why it supports resilience:</strong><br>They create space that allows for the natural coastal processes to occur while protecting water quality.”" },
