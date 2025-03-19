@@ -86,6 +86,7 @@ noBtn.addEventListener("click", () => {
     }
 });
 
+
 function displayResults() {
     questionText.textContent = "Quiz Complete!";
     yesBtn.style.display = "none";
