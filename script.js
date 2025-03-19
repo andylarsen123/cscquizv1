@@ -1,4 +1,10 @@
 const quizData = [
+     {
+        question: "Would you like to use the interactive tool or view the full tool list?",
+        answersIfYes: [], // No answers needed here
+        nextQuestionIndex: 1,
+        linkIfNo: "https://www.planningmi.org/aws/MAP/pt/sp/cscss"
+    },
     {
         question: "Is the shoreline elevated?",
         answersIfYes: ["Natural Features Setbacks", "Natural Overlays Features", "Bluff Protection"],
