@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coastal Resilience Tool Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="quiz-container">
         <p id="question-text">Would you like to use the interactive tool or view the full tool list?</p>
-        <button id="yes-btn">Interactive Tool</button> <!-- Text for "Yes" -->
-        <button id="no-btn">View Full List of Tools (Section C)</button> <!-- Text for "No" -->
+        <div id="answers">
+            <button id="yes-btn">Interactive Tool</button> <!-- Text for "Yes" -->
+            <button id="no-btn">View Full List of Tools (Section C)</button> <!-- Text for "No" -->
+        </div>
     </div>
-    
-<div id="results" class="hidden">
-    <h2>Recommended Tools:</h2>
-    <ul id="answers-list"></ul>
-    <button id="restart-btn" style="display: none;">Restart Quiz</button>
-</div>
+
+    <div id="results" class="hidden">
+        <h2>Recommended Tools:</h2>
+        <ul id="answers-list"></ul>
+        <button id="restart-btn" style="display: none;">Restart Quiz</button>
+    </div>
 
     <img id="company-logo" src="https://www.planningmi.org/aws/MAP/asset_manager/get_image/918734?ver=6" alt="EGLE, MAP, & NOAA">
 
-     <div class="button-container">
+    <div class="button-container">
         <button id="back-btn" style="display: none;">Back</button>
         <button id="start-over-btn" style="display: none;">Start Over</button>
     </div>
 
-
     <script src="script.js"></script>
 </body>
 </html>
-
-
