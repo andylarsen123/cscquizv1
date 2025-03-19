@@ -112,3 +112,31 @@ function resetQuiz() {
 
 // Start the quiz initially
 startQuiz();
+
+document.getElementById("yes-btn").addEventListener("click", function() {
+    // Process for the interactive tool (e.g., displaying recommendations)
+    showResults();
+});
+
+document.getElementById("no-btn").addEventListener("click", function() {
+    // Process for the full tool list
+    showResults();
+});
+
+function showResults() {
+    // Hide the quiz container
+    document.getElementById("quiz-container").classList.add("hidden");
+
+    // Show the results
+    document.getElementById("results").classList.remove("hidden");
+
+    // Populate the results with recommendations or tools
+    document.getElementById("answers-list").innerHTML = "<li>Interactive Tool</li><li>Full Tool List</li>"; // Example result
+}
+
+document.getElementById("restart-btn").addEventListener("click", function() {
+    // Restart the quiz
+    document.getElementById("quiz-container").classList.remove("hidden");
+    document.getElementById("results").classList.add("hidden");
+    document.getElementById("answers-list").innerHTML = "";
+});
