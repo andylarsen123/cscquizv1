@@ -102,7 +102,7 @@ restartBtn.addEventListener("click", startQuiz);
 
 // If they choose to view the full tool list, reset the quiz
 function resetQuiz() {
-    questionText.textContent = "Quiz canceled. Refresh the page or restart to try again.";
+    questionText.textContent = "Quiz canceled. Restart to try again.";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
     resultsDiv.classList.remove("hidden");
