@@ -64,9 +64,7 @@ noBtn.addEventListener("click", () => {
     if (questionData.linkIfNo) {
         window.open(
             questionData.linkIfNo,
-            "_blank",
-            "width=800,height=600,top=100,left=100,resizable=yes"
-        ); // Opens in a new pop-up window
+            "_blank", ); 
         resetQuiz(); // Reset the quiz to allow restarting
         return;
     }
