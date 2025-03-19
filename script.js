@@ -35,8 +35,9 @@ const restartBtn = document.getElementById("restart-btn");
 function startQuiz() {
     answers = [];
     currentQuestionIndex = 0;
-    resultsDiv.classList.add("hidden"); // Ensure results are hidden
+    resultsDiv.classList.add("hidden"); // Fully hide results section
     answersList.innerHTML = ""; // Clear previous answers
+    document.getElementById("restart-btn").style.display = "none"; // Hide restart button
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
     showQuestion();
@@ -91,7 +92,8 @@ function displayResults() {
     questionText.textContent = "Quiz Complete!";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    resultsDiv.classList.remove("hidden");
+    resultsDiv.classList.remove("hidden"); // Show results only when quiz ends
+    document.getElementById("restart-btn").style.display = "block"; // Show restart button
 
     answersList.innerHTML = answers.length
         ? answers.map(answer => `<li>${answer}</li>`).join("")
