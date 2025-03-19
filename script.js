@@ -1,9 +1,9 @@
 const quizData = [
-     {
+    {
         question: "Would you like to use the interactive tool or view the full tool list?",
         answersIfYes: [], // No answers needed here
         nextQuestionIndex: 1,
-        linkIfNo: "https://www.planningmi.org/aws/MAP/pt/sp/cscss"
+        linkIfNo: "https://example.com/full-tool-list" // Replace with your actual link
     },
     {
         question: "Is the shoreline elevated?",
@@ -59,7 +59,15 @@ yesBtn.addEventListener("click", () => {
 });
 
 noBtn.addEventListener("click", () => {
-    currentQuestionIndex = quizData[currentQuestionIndex].nextQuestionIndex;
+    let questionData = quizData[currentQuestionIndex];
+
+    if (questionData.linkIfNo) {
+        window.open(questionData.linkIfNo, "_blank"); // Open full tool list in a new tab
+        resetQuiz(); // Reset the quiz to allow restarting
+        return;
+    }
+
+    currentQuestionIndex = questionData.nextQuestionIndex;
     showQuestion();
 });
 
@@ -76,6 +84,13 @@ function displayResults() {
 
 restartBtn.addEventListener("click", startQuiz);
 
+// If they choose to view the full tool list, reset the quiz
+function resetQuiz() {
+    questionText.textContent = "Quiz canceled. Refresh the page or restart to try again.";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+    resultsDiv.classList.remove("hidden");
+}
 
 // Start the quiz initially
 startQuiz();
