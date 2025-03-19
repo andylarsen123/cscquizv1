@@ -1,9 +1,9 @@
 const quizData = [
     {
         question: "Would you like to use the interactive tool or view the full tool list?",
-        answersIfInteractive Tool: [], // No answers needed here
+        answersIfYes: [], // No answers needed for the interactive tool
         nextQuestionIndex: 1,
-        linkIfComplete list of tools (Section C): "https://www.planningmi.org/aws/MAP/pt/sp/cscss" 
+        linkIfNo: "https://www.planningmi.org/aws/MAP/pt/sp/cscss"
     },
     {
         question: "Is the shoreline elevated?",
@@ -49,28 +49,41 @@ function showQuestion() {
 
     let questionData = quizData[currentQuestionIndex];
     questionText.textContent = questionData.question;
+    
+    // Hide buttons if at the last question
+    if (currentQuestionIndex !== 0) {
+        yesBtn.textContent = "Yes";
+        noBtn.textContent = "No";
+    }
 }
 
 yesBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
-    answers.push(...questionData.answersIfYes);
-    currentQuestionIndex = questionData.nextQuestionIndex;
-    showQuestion();
+    answers.push(...(questionData.answersIfYes || []));
+    
+    if (questionData.nextQuestionIndex !== null) {
+        currentQuestionIndex = questionData.nextQuestionIndex;
+        showQuestion();
+    } else {
+        displayResults();
+    }
 });
 
 noBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
 
-    if (questionData.linkIfNo) {
-        window.open(
-            questionData.linkIfNo,
-            "_blank", ); 
-        resetQuiz(); // Reset the quiz to allow restarting
+    if (currentQuestionIndex === 0 && questionData.linkIfNo) {
+        window.open(questionData.linkIfNo, "_blank");
+        resetQuiz(); // Reset the quiz for another try
         return;
     }
 
-    currentQuestionIndex = questionData.nextQuestionIndex;
-    showQuestion();
+    if (questionData.nextQuestionIndex !== null) {
+        currentQuestionIndex = questionData.nextQuestionIndex;
+        showQuestion();
+    } else {
+        displayResults();
+    }
 });
 
 function displayResults() {
