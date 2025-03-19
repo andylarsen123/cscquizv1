@@ -3,7 +3,7 @@ const quizData = [
         question: "Would you like to use the interactive tool or view the full tool list?",
         answersIfYes: [], // No answers needed here
         nextQuestionIndex: 1,
-        linkIfNo: "https://example.com/full-tool-list" // Replace with your actual link
+        linkIfNo: "https://www.planningmi.org/aws/MAP/pt/sp/cscss" // Replace with your actual link
     },
     {
         question: "Is the shoreline elevated?",
