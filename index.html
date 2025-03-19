@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoreline Protection Quiz</title>
+    <title>Interactive Tool Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Shoreline Protection Quiz</h1>
-        <p id="question-text"></p>
-        <div class="button-container">
-            <button id="yes-btn">Yes</button>
-            <button id="no-btn">No</button>
-        </div>
-        <div id="results" class="hidden">
-            <h2>Recommended Protections:</h2>
-            <ul id="answers-list"></ul>
-            <button id="restart-btn">Restart Quiz</button>
-        </div>
+    <div id="quiz-container">
+        <p id="question-text">Would you like to use the interactive tool or view the full tool list?</p>
+        <button id="yes-btn">Interactive Tool</button> <!-- Text for "Yes" -->
+        <button id="no-btn">View Full List of Tools (Section C)</button> <!-- Text for "No" -->
     </div>
+
+    <div id="results" class="hidden">
+        <h2>Recommended Tools:</h2>
+        <ul id="answers-list"></ul>
+        <button id="restart-btn">Restart Quiz</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
