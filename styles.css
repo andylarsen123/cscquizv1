@@ -34,7 +34,7 @@ body::before {
     opacity: 0.8; /* Slight transparency */
 }
 
-#quiz-container, #result {
+#quiz-container, #results {
     background: white;
     padding: 20px;
     padding-top: 1px;
@@ -46,7 +46,6 @@ body::before {
 }
 
 #answers button {
-    
     display: block;
     width: 100%;
     margin: 10px 0;
@@ -150,12 +149,11 @@ body::before {
     font-weight: bold;
 }
 
-#result {
+#results {
     text-align: left !important;
-
+    display: block; /* Ensure it's visible when shown */
 }
 
 .hidden {
     display: none !important;
 }
-
