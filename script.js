@@ -8,12 +8,12 @@ const quizData = [
     {
         question: "Is the shoreline elevated?",
         answersIfYes: ["Natural Features Setbacks", "Natural Overlays Features", "Bluff Protection"],
-        nextQuestionIndex: 1
+        nextQuestionIndex: 2
     },
     {
         question: "Is there bedrock along the shoreline?",
         answersIfYes: ["Shoreline Setback"],
-        nextQuestionIndex: 2
+        nextQuestionIndex: 3
     },
     {
         question: "Is the area prone to erosion?",
