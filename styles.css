@@ -155,3 +155,7 @@ body::before {
 
 }
 
+.hidden {
+    display: none;
+}
+
