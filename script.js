@@ -35,7 +35,8 @@ const restartBtn = document.getElementById("restart-btn");
 function startQuiz() {
     answers = [];
     currentQuestionIndex = 0;
-    resultsDiv.classList.add("hidden");
+    resultsDiv.classList.add("hidden"); // Ensure results are hidden
+    answersList.innerHTML = ""; // Clear previous answers
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
     showQuestion();
