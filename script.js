@@ -70,5 +70,6 @@ function displayResults() {
 
 restartBtn.addEventListener("click", startQuiz);
 
+
 // Start the quiz initially
 startQuiz();
