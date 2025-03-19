@@ -62,7 +62,11 @@ noBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
 
     if (questionData.linkIfNo) {
-        window.open(questionData.linkIfNo, "_blank"); // Open full tool list in a new tab
+        window.open(
+            questionData.linkIfNo,
+            "_blank",
+            "width=800,height=600,top=100,left=100,resizable=yes"
+        ); // Opens in a new pop-up window
         resetQuiz(); // Reset the quiz to allow restarting
         return;
     }
