@@ -108,5 +108,6 @@ function resetQuiz() {
     resultsDiv.classList.remove("hidden");
 }
 
+
 // Start the quiz initially
 startQuiz();
