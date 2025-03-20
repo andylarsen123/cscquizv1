@@ -80,7 +80,7 @@ button:hover {
 
 /* 🔹 Results section styling */
 #results {
-  margin-top: 20px;
+  margin-top: 0px;
   width: 100%;
   text-align: left !important;
 }
