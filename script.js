@@ -70,10 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
       backBtn.classList.add("hidden");
+      restartBtn.classList.add("hidden"); // Hide restart button on first question
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
       backBtn.classList.remove("hidden");
+      restartBtn.classList.remove("hidden"); // Show restart button from the second question
     }
   }
 
@@ -142,6 +144,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz initially
   startQuiz();
 });
-
-
-
