@@ -49,6 +49,7 @@ body::before {
   width: 100%;
   word-wrap: break-word;
   text-align: center; /* Centers the text */
+  font-size: 18px;
 }
 
 /* 🔹 Centers buttons properly */
