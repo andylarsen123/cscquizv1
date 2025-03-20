@@ -52,13 +52,15 @@ document.addEventListener("DOMContentLoaded", function () {
     answers = [];
     questionHistory = [];
     currentQuestionIndex = 0;
+
+    // Reset buttons and control display for quiz start
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    // For the first question, hide both buttons:
     backBtn.classList.add("hidden");
     restartBtn.classList.add("hidden");
     controlButtons.classList.add("hidden");
     resultsDiv.classList.add("hidden");
+
     questionText.classList.remove("hidden");
     showQuestion();
   }
@@ -79,9 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
-      // Always show back button when we're past the first question:
       backBtn.classList.remove("hidden");
-      // Show restart button as well:
       restartBtn.classList.remove("hidden");
       controlButtons.classList.remove("hidden");
     }
@@ -125,13 +125,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function displayResults() {
-    // Hide question text and yes/no buttons at the end
     questionText.classList.add("hidden");
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    // Hide back button at the end; only show restart button
-    backBtn.style.display = "none";
-    restartBtn.style.display = "inline-block";
+    backBtn.style.display = "none"; // Hide back button at the end
+    restartBtn.style.display = "inline-block"; // Show restart button at the end
     controlButtons.classList.remove("hidden");
     resultsDiv.classList.remove("hidden");
     answersList.innerHTML = answers.length
@@ -155,6 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz initially
   startQuiz();
 });
+
 
 
 
