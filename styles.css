@@ -72,11 +72,12 @@ button:hover {
 }
 
 /* Control buttons container styling */
-#control-buttons {
-  margin-top: 20px;
+.buttons-container {
+  margin-top: 20px; /* Space between quiz container and buttons */
   display: flex;
   justify-content: center;
   gap: 20px; /* Space between Back and Restart buttons */
+  margin-bottom: 30px; /* Space at the bottom of the page */
 }
 
 #company-logo {
@@ -87,5 +88,6 @@ button:hover {
   height: auto;
   opacity: 0.8;
 }
+
 
 
