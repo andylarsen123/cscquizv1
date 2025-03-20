@@ -25,51 +25,61 @@ body::before {
   z-index: -1;
 }
 
+/* 🔹 Quiz container dynamically resizes */
 #quiz-container {
   background: white;
-  padding-top: 0px;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 0px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 500px;
-  margin: 0 auto;
+  width: 90%; /* Responsive width */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align content to the top */
-  min-height: 300px; /* Ensures container is not too tall */
+  justify-content: center; /* Centers content properly */
+  min-height: 100px; /* Prevents container from shrinking too much */
+  height: auto; /* Allows it to expand based on text length */
 }
 
+/* 🔹 Ensure the text does not overflow */
+#question-text {
+  width: 100%;
+  word-wrap: break-word;
+  text-align: center; /* Centers the text */
+}
+
+/* 🔹 Centers buttons properly */
 #quiz-controls {
-  margin-top: 0px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Space out the buttons */
+  align-items: center;
+  gap: 10px; /* Adds space between buttons */
   width: 100%;
 }
 
+/* 🔹 Buttons styling for better UX */
 button {
   background-color: #007bff;
   color: white;
   border: none;
   padding: 15px;
-  margin: 10px 0; /* Ensure space between buttons */
   font-size: 18px;
   cursor: pointer;
   border-radius: 5px;
-  width: 100%; /* Ensures buttons take up the full width of the container */
+  width: 100%; /* Ensures full-width buttons */
+  max-width: 300px; /* Prevents buttons from being too wide */
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
+/* 🔹 Ensures hidden elements do not take up space */
 .hidden {
   display: none;
 }
 
+/* 🔹 Results section styling */
 #results {
   margin-top: 20px;
   width: 100%;
@@ -81,6 +91,7 @@ button:hover {
   padding: 0;
 }
 
+/* 🔹 Buttons container */
 .buttons-container {
   margin-top: 20px;
   display: flex;
@@ -93,6 +104,7 @@ button:hover {
   display: inline-block;
 }
 
+/* 🔹 Logo placement */
 #company-logo {
   position: fixed;
   bottom: 20px;
@@ -101,6 +113,7 @@ button:hover {
   height: auto;
   opacity: 0.8;
 }
+
 
 
 
