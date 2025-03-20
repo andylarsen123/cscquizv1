@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     answers = [];
     questionHistory = [];
     currentQuestionIndex = 0;
+
     // Show quiz controls, hide results and control buttons
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
@@ -58,6 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
     restartBtn.classList.add("hidden");
     controlButtons.classList.add("hidden"); // Hide control buttons initially
     resultsDiv.classList.add("hidden");
+
+    // Ensure question text is visible again
+    questionText.classList.remove("hidden");  // Show question text again
+    questionText.textContent = quizData[currentQuestionIndex].question;  // Set the first question
+
     showQuestion();
   }
 
@@ -159,3 +165,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz initially
   startQuiz();
 });
+
