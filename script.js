@@ -1,6 +1,8 @@
 const quizData = [
     {
         question: "Would you like to use the interactive tool or view the full tool list?",
+        yesText: "Interactive Tool",
+        noText: "View full list of tools (Section C)",
         nextQuestionIndex: 1, 
         linkIfNo: "https://example.com/full-tool-list" // Replace with actual link
     },
@@ -49,15 +51,26 @@ function showQuestion() {
     }
 
     questionText.textContent = questionData.question;
+
+    // Custom button text for the first question
+    if (currentQuestionIndex === 0) {
+        yesBtn.textContent = questionData.yesText;
+        noBtn.textContent = questionData.noText;
+    } else {
+        yesBtn.textContent = "Yes";
+        noBtn.textContent = "No";
+    }
 }
 
 yesBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
 
+    // If "Yes" should add answers, do it
     if (questionData.answersIfYes) {
         answers.push(...questionData.answersIfYes);
     }
 
+    // Move to the next question or display results
     if (questionData.nextQuestionIndex !== null) {
         currentQuestionIndex = questionData.nextQuestionIndex;
         showQuestion();
@@ -69,12 +82,14 @@ yesBtn.addEventListener("click", () => {
 noBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
 
+    // Handle special link for "No" on the first question
     if (questionData.linkIfNo) {
         window.open(questionData.linkIfNo, "_blank"); // Opens in a new tab
         resetQuiz();
         return;
     }
 
+    // Move to the next question or display results
     if (questionData.nextQuestionIndex !== null) {
         currentQuestionIndex = questionData.nextQuestionIndex;
         showQuestion();
@@ -105,5 +120,6 @@ function resetQuiz() {
 
 // Start the quiz initially
 startQuiz();
+
 
 
