@@ -48,13 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
     questionHistory = [];
     currentQuestionIndex = 0;
 
-    // Reset buttons and results display
+    // Show question and option buttons; hide restart button and results
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    restartBtn.classList.add("hidden"); // Ensure restart is hidden when starting
+    restartBtn.classList.add("hidden");
     resultsDiv.classList.add("hidden");
-
     questionText.classList.remove("hidden");
+
     showQuestion();
   }
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
     questionText.textContent = qData.question;
-
+    // For the first question, use custom text; otherwise use "Yes"/"No"
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let qData = quizData[currentQuestionIndex];
     if (qData.linkIfNo) {
       window.open(qData.linkIfNo, "_blank");
-      startQuiz(); // Restart the quiz instead of calling resetQuiz
+      resetQuiz();
       return;
     }
     if (qData.nextQuestionIndex !== null) {
@@ -106,21 +106,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function displayResults() {
+    // Hide the quiz elements and show only the results and restart button
     questionText.classList.add("hidden");
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
     resultsDiv.classList.remove("hidden");
-
     answersList.innerHTML = answers.length
       ? answers.map((answer) => `<li>${answer}</li>`).join("")
       : "<li>No recommendations.</li>";
-
-    restartBtn.classList.remove("hidden"); // Show restart button only at the end
+    restartBtn.style.display = "inline-block";
   }
 
   restartBtn.addEventListener("click", startQuiz);
 
+  function resetQuiz() {
+    questionText.textContent =
+      "Quiz canceled. Refresh the page or restart to try again.";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+    resultsDiv.classList.add("hidden");
+    restartBtn.style.display = "none";
+  }
+
   // Start the quiz initially
   startQuiz();
 });
+
 
