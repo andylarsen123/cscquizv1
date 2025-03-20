@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       linkIfNo: "https://example.com/full-tool-list", // Replace with actual link
     },
     {
-      question: "Is the shoreline <em>elevated?</em>",
+      question: "Is the shoreline <strong>elevated?</strong>",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Overlays Features",
@@ -17,12 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 2,
     },
     {
-      question: "Is there bedrock along the shoreline?",
+      question: "Is there <strong>bedrock</strong> along the shoreline?",
       answersIfYes: ["Shoreline Setback"],
       nextQuestionIndex: 3,
     },
     {
-      question: "Is the area prone to erosion?",
+      question: "Is the area prone to <strong>erosion</strong>?",
       answersIfYes: ["Erosion Hazard Zone", "Additional Setback"],
       nextQuestionIndex: null, // End of quiz
     },
