@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultsDiv = document.getElementById("results");
   const answersList = document.getElementById("answers-list");
   const restartBtn = document.getElementById("restart-btn");
+  const controlButtons = document.getElementById("control-buttons"); // The container for control buttons
 
   // Ensure results section and control buttons are hidden on page load
   resultsDiv.classList.add("hidden");
@@ -53,8 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show quiz controls, hide results and control buttons
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    backBtn.classList.add("hidden"); // Hide back button on first question
-    restartBtn.classList.add("hidden"); // Hide restart button on first question
+    backBtn.classList.add("hidden");
+    restartBtn.classList.add("hidden");
+    controlButtons.classList.add("hidden"); // Hide control buttons initially
     resultsDiv.classList.add("hidden");
     showQuestion();
   }
@@ -69,13 +71,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
-      backBtn.classList.add("hidden"); // Hide back button on first question
-      restartBtn.classList.add("hidden"); // Hide restart button on first question
+      backBtn.classList.add("hidden");
+      restartBtn.classList.add("hidden"); // Hide restart and back button on first question
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
-      backBtn.classList.remove("hidden"); // Show back button from second question
-      restartBtn.classList.remove("hidden"); // Show restart button from second question
+      backBtn.classList.remove("hidden");
+      restartBtn.classList.remove("hidden"); // Show restart and back button from second question
+      controlButtons.classList.remove("hidden"); // Show control buttons from the second question
     }
   }
 
@@ -122,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
     noBtn.style.display = "none";
     backBtn.style.display = "inline-block"; // Show back button at the end
     restartBtn.style.display = "inline-block"; // Show restart button at the end
+    controlButtons.classList.remove("hidden"); // Show control buttons at the end
     resultsDiv.classList.remove("hidden");
 
     answersList.innerHTML = answers.length
@@ -138,9 +142,11 @@ document.addEventListener("DOMContentLoaded", function () {
     noBtn.style.display = "none";
     backBtn.classList.add("hidden");
     resultsDiv.classList.add("hidden");
+    controlButtons.classList.add("hidden"); // Hide control buttons when quiz is reset
     restartBtn.classList.remove("hidden");
   }
 
   // Start the quiz initially
   startQuiz();
 });
+
