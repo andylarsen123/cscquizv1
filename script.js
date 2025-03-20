@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       linkIfNo: "https://example.com/full-tool-list", // Replace with actual link
     },
     {
-      question: "Is the shoreline elevated?",
+      question: "Is the shoreline <em>elevated?</em>",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Overlays Features",
