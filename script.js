@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const quizData = [
     {
-      question: "Coastal Solutions Compendium: Choose an option",
+      question: "<strong>Coastal Solutions Compendium:</strong> Choose an option",
       yesText: "Interactive Tool",
       noText: "View full list of tools (Section C)",
       nextQuestionIndex: 1,
