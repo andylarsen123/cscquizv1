@@ -59,4 +59,13 @@ button:hover {
     padding: 0; /* Removes default padding */
 }
 
+#company-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 130px; /* Adjust size as needed */
+    height: auto;
+    opacity: 0.8; /* Slight transparency */
+}
+
 
