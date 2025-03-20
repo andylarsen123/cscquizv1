@@ -86,7 +86,7 @@ button:hover {
   margin-bottom: 30px;
 }
 
-#back-btn, #restart-btn {
+#restart-btn {
   display: inline-block;
 }
 
