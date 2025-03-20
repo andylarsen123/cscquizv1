@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const quizData = [
     {
-      question:
-        "Coastal Solutions Compendium: Choose an option",
+      question: "Coastal Solutions Compendium: Choose an option",
       yesText: "Interactive Tool",
       noText: "View full list of tools (Section C)",
       nextQuestionIndex: 1,
@@ -39,23 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultsDiv = document.getElementById("results");
   const answersList = document.getElementById("answers-list");
   const restartBtn = document.getElementById("restart-btn");
-  const controlButtons = document.getElementById("control-buttons"); // Container for control buttons
 
-  // Hide results and control buttons on page load
+  // Hide results and restart button on page load
   resultsDiv.classList.add("hidden");
   restartBtn.classList.add("hidden");
-  controlButtons.classList.add("hidden");
 
   function startQuiz() {
     answers = [];
     questionHistory = [];
     currentQuestionIndex = 0;
 
-    // Reset buttons and control display for quiz start
+    // Reset buttons and results display
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
     restartBtn.classList.add("hidden");
-    controlButtons.classList.add("hidden");
     resultsDiv.classList.add("hidden");
 
     questionText.classList.remove("hidden");
@@ -69,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
     questionText.textContent = qData.question;
+
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
@@ -106,15 +103,14 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       displayResults();
     }
+
   });
 
   function displayResults() {
     questionText.classList.add("hidden");
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    backBtn.style.display = "none"; // Hide back button at the end
-    restartBtn.style.display = "inline-block"; // Show restart button at the end
-    controlButtons.classList.remove("hidden");
+    restartBtn.classList.remove("hidden"); // Show restart button at the end
     resultsDiv.classList.remove("hidden");
     answersList.innerHTML = answers.length
       ? answers.map((answer) => `<li>${answer}</li>`).join("")
@@ -128,17 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
       "Quiz canceled. Refresh the page or restart to try again.";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    backBtn.classList.add("hidden");
     resultsDiv.classList.add("hidden");
-    controlButtons.classList.add("hidden");
     restartBtn.classList.remove("hidden");
   }
 
   // Start the quiz initially
   startQuiz();
 });
-
-
-
-
-
