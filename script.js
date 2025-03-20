@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show quiz controls, hide results and control buttons
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    backBtn.classList.add("hidden");
-    restartBtn.classList.add("hidden");
+    backBtn.classList.add("hidden"); // Hide back button at the start
+    restartBtn.classList.add("hidden"); // Hide restart button at the start
     controlButtons.classList.add("hidden"); // Hide control buttons initially
     resultsDiv.classList.add("hidden");
 
@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
-      backBtn.classList.add("hidden"); // Hide the back button on all subsequent questions
-      restartBtn.classList.remove("hidden"); // Show restart button from the second question
+      backBtn.classList.remove("hidden"); // Show back button after first question
+      restartBtn.classList.remove("hidden"); // Show restart button after first question
       controlButtons.classList.remove("hidden"); // Show control buttons from the second question
     }
   }
@@ -144,3 +144,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz initially
   startQuiz();
 });
+
