@@ -116,18 +116,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  function displayResults() {
-    questionText.textContent = "Quiz Complete!";
-    yesBtn.style.display = "none";
-    noBtn.style.display = "none";
-    backBtn.classList.add("hidden");
-    resultsDiv.classList.remove("hidden");
-    restartBtn.classList.remove("hidden"); // Show restart button along with results
-    answersList.innerHTML =
-      answers.length > 0
-        ? answers.map((answer) => `<li>${answer}</li>`).join("")
-        : "<li>No recommendations.</li>";
-  }
+function displayResults() {
+  questionText.textContent = "Quiz Complete!";
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+  backBtn.style.display = "inline-block"; // Show back button at the end
+  restartBtn.style.display = "inline-block"; // Show restart button at the end
+  resultsDiv.classList.remove("hidden");
+
+  answersList.innerHTML = answers.length
+    ? answers.map(answer => `<li>${answer}</li>`).join("")
+    : "<li>No recommendations.</li>";
+}
 
   restartBtn.addEventListener("click", startQuiz);
 
