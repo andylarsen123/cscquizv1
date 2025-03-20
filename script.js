@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const quizData = [
     {
-      question: "<strong>Coastal Solutions Compendium:</strong> Choose an option",
+      question: "<strong>Coastal Solutions Compendium:</strong><br>Choose an option",
       yesText: "Interactive Tool",
       noText: "View full list of tools (Section C)",
       nextQuestionIndex: 1,
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       displayResults();
       return;
     }
-    questionText.textContent = qData.question;
+    questionText.innerHTML = qData.question;
 
     // Use custom button text on the first question
     if (currentQuestionIndex === 0) {
