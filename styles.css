@@ -88,9 +88,10 @@ button:hover {
 }
 
 #results {
-  margin-top: 0px;
+  margin-top: 10px;
   width: 100%;
   text-align: center; /* Ensures the section itself is centered */
+  font-size: 18px
 }
 
 #results-heading {
