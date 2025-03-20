@@ -40,26 +40,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultsDiv = document.getElementById("results");
   const answersList = document.getElementById("answers-list");
   const restartBtn = document.getElementById("restart-btn");
-  const controlButtons = document.getElementById("control-buttons"); // The container for control buttons
+  const controlButtons = document.getElementById("control-buttons"); // Container for control buttons
 
-  // Ensure results section and control buttons are hidden on page load
+  // Hide results and control buttons on page load
   resultsDiv.classList.add("hidden");
-  backBtn.classList.add("hidden"); // Hide back button initially
+  backBtn.classList.add("hidden");
   restartBtn.classList.add("hidden");
+  controlButtons.classList.add("hidden");
 
   function startQuiz() {
     answers = [];
     questionHistory = [];
     currentQuestionIndex = 0;
-
-    // Show quiz controls, hide results and control buttons
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    backBtn.classList.add("hidden"); // Hide back button at the start
-    restartBtn.classList.add("hidden"); // Hide restart button at the start
-    controlButtons.classList.add("hidden"); // Hide control buttons initially
+    // For the first question, hide both buttons:
+    backBtn.classList.add("hidden");
+    restartBtn.classList.add("hidden");
+    controlButtons.classList.add("hidden");
     resultsDiv.classList.add("hidden");
-
+    questionText.classList.remove("hidden");
     showQuestion();
   }
 
@@ -73,14 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
-      backBtn.classList.add("hidden"); // Hide back button on first question
-      restartBtn.classList.add("hidden"); // Hide restart button on first question
+      backBtn.classList.add("hidden");
+      restartBtn.classList.add("hidden");
+      controlButtons.classList.add("hidden");
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
-      backBtn.classList.remove("hidden"); // Show back button after first question
-      restartBtn.classList.remove("hidden"); // Show restart button after first question
-      controlButtons.classList.remove("hidden"); // Show control buttons from the second question
+      // Always show back button when we're past the first question:
+      backBtn.classList.remove("hidden");
+      // Show restart button as well:
+      restartBtn.classList.remove("hidden");
+      controlButtons.classList.remove("hidden");
     }
   }
 
@@ -114,17 +117,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  backBtn.addEventListener("click", () => {
+    if (questionHistory.length > 0) {
+      currentQuestionIndex = questionHistory.pop();
+      showQuestion();
+    }
+  });
+
   function displayResults() {
+    // Hide question text and yes/no buttons at the end
+    questionText.classList.add("hidden");
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    backBtn.style.display = "none"; // Hide back button at the end
-    restartBtn.style.display = "inline-block"; // Show restart button at the end
-    controlButtons.classList.remove("hidden"); // Show control buttons at the end
+    // Hide back button at the end; only show restart button
+    backBtn.style.display = "none";
+    restartBtn.style.display = "inline-block";
+    controlButtons.classList.remove("hidden");
     resultsDiv.classList.remove("hidden");
-
-    // Display recommended tools or a fallback message
     answersList.innerHTML = answers.length
-      ? answers.map(answer => `<li>${answer}</li>`).join("")
+      ? answers.map((answer) => `<li>${answer}</li>`).join("")
       : "<li>No recommendations.</li>";
   }
 
@@ -137,11 +148,12 @@ document.addEventListener("DOMContentLoaded", function () {
     noBtn.style.display = "none";
     backBtn.classList.add("hidden");
     resultsDiv.classList.add("hidden");
-    controlButtons.classList.add("hidden"); // Hide control buttons when quiz is reset
+    controlButtons.classList.add("hidden");
     restartBtn.classList.remove("hidden");
   }
 
   // Start the quiz initially
   startQuiz();
 });
+
 
