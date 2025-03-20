@@ -25,6 +25,7 @@ const quizData = [
 
 let answers = [];
 let currentQuestionIndex = 0;
+let questionHistory = []; // Track previous questions
 
 const questionText = document.getElementById("question-text");
 const yesBtn = document.getElementById("yes-btn");
@@ -36,10 +37,12 @@ const restartBtn = document.getElementById("restart-btn");
 
 function startQuiz() {
     answers = [];
+    questionHistory = [];
     currentQuestionIndex = 0;
     resultsDiv.classList.add("hidden");
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
+    backBtn.style.display = "none"; // Hide back button at the start
     showQuestion();
 }
 
@@ -57,22 +60,23 @@ function showQuestion() {
     if (currentQuestionIndex === 0) {
         yesBtn.textContent = questionData.yesText;
         noBtn.textContent = questionData.noText;
+        backBtn.style.display = "none"; // No back button on the first question
     } else {
         yesBtn.textContent = "Yes";
         noBtn.textContent = "No";
+        backBtn.style.display = "inline-block"; // Show back button after first question
     }
 }
 
 yesBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
 
-    // If "Yes" should add answers, do it
     if (questionData.answersIfYes) {
         answers.push(...questionData.answersIfYes);
     }
 
-    // Move to the next question or display results
     if (questionData.nextQuestionIndex !== null) {
+        questionHistory.push(currentQuestionIndex); // Save history
         currentQuestionIndex = questionData.nextQuestionIndex;
         showQuestion();
     } else {
@@ -83,15 +87,14 @@ yesBtn.addEventListener("click", () => {
 noBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
 
-    // Handle special link for "No" on the first question
     if (questionData.linkIfNo) {
-        window.open(questionData.linkIfNo, "_blank"); // Opens in a new tab
+        window.open(questionData.linkIfNo, "_blank"); // Open in a new tab
         resetQuiz();
         return;
     }
 
-    // Move to the next question or display results
     if (questionData.nextQuestionIndex !== null) {
+        questionHistory.push(currentQuestionIndex); // Save history
         currentQuestionIndex = questionData.nextQuestionIndex;
         showQuestion();
     } else {
@@ -99,10 +102,18 @@ noBtn.addEventListener("click", () => {
     }
 });
 
+backBtn.addEventListener("click", () => {
+    if (questionHistory.length > 0) {
+        currentQuestionIndex = questionHistory.pop(); // Go back to the previous question
+        showQuestion();
+    }
+});
+
 function displayResults() {
     questionText.textContent = "Quiz Complete!";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
+    backBtn.style.display = "none"; // Hide back button on results
     resultsDiv.classList.remove("hidden");
 
     answersList.innerHTML = answers.length
@@ -116,11 +127,13 @@ function resetQuiz() {
     questionText.textContent = "Quiz canceled. Refresh the page or restart to try again.";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
+    backBtn.style.display = "none";
     resultsDiv.classList.remove("hidden");
 }
 
 // Start the quiz initially
 startQuiz();
+
 
 
 
