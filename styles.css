@@ -45,10 +45,13 @@ body::before {
 }
 
 /* 🔹 Ensure the text does not overflow */
-#question-text {
+#question-text strong {
   width: 100%;
   word-wrap: break-word;
   text-align: center; /* Centers the text */
+  margin-bottom: 5px;
+  display: block
+  font-weight: 700
 }
 
 /* 🔹 Centers buttons properly */
