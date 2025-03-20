@@ -62,18 +62,24 @@ body::before {
 
 /* 🔹 Buttons styling for better UX */
 button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px;
-  font-size: 14px;
-  cursor: pointer;
+ display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 20px;
+    transition: 0.0s;
+    border: none;
+    background: #51818d;
+    color: white;
+    cursor: pointer;
+    border-radius: 0px;
+    font-size: 16px;
   border-radius: 3px;
   width: 100%; /* Ensures full-width buttons */
 }
 
 button:hover {
   background-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
 }
 
 /* 🔹 Ensures hidden elements do not take up space */
