@@ -79,3 +79,20 @@ button:hover {
   height: auto;
   opacity: 0.8;
 }
+
+#back-btn {
+  display: none; /* Hidden by default */
+  background: orange;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 3.5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px; /* Spacing from the quiz container */
+}
+
+body {
+  text-align: center;
+}
+
