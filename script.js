@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const questionText = document.getElementById("question-text");
   const yesBtn = document.getElementById("yes-btn");
   const noBtn = document.getElementById("no-btn");
-  const backBtn = document.getElementById("back-btn");
   const resultsDiv = document.getElementById("results");
   const answersList = document.getElementById("answers-list");
   const restartBtn = document.getElementById("restart-btn");
@@ -44,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Hide results and control buttons on page load
   resultsDiv.classList.add("hidden");
-  backBtn.classList.add("hidden");
   restartBtn.classList.add("hidden");
   controlButtons.classList.add("hidden");
 
@@ -56,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Reset buttons and control display for quiz start
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    backBtn.classList.add("hidden");
     restartBtn.classList.add("hidden");
     controlButtons.classList.add("hidden");
     resultsDiv.classList.add("hidden");
@@ -75,11 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
-      backBtn.classList.add("hidden");
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
-      backBtn.classList.remove("hidden");
     }
   }
 
@@ -110,13 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
       showQuestion();
     } else {
       displayResults();
-    }
-  });
-
-  backBtn.addEventListener("click", () => {
-    if (questionHistory.length > 0) {
-      currentQuestionIndex = questionHistory.pop();
-      showQuestion();
     }
   });
 
