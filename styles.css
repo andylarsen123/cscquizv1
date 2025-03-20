@@ -82,7 +82,7 @@ button:hover {
 }
 
 #results {
-  margin-top: 20px;
+  margin-top: 0px;
   width: 100%;
   text-align: center; /* Ensures the section itself is centered */
 }
