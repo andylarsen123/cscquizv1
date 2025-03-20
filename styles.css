@@ -71,6 +71,14 @@ button:hover {
   padding: 0;
 }
 
+/* Control buttons container styling */
+#control-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between Back and Restart buttons */
+}
+
 #company-logo {
   position: fixed;
   bottom: 20px;
@@ -80,19 +88,4 @@ button:hover {
   opacity: 0.8;
 }
 
-#back-btn {
-  display: none; /* Hidden by default */
-  background: orange;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 3.5px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px; /* Spacing from the quiz container */
-}
-
-body {
-  text-align: center;
-}
 
