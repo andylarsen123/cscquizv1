@@ -81,11 +81,27 @@ button:hover {
   display: none;
 }
 
-/* 🔹 Results section styling */
 #results {
-  margin-top: 0px;
+  margin-top: 20px;
   width: 100%;
-  text-align: left !important;
+  text-align: center; /* Ensures the section itself is centered */
+}
+
+#results-heading {
+  text-align: center; /* Centers the "Possible Tool(s):" heading */
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#answers-list {
+  list-style-type: none;
+  padding: 0;
+  text-align: left; /* Left-aligns the answers */
+  width: 90%; /* Prevents it from being too wide */
+  max-width: 400px; /* Keeps it readable */
+  margin-left: auto;
+  margin-right: auto; /* Ensures the list stays centered in the container */
 }
 
 #answers-list {
