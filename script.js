@@ -45,7 +45,7 @@ function startQuiz() {
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
     backBtn.style.display = "none"; // Hide back button at the start
-    resultsDiv.classList.add("hidden"); // Hide results div on quiz start
+    resultsDiv.classList.add("hidden"); // Ensure results div is hidden on quiz start
     showQuestion();
 }
 
@@ -53,7 +53,7 @@ function showQuestion() {
     let questionData = quizData[currentQuestionIndex];
 
     if (!questionData) {
-        displayResults();
+        displayResults(); // When no more questions are available, show results
         return;
     }
 
@@ -117,7 +117,7 @@ function displayResults() {
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
     backBtn.style.display = "none"; // Hide back button on results
-    resultsDiv.classList.remove("hidden");
+    resultsDiv.classList.remove("hidden"); // Only reveal results div at the end
 
     answersList.innerHTML = answers.length
         ? answers.map(answer => `<li>${answer}</li>`).join("")
@@ -131,7 +131,7 @@ function resetQuiz() {
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
     backBtn.style.display = "none";
-    resultsDiv.classList.remove("hidden");
+    resultsDiv.classList.remove("hidden"); // Show the results div after reset
 }
 
 // Start the quiz initially
