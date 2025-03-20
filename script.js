@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const quizData = [
     {
       question:
-        "Would you like to use the interactive tool or view the full tool list?",
+        "Coastal Solutions Compendium: Choose an option",
       yesText: "Interactive Tool",
       noText: "View full list of tools (Section C)",
       nextQuestionIndex: 1,
