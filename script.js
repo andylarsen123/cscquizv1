@@ -41,17 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Hide results and restart button on page load
   resultsDiv.classList.add("hidden");
-  restartBtn.classList.add("hidden");
+  restartBtn.style.display = "none";
 
   function startQuiz() {
     answers = [];
     questionHistory = [];
     currentQuestionIndex = 0;
 
-    // Show question and option buttons; hide restart button and results
+    // Show the question and option buttons; always hide the restart button during the quiz
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    restartBtn.classList.add("hidden");
+    restartBtn.style.display = "none";
     resultsDiv.classList.add("hidden");
     questionText.classList.remove("hidden");
 
@@ -61,11 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function showQuestion() {
     let qData = quizData[currentQuestionIndex];
     if (!qData) {
+      // If no question data exists, display results.
       displayResults();
       return;
     }
     questionText.textContent = qData.question;
-    // For the first question, use custom text; otherwise use "Yes"/"No"
+
+    // Use custom button text on the first question
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
@@ -93,7 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let qData = quizData[currentQuestionIndex];
     if (qData.linkIfNo) {
       window.open(qData.linkIfNo, "_blank");
-      resetQuiz();
+      // Restart the quiz if an external link is opened.
+      startQuiz();
       return;
     }
     if (qData.nextQuestionIndex !== null) {
@@ -106,10 +109,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function displayResults() {
-    // Hide the quiz elements and show only the results and restart button
+    // Hide the question and option buttons
     questionText.classList.add("hidden");
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
+
+    // Show results and the restart button only at the final screen
     resultsDiv.classList.remove("hidden");
     answersList.innerHTML = answers.length
       ? answers.map((answer) => `<li>${answer}</li>`).join("")
@@ -119,18 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   restartBtn.addEventListener("click", startQuiz);
 
-  function resetQuiz() {
-    questionText.textContent =
-      "Quiz canceled. Refresh the page or restart to try again.";
-    yesBtn.style.display = "none";
-    noBtn.style.display = "none";
-    resultsDiv.classList.add("hidden");
-    restartBtn.style.display = "none";
-  }
-
   // Start the quiz initially
   startQuiz();
 });
-
-
-
