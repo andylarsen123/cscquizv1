@@ -29,6 +29,7 @@ let currentQuestionIndex = 0;
 const questionText = document.getElementById("question-text");
 const yesBtn = document.getElementById("yes-btn");
 const noBtn = document.getElementById("no-btn");
+const backBtn = document.getElementById("back-btn");
 const resultsDiv = document.getElementById("results");
 const answersList = document.getElementById("answers-list");
 const restartBtn = document.getElementById("restart-btn");
