@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Reset buttons and results display
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    restartBtn.classList.add("hidden");
+    restartBtn.classList.add("hidden"); // Ensure restart is hidden when starting
     resultsDiv.classList.add("hidden");
 
     questionText.classList.remove("hidden");
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let qData = quizData[currentQuestionIndex];
     if (qData.linkIfNo) {
       window.open(qData.linkIfNo, "_blank");
-      resetQuiz();
+      startQuiz(); // Restart the quiz instead of calling resetQuiz
       return;
     }
     if (qData.nextQuestionIndex !== null) {
@@ -103,31 +103,24 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       displayResults();
     }
-
   });
 
   function displayResults() {
     questionText.classList.add("hidden");
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    restartBtn.classList.remove("hidden"); // Show restart button at the end
     resultsDiv.classList.remove("hidden");
+
     answersList.innerHTML = answers.length
       ? answers.map((answer) => `<li>${answer}</li>`).join("")
       : "<li>No recommendations.</li>";
+
+    restartBtn.classList.remove("hidden"); // Show restart button only at the end
   }
 
   restartBtn.addEventListener("click", startQuiz);
 
-  function resetQuiz() {
-    questionText.textContent =
-      "Quiz canceled. Refresh the page or restart to try again.";
-    yesBtn.style.display = "none";
-    noBtn.style.display = "none";
-    resultsDiv.classList.add("hidden");
-    restartBtn.classList.remove("hidden");
-  }
-
   // Start the quiz initially
   startQuiz();
 });
+
