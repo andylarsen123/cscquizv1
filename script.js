@@ -120,13 +120,24 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function displayResults() {
+    // Hide question text at the end of the quiz
+    questionText.classList.add("hidden");
+    
+    // Hide the yes/no buttons at the end of the quiz
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    backBtn.style.display = "inline-block"; // Show back button at the end
-    restartBtn.style.display = "inline-block"; // Show restart button at the end
-    controlButtons.classList.remove("hidden"); // Show control buttons at the end
+    
+    // Show the back and restart buttons at the end
+    backBtn.style.display = "inline-block";
+    restartBtn.style.display = "inline-block";
+    
+    // Show the control buttons
+    controlButtons.classList.remove("hidden");
+    
+    // Show the results section
     resultsDiv.classList.remove("hidden");
 
+    // Display recommended tools or a fallback message
     answersList.innerHTML = answers.length
       ? answers.map(answer => `<li>${answer}</li>`).join("")
       : "<li>No recommendations.</li>";
@@ -148,6 +159,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz initially
   startQuiz();
 });
-
-
-
