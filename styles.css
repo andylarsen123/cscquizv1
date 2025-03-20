@@ -70,7 +70,6 @@ button {
   cursor: pointer;
   border-radius: 5px;
   width: 100%; /* Ensures full-width buttons */
-  max-width: 300px; /* Prevents buttons from being too wide */
 }
 
 button:hover {
