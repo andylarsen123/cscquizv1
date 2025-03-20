@@ -35,12 +35,16 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 80vh; /* Adjusts the container to take up most of the screen */
+  justify-content: flex-start; /* Align content to the top */
+  min-height: 300px; /* Ensures container is not too tall */
 }
 
 #quiz-controls {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out the buttons */
+  width: 100%;
 }
 
 button {
@@ -48,7 +52,7 @@ button {
   color: white;
   border: none;
   padding: 15px;
-  margin: 10px 0; /* Ensures space between buttons */
+  margin: 10px 0; /* Ensure space between buttons */
   font-size: 18px;
   cursor: pointer;
   border-radius: 5px;
@@ -95,19 +99,6 @@ button:hover {
   opacity: 0.8;
 }
 
-/* New CSS to align Yes/No buttons vertically and cover the quiz container */
-#quiz-controls {
-  display: flex;
-  flex-direction: column; /* Stack buttons vertically */
-  justify-content: center;
-  height: 100%; /* Make it take up full height of the quiz container */
-}
-
-button {
-  width: 100%; /* Ensure buttons take up full width */
-  padding: 20px; /* Make buttons taller */
-  font-size: 18px;
-}
 
 
 
