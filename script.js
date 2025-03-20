@@ -35,14 +35,17 @@ const resultsDiv = document.getElementById("results");
 const answersList = document.getElementById("answers-list");
 const restartBtn = document.getElementById("restart-btn");
 
+// Ensure the results div is hidden at the start
+resultsDiv.classList.add("hidden");
+
 function startQuiz() {
     answers = [];
     questionHistory = [];
     currentQuestionIndex = 0;
-    resultsDiv.classList.add("hidden");
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
     backBtn.style.display = "none"; // Hide back button at the start
+    resultsDiv.classList.add("hidden"); // Hide results div on quiz start
     showQuestion();
 }
 
