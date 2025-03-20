@@ -71,13 +71,20 @@ button:hover {
   padding: 0;
 }
 
-/* Control buttons container styling */
 .buttons-container {
   margin-top: 20px; /* Space between quiz container and buttons */
   display: flex;
   justify-content: center;
   gap: 20px; /* Space between Back and Restart buttons */
   margin-bottom: 30px; /* Space at the bottom of the page */
+}
+
+#back-btn, #restart-btn {
+  display: inline-block; /* Show buttons */
+}
+
+.hidden {
+  display: none; /* Hide elements with the hidden class */
 }
 
 #company-logo {
