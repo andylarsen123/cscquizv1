@@ -133,7 +133,3 @@ function resetQuiz() {
 
 // Start the quiz initially
 startQuiz();
-
-
-
-
