@@ -30,8 +30,8 @@ body::before {
   background: white;
   padding-bottom: 20px;
   padding-top: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 500px;
