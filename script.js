@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Ensure results section and control buttons are hidden on page load
   resultsDiv.classList.add("hidden");
-  backBtn.classList.add("hidden");
+  backBtn.classList.add("hidden"); // Hide back button initially
   restartBtn.classList.add("hidden");
 
   function startQuiz() {
@@ -60,10 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
     controlButtons.classList.add("hidden"); // Hide control buttons initially
     resultsDiv.classList.add("hidden");
 
-    // Ensure question text is visible again
-    questionText.classList.remove("hidden");  // Show question text again
-    questionText.textContent = quizData[currentQuestionIndex].question;  // Set the first question
-
     showQuestion();
   }
 
@@ -77,13 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
-      backBtn.classList.add("hidden");
-      restartBtn.classList.add("hidden"); // Hide restart and back button on first question
+      backBtn.classList.add("hidden"); // Hide back button on first question
+      restartBtn.classList.add("hidden"); // Hide restart button on first question
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
-      backBtn.classList.remove("hidden");
-      restartBtn.classList.remove("hidden"); // Show restart and back button from second question
+      backBtn.classList.add("hidden"); // Hide the back button on all subsequent questions
+      restartBtn.classList.remove("hidden"); // Show restart button from the second question
       controlButtons.classList.remove("hidden"); // Show control buttons from the second question
     }
   }
@@ -118,29 +114,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  backBtn.addEventListener("click", () => {
-    if (questionHistory.length > 0) {
-      currentQuestionIndex = questionHistory.pop();
-      showQuestion();
-    }
-  });
-
   function displayResults() {
-    // Hide question text at the end of the quiz
-    questionText.classList.add("hidden");
-    
-    // Hide the yes/no buttons at the end of the quiz
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    
-    // Show the back and restart buttons at the end
-    backBtn.style.display = "inline-block";
-    restartBtn.style.display = "inline-block";
-    
-    // Show the control buttons
-    controlButtons.classList.remove("hidden");
-    
-    // Show the results section
+    backBtn.style.display = "none"; // Hide back button at the end
+    restartBtn.style.display = "inline-block"; // Show restart button at the end
+    controlButtons.classList.remove("hidden"); // Show control buttons at the end
     resultsDiv.classList.remove("hidden");
 
     // Display recommended tools or a fallback message
@@ -165,4 +144,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz initially
   startQuiz();
 });
-
