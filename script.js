@@ -53,8 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Show quiz controls, hide results and control buttons
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    backBtn.classList.add("hidden");
-    restartBtn.classList.add("hidden");
+    backBtn.classList.add("hidden"); // Hide back button on first question
+    restartBtn.classList.add("hidden"); // Hide restart button on first question
     resultsDiv.classList.add("hidden");
     showQuestion();
   }
@@ -69,13 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
-      backBtn.classList.add("hidden");
-      restartBtn.classList.add("hidden"); // Hide restart and back button on first question
+      backBtn.classList.add("hidden"); // Hide back button on first question
+      restartBtn.classList.add("hidden"); // Hide restart button on first question
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
-      backBtn.classList.remove("hidden");
-      restartBtn.classList.remove("hidden"); // Show restart and back button from second question
+      backBtn.classList.remove("hidden"); // Show back button from second question
+      restartBtn.classList.remove("hidden"); // Show restart button from second question
     }
   }
 
@@ -116,18 +116,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-function displayResults() {
-  questionText.textContent = "Quiz Complete!";
-  yesBtn.style.display = "none";
-  noBtn.style.display = "none";
-  backBtn.style.display = "inline-block"; // Show back button at the end
-  restartBtn.style.display = "inline-block"; // Show restart button at the end
-  resultsDiv.classList.remove("hidden");
+  function displayResults() {
+    questionText.textContent = "Quiz Complete!";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+    backBtn.style.display = "inline-block"; // Show back button at the end
+    restartBtn.style.display = "inline-block"; // Show restart button at the end
+    resultsDiv.classList.remove("hidden");
 
-  answersList.innerHTML = answers.length
-    ? answers.map(answer => `<li>${answer}</li>`).join("")
-    : "<li>No recommendations.</li>";
-}
+    answersList.innerHTML = answers.length
+      ? answers.map(answer => `<li>${answer}</li>`).join("")
+      : "<li>No recommendations.</li>";
+  }
 
   restartBtn.addEventListener("click", startQuiz);
 
