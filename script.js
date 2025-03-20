@@ -76,14 +76,10 @@ document.addEventListener("DOMContentLoaded", function () {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
       backBtn.classList.add("hidden");
-      restartBtn.classList.add("hidden");
-      controlButtons.classList.add("hidden");
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
       backBtn.classList.remove("hidden");
-      restartBtn.classList.remove("hidden");
-      controlButtons.classList.remove("hidden");
     }
   }
 
@@ -153,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz initially
   startQuiz();
 });
+
 
 
 
