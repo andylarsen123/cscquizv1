@@ -41,17 +41,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const answersList = document.getElementById("answers-list");
   const restartBtn = document.getElementById("restart-btn");
 
-  // Ensure results section is hidden initially
+  // Ensure results section and control buttons are hidden on page load
   resultsDiv.classList.add("hidden");
+  backBtn.classList.add("hidden");
+  restartBtn.classList.add("hidden");
 
   function startQuiz() {
     answers = [];
     questionHistory = [];
     currentQuestionIndex = 0;
-    // Show quiz controls, hide results
+    // Show quiz controls, hide results and control buttons
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
-    backBtn.style.display = "none";
+    backBtn.classList.add("hidden");
+    restartBtn.classList.add("hidden");
     resultsDiv.classList.add("hidden");
     showQuestion();
   }
@@ -66,11 +69,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentQuestionIndex === 0) {
       yesBtn.textContent = qData.yesText;
       noBtn.textContent = qData.noText;
-      backBtn.style.display = "none";
+      backBtn.classList.add("hidden");
     } else {
       yesBtn.textContent = "Yes";
       noBtn.textContent = "No";
-      backBtn.style.display = "inline-block";
+      backBtn.classList.remove("hidden");
     }
   }
 
@@ -80,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       answers.push(...qData.answersIfYes);
     }
     if (qData.nextQuestionIndex !== null) {
-      questionHistory.push(currentQuestionIndex); // Save history
+      questionHistory.push(currentQuestionIndex);
       currentQuestionIndex = qData.nextQuestionIndex;
       showQuestion();
     } else {
@@ -91,12 +94,12 @@ document.addEventListener("DOMContentLoaded", function () {
   noBtn.addEventListener("click", () => {
     let qData = quizData[currentQuestionIndex];
     if (qData.linkIfNo) {
-      window.open(qData.linkIfNo, "_blank"); // Open in a new tab
+      window.open(qData.linkIfNo, "_blank");
       resetQuiz();
       return;
     }
     if (qData.nextQuestionIndex !== null) {
-      questionHistory.push(currentQuestionIndex); // Save history
+      questionHistory.push(currentQuestionIndex);
       currentQuestionIndex = qData.nextQuestionIndex;
       showQuestion();
     } else {
@@ -115,11 +118,13 @@ document.addEventListener("DOMContentLoaded", function () {
     questionText.textContent = "Quiz Complete!";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    backBtn.style.display = "none";
-    resultsDiv.classList.remove("hidden"); // Show results section
-    answersList.innerHTML = answers.length
-      ? answers.map((answer) => `<li>${answer}</li>`).join("")
-      : "<li>No recommendations.</li>";
+    backBtn.classList.add("hidden");
+    resultsDiv.classList.remove("hidden");
+    restartBtn.classList.remove("hidden"); // Show restart button along with results
+    answersList.innerHTML =
+      answers.length > 0
+        ? answers.map((answer) => `<li>${answer}</li>`).join("")
+        : "<li>No recommendations.</li>";
   }
 
   restartBtn.addEventListener("click", startQuiz);
@@ -131,10 +136,12 @@ document.addEventListener("DOMContentLoaded", function () {
     noBtn.style.display = "none";
     backBtn.classList.add("hidden");
     resultsDiv.classList.add("hidden");
+    restartBtn.classList.remove("hidden");
   }
 
   // Start the quiz initially
   startQuiz();
 });
+
 
 
