@@ -49,6 +49,9 @@ body::before {
   width: 100%;
   word-wrap: break-word;
   text-align: center; /* Centers the text */
+  font-weight: 700; /* Ensures strong text is bold */
+  display: block; /* Makes it take up the full width for better spacing */
+  margin-bottom: 5px; /* Adds some spacing below */
 }
 
 /* 🔹 Centers buttons properly */
