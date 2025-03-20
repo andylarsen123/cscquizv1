@@ -68,7 +68,7 @@ button {
   padding: 10px;
   font-size: 18px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 3px;
   width: 100%; /* Ensures full-width buttons */
 }
 
