@@ -85,7 +85,7 @@ button:hover {
 #results {
   margin-top: 20px;
   width: 100%;
-  text-align: center;
+  text-align: left !important;
 }
 
 #answers-list {
