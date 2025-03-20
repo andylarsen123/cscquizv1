@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"rel="stylesheet">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coastal Solutions Tool</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div id="quiz-container">
-    <p id="question-text">Coastal Solutions Compendium Interactive Tool:<br>Would you like to use the interactive tool or view the full tool list?</p>
-    <button id="yes-btn">Interactive Tool</button>
-    <button id="no-btn">View Full List of Tools (Section C)</button>
-    <button id="back-btn" style="display: none;">Back</button> <!-- Move it here -->
-</div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="quiz-container">
+      <p id="question-text">
+        Coastal Solutions Compendium Interactive Tool:<br />
+        Would you like to use the interactive tool or view the full tool list?
+      </p>
 
-<div id="results" class="hidden">
-    <h2>Recommended Tools:</h2>
-    <ul id="answers-list"></ul>
-    <button id="restart-btn">Restart Quiz</button>
-</div>
-    
-    <img id="company-logo" src="https://www.planningmi.org/aws/MAP/asset_manager/get_image/918734?ver=6" alt="Company Logo">
+      <!-- Quiz controls -->
+      <div id="quiz-controls">
+        <button id="yes-btn">Interactive Tool</button>
+        <button id="no-btn">View Full List of Tools (Section C)</button>
+        <button id="back-btn" style="display: none;">Back</button>
+      </div>
+
+      <!-- Results section (hidden until quiz is complete) -->
+      <div id="results" class="hidden">
+        <h2>Recommended Tools:</h2>
+        <ul id="answers-list"></ul>
+        <button id="restart-btn">Restart Quiz</button>
+      </div>
+    </div>
+
+    <img
+      id="company-logo"
+      src="https://www.planningmi.org/aws/MAP/asset_manager/get_image/918734?ver=6"
+      alt="Company Logo"
+    />
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
-
