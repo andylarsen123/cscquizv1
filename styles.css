@@ -64,7 +64,6 @@ body::before {
 button {
  display: block;
     width: 100%;
-    margin: 10px 0;
     padding: 10px 20px;
     transition: 0.0s;
     border: none;
