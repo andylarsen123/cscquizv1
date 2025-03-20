@@ -1,9 +1,8 @@
 const quizData = [
     {
         question: "Would you like to use the interactive tool or view the full tool list?",
-        answersIfYes: [], // No answers needed
-        nextQuestionIndex: 1,
-        linkIfNo: "https://www.planningmi.org/aws/MAP/pt/sp/cscss"
+        nextQuestionIndex: 1, 
+        linkIfNo: "https://example.com/full-tool-list" // Replace with actual link
     },
     {
         question: "Is the shoreline elevated?",
@@ -35,9 +34,7 @@ const restartBtn = document.getElementById("restart-btn");
 function startQuiz() {
     answers = [];
     currentQuestionIndex = 0;
-    resultsDiv.classList.add("hidden"); // Fully hide results section
-    answersList.innerHTML = ""; // Clear previous answers
-    document.getElementById("restart-btn").style.display = "none"; // Hide restart button
+    resultsDiv.classList.add("hidden");
     yesBtn.style.display = "inline-block";
     noBtn.style.display = "inline-block";
     showQuestion();
@@ -51,49 +48,33 @@ function showQuestion() {
 
     let questionData = quizData[currentQuestionIndex];
     questionText.textContent = questionData.question;
-    
-    // Hide buttons if at the last question
-    if (currentQuestionIndex !== 0) {
-        yesBtn.textContent = "Yes";
-        noBtn.textContent = "No";
-    }
 }
 
 yesBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
-    answers.push(...(questionData.answersIfYes || []));
-    
-    if (questionData.nextQuestionIndex !== null) {
-        currentQuestionIndex = questionData.nextQuestionIndex;
-        showQuestion();
-    } else {
-        displayResults();
-    }
+    answers.push(...questionData.answersIfYes);
+    currentQuestionIndex = questionData.nextQuestionIndex;
+    showQuestion();
 });
 
 noBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
 
-    if (currentQuestionIndex === 0 && questionData.linkIfNo) {
-        window.open(questionData.linkIfNo, "_blank");
-        resetQuiz(); // Reset the quiz for another try
+    if (questionData.linkIfNo) {
+        window.open(questionData.linkIfNo, "_blank"); // Opens in a new tab
+        resetQuiz(); // Reset the quiz to allow restarting
         return;
     }
 
-    if (questionData.nextQuestionIndex !== null) {
-        currentQuestionIndex = questionData.nextQuestionIndex;
-        showQuestion();
-    } else {
-        displayResults();
-    }
+    currentQuestionIndex = questionData.nextQuestionIndex;
+    showQuestion();
 });
 
 function displayResults() {
     questionText.textContent = "Quiz Complete!";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    resultsDiv.classList.remove("hidden"); // Show results only when quiz ends
-    document.getElementById("restart-btn").style.display = "block"; // Show restart button
+    resultsDiv.classList.remove("hidden");
 
     answersList.innerHTML = answers.length
         ? answers.map(answer => `<li>${answer}</li>`).join("")
@@ -102,7 +83,6 @@ function displayResults() {
 
 restartBtn.addEventListener("click", startQuiz);
 
-// If they choose to view the full tool list, reset the quiz
 function resetQuiz() {
     questionText.textContent = "Quiz canceled. Refresh the page or restart to try again.";
     yesBtn.style.display = "none";
@@ -113,30 +93,3 @@ function resetQuiz() {
 // Start the quiz initially
 startQuiz();
 
-document.getElementById("yes-btn").addEventListener("click", function() {
-    // Process for the interactive tool (e.g., displaying recommendations)
-    showResults();
-});
-
-document.getElementById("no-btn").addEventListener("click", function() {
-    // Process for the full tool list
-    showResults();
-});
-
-function showResults() {
-    // Hide the quiz container
-    document.getElementById("quiz-container").classList.add("hidden");
-
-    // Show the results
-    document.getElementById("results").classList.remove("hidden");
-
-    // Populate the results with recommendations or tools
-    document.getElementById("answers-list").innerHTML = "<li>Interactive Tool</li><li>Full Tool List</li>"; // Example result
-}
-
-document.getElementById("restart-btn").addEventListener("click", function() {
-    // Restart the quiz
-    document.getElementById("quiz-container").classList.remove("hidden");
-    document.getElementById("results").classList.add("hidden");
-    document.getElementById("answers-list").innerHTML = "";
-});
