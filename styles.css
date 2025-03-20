@@ -35,6 +35,8 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 80vh; /* Adjusts the container to take up most of the screen */
 }
 
 #quiz-controls {
@@ -45,11 +47,12 @@ button {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 15px;
-  margin: 10px;
-  font-size: 16px;
+  padding: 15px;
+  margin: 10px 0; /* Ensures space between buttons */
+  font-size: 18px;
   cursor: pointer;
   border-radius: 5px;
+  width: 100%; /* Ensures buttons take up the full width of the container */
 }
 
 button:hover {
@@ -72,19 +75,15 @@ button:hover {
 }
 
 .buttons-container {
-  margin-top: 20px; /* Space between quiz container and buttons */
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 20px; /* Space between Back and Restart buttons */
-  margin-bottom: 30px; /* Space at the bottom of the page */
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 #back-btn, #restart-btn {
-  display: inline-block; /* Show buttons */
-}
-
-.hidden {
-  display: none; /* Hide elements with the hidden class */
+  display: inline-block;
 }
 
 #company-logo {
@@ -95,6 +94,21 @@ button:hover {
   height: auto;
   opacity: 0.8;
 }
+
+/* New CSS to align Yes/No buttons vertically and cover the quiz container */
+#quiz-controls {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  justify-content: center;
+  height: 100%; /* Make it take up full height of the quiz container */
+}
+
+button {
+  width: 100%; /* Ensure buttons take up full width */
+  padding: 20px; /* Make buttons taller */
+  font-size: 18px;
+}
+
 
 
 
