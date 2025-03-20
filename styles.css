@@ -1,108 +1,83 @@
 body {
-    font-family: "Montserrat", sans-serif;
-    color: #333;
-    text-align: center;
-    background-image: url('https://www.planningmi.org/aws/MAP/asset_manager/get_image/918409?ver=1');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; /* Ensures the background fills the entire viewport */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+  text-align: center;
+  background-image: url("https://www.planningmi.org/aws/MAP/asset_manager/get_image/918409?ver=1");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 body::before {
   content: "";
-  position: fixed; /* Ensures it covers the full viewport */
-  inset: 0; /* Equivalent to top: 0; left: 0; right: 0; bottom: 0 */
+  position: fixed;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6); /* Black overlay with 60% opacity */
-  z-index: -1; /* Keeps it behind the content */
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
 }
 
 #quiz-container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#quiz-controls {
+  margin-top: 20px;
 }
 
 button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 #results {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin: 20px auto;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* Center content horizontally */
-}
-
-#restart-btn {
-    margin-top: 20px;  /* Space above the button */
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#restart-btn:hover {
-    background-color: #218838;  /* Darker green on hover */
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 #answers-list {
-    list-style-type: none; /* Removes bullet points */
-    padding: 0; /* Removes default padding */
+  list-style-type: none;
+  padding: 0;
 }
 
 #company-logo {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 130px; /* Adjust size as needed */
-    height: auto;
-    opacity: 0.8; /* Slight transparency */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 130px;
+  height: auto;
+  opacity: 0.8;
 }
 
-#back-btn {
-    margin-top: -20px;
-    padding: 10px 15px;
-    background: orange;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 3.5px;
-    font-size: 16px;
-}
 
