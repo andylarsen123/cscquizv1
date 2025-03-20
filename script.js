@@ -120,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function displayResults() {
-    questionText.textContent = "Quiz Complete!";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
     backBtn.style.display = "inline-block"; // Show back button at the end
