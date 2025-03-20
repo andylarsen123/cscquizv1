@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "Quiz canceled. Refresh the page or restart to try again.";
     yesBtn.style.display = "none";
     noBtn.style.display = "none";
-    backBtn.style.display = "none";
+    backBtn.classList.add("hidden");
     resultsDiv.classList.add("hidden");
   }
 
