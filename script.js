@@ -41,20 +41,29 @@ function startQuiz() {
 }
 
 function showQuestion() {
-    if (currentQuestionIndex === null) {
+    let questionData = quizData[currentQuestionIndex];
+
+    if (!questionData) {
         displayResults();
         return;
     }
 
-    let questionData = quizData[currentQuestionIndex];
     questionText.textContent = questionData.question;
 }
 
 yesBtn.addEventListener("click", () => {
     let questionData = quizData[currentQuestionIndex];
-    answers.push(...questionData.answersIfYes);
-    currentQuestionIndex = questionData.nextQuestionIndex;
-    showQuestion();
+
+    if (questionData.answersIfYes) {
+        answers.push(...questionData.answersIfYes);
+    }
+
+    if (questionData.nextQuestionIndex !== null) {
+        currentQuestionIndex = questionData.nextQuestionIndex;
+        showQuestion();
+    } else {
+        displayResults();
+    }
 });
 
 noBtn.addEventListener("click", () => {
@@ -62,12 +71,16 @@ noBtn.addEventListener("click", () => {
 
     if (questionData.linkIfNo) {
         window.open(questionData.linkIfNo, "_blank"); // Opens in a new tab
-        resetQuiz(); // Reset the quiz to allow restarting
+        resetQuiz();
         return;
     }
 
-    currentQuestionIndex = questionData.nextQuestionIndex;
-    showQuestion();
+    if (questionData.nextQuestionIndex !== null) {
+        currentQuestionIndex = questionData.nextQuestionIndex;
+        showQuestion();
+    } else {
+        displayResults();
+    }
 });
 
 function displayResults() {
@@ -92,4 +105,5 @@ function resetQuiz() {
 
 // Start the quiz initially
 startQuiz();
+
 
