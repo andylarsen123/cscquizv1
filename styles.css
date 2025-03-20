@@ -41,3 +41,10 @@ button:hover {
     max-width: 500px;
     margin: 20px auto;
 }
+
+#answers-list {
+    list-style-type: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+}
+
+
