@@ -43,7 +43,7 @@ body::before {
 }
 
 #quiz-controls {
-  margin-top: 20px;
+  margin-top: 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Space out the buttons */
