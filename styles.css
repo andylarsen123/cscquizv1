@@ -243,7 +243,6 @@ button:hover {
 #answers-container {
   max-height: 200px; /* Adjust height as needed */
   overflow-y: auto; /* Enables scrolling when content exceeds max height */
-  border: 1px solid #ccc; /* Optional: for visibility */
   width: 90%;
   max-width: 400px;
   background: white;
