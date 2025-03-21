@@ -8,23 +8,44 @@ document.addEventListener("DOMContentLoaded", function () {
       linkIfNo: "https://example.com/full-tool-list", // Replace with actual link
     },
     {
-      question: "Is the shoreline <strong>elevated?</strong>",
+      question: "Is the shoreline <strong>elevated (bluffs, banks)?</strong>",
       answersIfYes: [
         "Natural Features Setbacks",
-        "Natural Overlays Features",
+        "Natural Features Overlay",
         "Bluff Protection",
       ],
       nextQuestionIndex: 2,
     },
     {
-      question: "Is there <strong>bedrock</strong> along the shoreline?",
-      answersIfYes: ["Shoreline Setback"],
+      question: "Are there <strong>bluffs</strong> along the shoreline?",
+      answersIfYes: [
+        "Natural Features Setbacks", 
+        "Natural Features Overlay", 
+        "Bluff Protection", 
+        "Dynamic Zoning",
+      ],
       nextQuestionIndex: 3,
     },
     {
-      question: "Is the area prone to <strong>erosion</strong>?",
-      answersIfYes: ["Erosion Hazard Zone", "Additional Setback"],
-      nextQuestionIndex: null, // End of quiz
+      question: "Is the shoreline <strong>sandy</strong>?",
+      answersIfYes: [
+        "Shoreline Setbacks", 
+        "Dynamic Zoning",
+        "Armoring Prohibition",
+      ],
+      nextQuestionIndex: 4,
+    },
+    {
+      question: "Are there dunes <strong>along the shoreline?</strong>",
+      answersIfYes: [
+        "Natural Features Setbacks", 
+        "Natural Features Overlay", 
+        "Dune Protection", 
+        "Shoreline Setback", 
+        "Dynamic Zoning",
+        "Armoring Prohibition",
+      ],
+      nextQuestionIndex: null,
     },
   ];
 
