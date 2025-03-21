@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       linkIfNo: "https://example.com/full-tool-list", // Replace with actual link
     },
     {
-      question: "Is the shoreline <strong>elevated (bluffs, banks)?</strong>",
+      question: "Physical Characteristics: Is the shoreline <strong>elevated (bluffs, banks)?</strong>",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Features Overlay",
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 2,
     },
     {
-      question: "Are there <strong>bluffs</strong> along the shoreline?",
+      question: "Physical Characteristics: Are there <strong>bluffs</strong> along the shoreline?",
       answersIfYes: [
         "Natural Features Setbacks", 
         "Natural Features Overlay", 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 3,
     },
     {
-      question: "Is the shoreline <strong>sandy</strong>?",
+      question: "Physical Characteristics: Is the shoreline <strong>sandy</strong>?",
       answersIfYes: [
         "Shoreline Setbacks", 
         "Dynamic Zoning",
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 4,
     },
     {
-      question: "Are there dunes <strong>along the shoreline?</strong>",
+      question: "Physical Characteristics: Are there dunes <strong>along the shoreline?</strong>",
       answersIfYes: [
         "Natural Features Setbacks", 
         "Natural Features Overlay", 
@@ -44,6 +44,33 @@ document.addEventListener("DOMContentLoaded", function () {
         "Shoreline Setback", 
         "Dynamic Zoning",
         "Armoring Prohibition",
+      ],
+      nextQuestionIndex: 5,
+    },
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    {
+      question: "Is it a priority for your community to <strong>preserve or create access to the shoreline?</strong>",
+      answersIfYes: [
+        "Shoreline Setbacks", 
+        "Land Division Regulations",
+        "Long Lots",
+        "Armoring Prohibition",
+        "Temporary Shoreline Protections (Sandbags, Geotubes)",
+        "Stormwater Management Requirements/Green Infrastructure",
+        "Open Space Requirements",
       ],
       nextQuestionIndex: null,
     },
