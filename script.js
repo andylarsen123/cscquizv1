@@ -128,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "Retreat / Building Moving",
         "Impervious Surface Standards",
         "Stormwater Management Requirements / Green Infrastructure",
-
       ],
       nextQuestionIndex: 12,
     },
@@ -137,32 +136,95 @@ document.addEventListener("DOMContentLoaded", function () {
       answersIfYes: [
         "Shoreline Setbacks",
         "Shoreline District",
+        "Natural Shoreline Requirements",
+        "Impervious Surface Standards",
+        "Stormwater Management Requirements / Green Infrastructure",
       ],
       nextQuestionIndex: 13,
     },
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    {
+      question: "Development:<br>Does development <strong>already exist</strong> within 50ft of the shoreline?",
+      answersIfYes: [
+        "Nonconformities and Variance Standards",
+        "Armoring Prohibition",
+        "Temporary Shoreline Protections (Sandbags, Geotubes)",
+        "Retreat / Building Moving",
+        
+      ],
+      nextQuestionIndex: 14,
+    },
+    {
+      question: "Development:<br>Do you <strong>anticipate new development or redevelopment</strong> within 50 feet of your shoreline?",
+      answersIfYes: [
+        "Shoreline Setbacks",
+        "Site Condos",
+        "Armoring Prohibition",
+        "Retreat / Building Moving",
+      ],
+      nextQuestionIndex: 15,
+    },
+    {
+      question: "Development:<br>Is there shoreline property which is experiencing <strong>erosion</strong>?",
+      answersIfYes: [
+        "Shoreline Setbacks",
+        "Dynamic Zoning",
+        "Land Division Regulations",
+        "Long Lots",
+        "Armoring Prohibition",
+        "Temporary Shoreline Protections (Sandbags, Geotubes)",
+        "Natural Shoreline Requirements",
+        "Retreat / Building Moving",
+      ],
+      nextQuestionIndex: 16,
+    },
+    {
+      question: "Development:<br>Is there shoreline property which is experiencing <strong>flooding</strong>?",
+      answersIfYes: [
+        "Shoreline Setbacks",
+        "Land Division Regulations",
+        "Long Lots",
+        "Armoring Prohibition",
+        "Temporary Shoreline Protections (Sandbags, Geotubes)",
+        "Natural Shoreline Requirements",
+        "Retreat / Building Moving",
+        "Impervious Surface Standards",
+        "Stormwater Management Requirements / Green Infrastructure",
+        "Open Space Requirements",
+      ],
+      nextQuestionIndex: 17,
+    },
+    {
+      question: "Development:<br>Are there <strong>existing or desired shoreline-specific uses</strong>, such as marinas?",
+      answersIfYes: [
+        "Shoreline Setbacks",
+        "Land Division Regulations",
+        "Long Lots",
+        "Armoring Prohibition",
+        "Temporary Shoreline Protections (Sandbags, Geotubes)",
+        "Natural Shoreline Requirements",
+        "Retreat / Building Moving",
+        "Impervious Surface Standards",
+        "Stormwater Management Requirements / Green Infrastructure",
+        "Open Space Requirements",
+      ],
+      nextQuestionIndex: 18,
+    },
+    {
+      question: "Priorities:<br>Is your community concerned about <strong>invasive plant or animal species</strong>",
+      answersIfYes: [
+        "Invasive Species Prohibition",
+      ],
+      nextQuestionIndex: 19,
+    },
+    {
+      question: "Priorities:<br>Is your community concerned about <strong>water quality?</strong>",
+      answersIfYes: [
+        "Natural Shoreline Requirements",
+        "Impervious Surface Standards",
+        "Stormwater Management Requirements/Green Infrastructure",
+      ],
+      nextQuestionIndex: 20,
+    },
     {
       question: "Priorities: Is it a priority for your community to <strong>preserve or create access to the shoreline?</strong>",
       answersIfYes: [
