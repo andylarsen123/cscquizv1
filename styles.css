@@ -147,6 +147,16 @@ button:hover {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -2;
+  z-index: -2; /* Ensure video stays in the far back */
   pointer-events: none;
+}
+
+/* Dark Overlay */
+#dark-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* 60% darkness */
+  z-index: -1; /* Stays above the video */
 }
