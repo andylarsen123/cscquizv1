@@ -15,16 +15,6 @@ body {
   align-items: center;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: -1;
-}
-
 /* 🔹 Quiz container dynamically resizes */
 #quiz-container {
   background: white;
