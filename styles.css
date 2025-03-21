@@ -109,11 +109,11 @@ button:hover {
 
 /* Buttons container */
 .buttons-container {
-  margin-top: 20px;
+  margin-top: 5px;
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 #restart-btn {
