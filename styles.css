@@ -160,6 +160,7 @@ button:hover {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+  clip-path: inset(0 0 100px 0);
   z-index: -2; /* Ensure video stays in the far back */
   pointer-events: none;
 }
