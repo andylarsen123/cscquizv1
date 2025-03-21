@@ -159,10 +159,10 @@ button:hover {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  object-position: center;
-  z-index: -2; /* Ensure video stays in the far back */
+  object-position: center center; /* Keeps the center of the video focused */
+  z-index: -2; /* Ensures video stays in the far back */
   pointer-events: none;
-  clip-path: inset(0 0 60px 0); /* Crops the bottom 60px */
+  transform: translateY(-60px); /* Shifts the video up by 60px to hide the bottom */
 }
 
 /* Dark Overlay */
