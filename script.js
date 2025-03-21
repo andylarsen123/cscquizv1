@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
-  let answers = [];
+  let answers = new Set(); // Use a Set to store unique answers
   let currentQuestionIndex = 0;
   let questionHistory = []; // Track previous questions
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
   restartBtn.style.display = "none";
 
   function startQuiz() {
-    answers = [];
+    answers = new Set(); // Reset the answers Set
     questionHistory = [];
     currentQuestionIndex = 0;
 
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
   yesBtn.addEventListener("click", () => {
     let qData = quizData[currentQuestionIndex];
     if (qData.answersIfYes) {
-      answers.push(...qData.answersIfYes);
+      qData.answersIfYes.forEach(answer => answers.add(answer)); // Add answers uniquely
     }
     if (qData.nextQuestionIndex !== null) {
       questionHistory.push(currentQuestionIndex);
@@ -137,8 +137,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show results and the restart button only at the final screen
     resultsDiv.classList.remove("hidden");
-    answersList.innerHTML = answers.length
-      ? answers.map((answer) => `<li>${answer}</li>`).join("")
+    answersList.innerHTML = answers.size
+      ? Array.from(answers).map(answer => `<li>${answer}</li>`).join("")
       : "<li>No recommendations.</li>";
     restartBtn.style.display = "inline-block";
   }
@@ -148,3 +148,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start the quiz initially
   startQuiz();
 });
+
