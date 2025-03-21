@@ -2,6 +2,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   color: #333;
+  text-align: center;
   background-image: url("https://www.planningmi.org/aws/MAP/asset_manager/get_image/918409?ver=1");
   background-size: cover;
   background-position: center;
@@ -28,7 +29,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Aligns content to the top */
-  align-items: flex-start !important; /* Ensures content aligns to the left */
 }
 
 /* Ensure the text does not overflow */
@@ -75,6 +75,7 @@ button:hover {
 #results {
   margin-top: 20px; /* Reduced space between question and answers */
   width: 100%;
+  text-align: center; /* Ensures the section itself is centered */
   font-size: 18px;
 }
 
@@ -89,7 +90,7 @@ button:hover {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  text-align: left !important; /* Left-aligns the answers */
+  text-align: left; /* Left-aligns the answers */
   width: 100%; /* Full width of the container */
   font-size: 16px;
   padding-left: 20px; /* Optional: Adds padding to the left for better alignment */
@@ -105,7 +106,7 @@ button:hover {
   box-sizing: border-box; /* Ensures padding is included in the height/width */
   padding-top: 5px;
   padding-left: 20px; /* Adds some space to the left */
-  text-align: left !important; /* Ensures the answers are aligned to the left */
+  text-align: left; /* Ensures the answers are aligned to the left */
 }
 
 /* Buttons container */
