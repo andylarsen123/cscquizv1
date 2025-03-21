@@ -107,6 +107,7 @@ button:hover {
   border-radius: 3px;
   box-sizing: border-box; /* Ensures padding is included in the height/width */
   padding-top: 5px
+  text-align: left;
 }
 
 /* Buttons container */
