@@ -41,12 +41,113 @@ document.addEventListener("DOMContentLoaded", function () {
         "Natural Features Setbacks", 
         "Natural Features Overlay", 
         "Dune Protection", 
-        "Shoreline Setback", 
+        "Shoreline Setbacks", 
         "Dynamic Zoning",
         "Armoring Prohibition",
       ],
       nextQuestionIndex: 5,
     },
+    {
+      question: "Physical Characteristics: Are there <strong>coarse sediment beaches</strong> along the shoreline?",
+      answersIfYes: [
+        "Shoreline Setbacks", 
+        "Armoring Prohibition",
+      ],
+      nextQuestionIndex: 6,
+    },
+    {
+      question: "Physical Characteristics: Is there <strong>bedrock</strong> along the shoreline?",
+      answersIfYes: [
+        "Shoreline Setbacks",         
+      ],
+      nextQuestionIndex: 7,
+    },
+    {
+      question: "Physical Characteristics: Are there <strong>wetlands</strong> along the shoreline?",
+      answersIfYes: [
+        "Natural Features Setbacks",
+        "Natural Features Overlay",
+        "Wetlands Protection",
+        "Shoreline Setbacks",   
+        "Armoring Prohibition",
+        "Natural Shoreline Requirements",
+        "Stormwater Management Requirements / Green Infrastructure",
+      ],
+      nextQuestionIndex: 8,
+    },
+    {
+      question: "Physical Characteristics: Is the shoreline <strong>armored (seawalls, riprap, etc.)?</strong>",
+      answersIfYes: [
+        "Armoring Prohibition",
+        "Retreat / Building Moving",
+        "Impervious Surface Standards",
+      ],
+      nextQuestionIndex: 9,
+    },
+    {
+      question: "Physical Characteristics: Are there <strong>sensitive environmental areas</strong> along the shoreline?",
+      answersIfYes: [
+        "Natural Features Setbacks",
+        "Natural Features Overlay",
+        "Sensitive Environmental Areas",
+        "Shoreline Setbacks",
+        "Armoring Prohibition",
+        "Temporary Shoreline Protections (Sandbags, Geotubes)",
+        "Natural Shoreline Requirements",
+        "Retreat / Building Moving",
+        "Impervious Surface Standards",
+      ],
+      nextQuestionIndex: 10,
+    },
+    {
+      question: "Physical Characteristics: Are there <strong>high risk erosion areas</strong> along the shoreline?",
+      answersIfYes: [
+        "Natural Features Setbacks",
+        "Natural Features Overlay",
+        "High Risk Erosion Area Protection",
+        "Shoreline Setbacks",
+        "Dynamic Zoning",
+        "Armoring Prohibition",
+        "Temporary Shoreline Protections (Sandbags, Geotubes)",
+        "Natural Shoreline Requirements",
+        "Retreat / Building Moving",
+        "Impervious Surface Standards",
+      ],
+      nextQuestionIndex: 11,
+    },
+    {
+      question: "Physical Characteristics: Are there <strong>designated floodplains</strong> along the shoreline?",
+      answersIfYes: [
+        "Natural Features Setbacks",
+        "Natural Features Overlay",
+        "Floodplain Overlay District",
+        "Shoreline Setbacks",
+        "Armoring Prohibition",
+        "Temporary Shoreline Protections (Sandbags, Geotubes)",
+        "Natural Shoreline Requirements",
+        "Retreat / Building Moving",
+        "Impervious Surface Standards",
+        "Stormwater Management Requirements / Green Infrastructure",
+
+      ],
+      nextQuestionIndex: 12,
+    },
+    {
+      question: "Physical Characteristics: Is the <strong>character of the shoreline</strong> similar across your community?",
+      answersIfYes: [
+        "Shoreline Setbacks",
+        "Shoreline District",
+      ],
+      nextQuestionIndex: 13,
+    },
+
+
+
+
+
+
+
+
 
     
     
@@ -61,8 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     
     
+    
     {
-      question: "Is it a priority for your community to <strong>preserve or create access to the shoreline?</strong>",
+      question: "Priorities: Is it a priority for your community to <strong>preserve or create access to the shoreline?</strong>",
       answersIfYes: [
         "Shoreline Setbacks", 
         "Land Division Regulations",
