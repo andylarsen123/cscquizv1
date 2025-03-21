@@ -158,8 +158,8 @@ button:hover {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
-  transform: scale(1.1);  object-fit: cover;
+  height: calc(100vh - 60px); /* Reduces the height of the video by 60px */
+  object-fit: cover;
   z-index: -2; /* Ensure video stays in the far back */
   pointer-events: none;
 }
