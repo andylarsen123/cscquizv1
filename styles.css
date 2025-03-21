@@ -106,7 +106,7 @@ button:hover {
   border-radius: 1px;
   box-sizing: border-box; /* Ensures padding is included in the height/width */
   padding-top: 10px;
-  padding-left: 20px; /* Adds some space to the left */
+  padding-left: 0px; /* Adds some space to the left */
   text-align: left; /* Ensures the answers are aligned to the left */
 }
 
