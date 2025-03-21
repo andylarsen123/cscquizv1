@@ -106,9 +106,26 @@ button:hover {
   border-radius: 1px;
   box-sizing: border-box; /* Ensures padding is included in the height/width */
   padding-top: 10px;
-  padding-left: 0px; /* Adds some space to the left */
+  padding-left: 0px; 
   padding-bottom: 10px;
   text-align: left; /* Ensures the answers are aligned to the left */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #51818d #f1f1f1; /* Firefox: thumb color and track color */
+}
+
+/* Scrollbar styles for Webkit browsers (Chrome, Safari) */
+#answers-container::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+#answers-container::-webkit-scrollbar-thumb {
+  background-color: #51818d; /* Color of the thumb */
+  border-radius: 4px; /* Rounded corners */
+}
+
+#answers-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Track color */
+}
 }
 
 /* Buttons container */
