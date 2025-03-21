@@ -121,7 +121,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centers content properly */
   min-height: 100px; /* Prevents container from shrinking too much */
   height: auto; /* Allows it to expand based on text length */
 }
