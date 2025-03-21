@@ -91,6 +91,167 @@ button:hover {
   margin-bottom: 10px;
 }
 
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #333;
+  text-align: center;
+  background-image: url("https://www.planningmi.org/aws/MAP/asset_manager/get_image/918409?ver=1");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔹 Quiz container dynamically resizes */
+#quiz-container {
+  background: white;
+  padding-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%; /* Responsive width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers content properly */
+  min-height: 100px; /* Prevents container from shrinking too much */
+  height: auto; /* Allows it to expand based on text length */
+}
+
+/* 🔹 Ensure the text does not overflow */
+#question-text {
+  width: 100%;
+  word-wrap: break-word;
+  text-align: center; /* Centers the text */
+  font-size: 18px;
+}
+
+/* 🔹 Centers buttons properly */
+#quiz-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px; /* Adds space between buttons */
+  width: 100%;
+}
+
+/* 🔹 Buttons styling for better UX */
+button {
+ display: block;
+    width: 100%;
+    padding: 10px 20px;
+    transition: 0.0s;
+    border: none;
+    background: #51818d;
+    color: white;
+    cursor: pointer;
+    border-radius: 0px;
+    font-size: 16px;
+  border-radius: 3px;
+  width: 100%; /* Ensures full-width buttons */
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
+}
+
+/* 🔹 Ensures hidden elements do not take up space */
+.hidden {
+  display: none;
+}
+
+#results {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center; /* Ensures the section itself is centered */
+  font-size: 18px
+}
+
+#results-heading {
+  text-align: center; /* Centers the "Possible Tool(s):" heading */
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#answers-list {
+  list-style-type: none;
+  padding: 0;
+  text-align: left; /* Left-aligns the answers */
+  width: 90%; /* Prevents it from being too wide */
+  max-width: 400px; /* Keeps it readable */
+  margin-left: auto;
+  margin-right: auto; /* Ensures the list stays centered in the container */
+  font-size: 16px;
+}
+
+/* 🔹 Buttons container */
+.buttons-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+#restart-btn {
+  display: inline-block;
+}
+
+/* 🔹 Logo placement */
+#company-logo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 130px;
+  height: auto;
+  opacity: 0.8;
+} 
+
+
+#video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2; /* Ensure video stays in the far back */
+  pointer-events: none;
+}
+
+/* Dark Overlay */
+#dark-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* 60% darkness */
+  z-index: -1; /* Stays above the video */
+}
+
+#answers-container {
+  max-height: 200px; /* Adjust height as needed */
+  overflow-y: auto; /* Enables scrolling when content exceeds max height */
+  padding: 10px;
+  margin-top: 10px;
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  border-radius: 5px;
+}
+
+
 #answers-list {
   list-style-type: none;
   padding: 0;
