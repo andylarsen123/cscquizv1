@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       linkIfNo: "https://example.com/full-tool-list", // Replace with actual link
     },
     {
-      question: "Physical Characteristics: Is the shoreline <strong>elevated (bluffs, banks)?</strong>",
+      question: "Physical Characteristics: <br>Is the shoreline <strong>elevated (bluffs, banks)?</strong>",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Features Overlay",
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 2,
     },
     {
-      question: "Physical Characteristics: Are there <strong>bluffs</strong> along the shoreline?",
+      question: "Physical Characteristics: <br>Are there <strong>bluffs</strong> along the shoreline?",
       answersIfYes: [
         "Natural Features Setbacks", 
         "Natural Features Overlay", 
