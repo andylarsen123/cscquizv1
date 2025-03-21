@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Long Lots",
         "Armoring Prohibition",
         "Temporary Shoreline Protections (Sandbags, Geotubes)",
-        "Stormwater Management Requirements/Green Infrastructure",
+        "Stormwater Management Requirements / Green Infrastructure",
         "Open Space Requirements",
       ],
       nextQuestionIndex: null,
