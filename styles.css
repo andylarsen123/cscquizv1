@@ -104,7 +104,7 @@ button:hover {
   overflow-y: auto; /* Enables scrolling */
   width: 100%; /* Full width of the container */
   background: white;
-  border-radius: 3px;
+  border-radius: 1px;
   box-sizing: border-box; /* Ensures padding is included in the height/width */
   padding-top: 5px
   text-align: left;
