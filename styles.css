@@ -109,19 +109,15 @@ body {
 
 /* 🔹 Quiz container dynamically resizes */
 #quiz-container {
-  background: white;
   padding-top: 0px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  width: 90%; /* Responsive width */
+  height: auto; /* Allows container to expand based on content */
+  max-height: 100%; /* Prevents it from expanding too much */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: auto; /* Allows it to expand based on text length */
+  justify-content: flex-start; /* Aligns content to the top */
 }
 
 /* 🔹 Ensure the text does not overflow */
@@ -238,12 +234,12 @@ button:hover {
 }
 
 #answers-container {
-  max-height: 200px; /* Adjust height as needed */
-  overflow-y: auto; /* Enables scrolling when content exceeds max height */
-  width: 90%;
-  max-width: 400px;
+  max-height: 200px; /* Adjust this value as needed */
+  overflow-y: auto; /* Enables scrolling */
+  width: 100%; /* Full width of the container */
   background: white;
   border-radius: 5px;
+  box-sizing: border-box; /* Ensures padding is included in the height/width */
 }
 
 #answers-list {
