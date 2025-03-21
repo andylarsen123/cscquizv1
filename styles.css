@@ -106,8 +106,9 @@ button:hover {
   background: white;
   border-radius: 1px;
   box-sizing: border-box; /* Ensures padding is included in the height/width */
-  padding-top: 5px
-  text-align: left;
+  padding-top: 5px;
+  text-align: left; /* Ensures answers are aligned to the left */
+  padding-left: 20px; /* Optional: Adds some space to the left */
 }
 
 /* Buttons container */
