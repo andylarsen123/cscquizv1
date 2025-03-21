@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
       answersIfYes: [
         "Natural Shoreline Requirements",
         "Impervious Surface Standards",
-        "Stormwater Management Requirements/Green Infrastructure",
+        "Stormwater Management Requirements / Green Infrastructure",
       ],
       nextQuestionIndex: 20,
     },
