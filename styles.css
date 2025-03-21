@@ -152,25 +152,15 @@ button:hover {
   opacity: 0.8;
 }
 
-#video-wrapper {
+#video-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Hides the bottom part of the video */
-  z-index: -2; /* Ensure the video stays in the far back */
-}
-
-#video-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  object-position: center; /* Keeps the center of the video focused */
-  transform: translateY(-60px); /* Moves the video up by 60px */
+  z-index: -2; /* Ensure video stays in the far back */
+  pointer-events: none;
 }
 
 /* Dark Overlay */
