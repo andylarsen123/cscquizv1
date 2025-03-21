@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       linkIfNo: "https://example.com/full-tool-list", // Replace with actual link
     },
     {
-      question: "Physical Characteristics: <br>Is the shoreline <strong>elevated (bluffs, banks)?</strong>",
+      question: "Physical Characteristics:<br>Is the shoreline <strong>elevated (bluffs, banks)?</strong>",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Features Overlay",
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 2,
     },
     {
-      question: "Physical Characteristics: <br>Are there <strong>bluffs</strong> along the shoreline?",
+      question: "Physical Characteristics:<br>Are there <strong>bluffs</strong> along the shoreline?",
       answersIfYes: [
         "Natural Features Setbacks", 
         "Natural Features Overlay", 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 3,
     },
     {
-      question: "Physical Characteristics: Is the shoreline <strong>sandy</strong>?",
+      question: "Physical Characteristics:<br>Is the shoreline <strong>sandy</strong>?",
       answersIfYes: [
         "Shoreline Setbacks", 
         "Dynamic Zoning",
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 4,
     },
     {
-      question: "Physical Characteristics: Are there dunes <strong>along the shoreline?</strong>",
+      question: "Physical Characteristics:<br>Are there dunes <strong>along the shoreline?</strong>",
       answersIfYes: [
         "Natural Features Setbacks", 
         "Natural Features Overlay", 
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 5,
     },
     {
-      question: "Physical Characteristics: Are there <strong>coarse sediment beaches</strong> along the shoreline?",
+      question: "Physical Characteristics:<br>Are there <strong>coarse sediment beaches</strong> along the shoreline?",
       answersIfYes: [
         "Shoreline Setbacks", 
         "Armoring Prohibition",
@@ -56,14 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 6,
     },
     {
-      question: "Physical Characteristics: Is there <strong>bedrock</strong> along the shoreline?",
+      question: "Physical Characteristics:<br>Is there <strong>bedrock</strong> along the shoreline?",
       answersIfYes: [
         "Shoreline Setbacks",         
       ],
       nextQuestionIndex: 7,
     },
     {
-      question: "Physical Characteristics: Are there <strong>wetlands</strong> along the shoreline?",
+      question: "Physical Characteristics:<br>Are there <strong>wetlands</strong> along the shoreline?",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Features Overlay",
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 8,
     },
     {
-      question: "Physical Characteristics: Is the shoreline <strong>armored (seawalls, riprap, etc.)?</strong>",
+      question: "Physical Characteristics:<br>Is the shoreline <strong>armored (seawalls, riprap, etc.)?</strong>",
       answersIfYes: [
         "Armoring Prohibition",
         "Retreat / Building Moving",
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 9,
     },
     {
-      question: "Physical Characteristics: Are there <strong>sensitive environmental areas</strong> along the shoreline?",
+      question: "Physical Characteristics:<br>Are there <strong>sensitive environmental areas</strong> along the shoreline?",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Features Overlay",
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 10,
     },
     {
-      question: "Physical Characteristics: Are there <strong>high risk erosion areas</strong> along the shoreline?",
+      question: "Physical Characteristics:<br>Are there <strong>high risk erosion areas</strong> along the shoreline?",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Features Overlay",
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 11,
     },
     {
-      question: "Physical Characteristics: Are there <strong>designated floodplains</strong> along the shoreline?",
+      question: "Physical Characteristics:<br>Are there <strong>designated floodplains</strong> along the shoreline?",
       answersIfYes: [
         "Natural Features Setbacks",
         "Natural Features Overlay",
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 12,
     },
     {
-      question: "Physical Characteristics: Is the <strong>character of the shoreline</strong> similar across your community?",
+      question: "Physical Characteristics:<br>Is the <strong>character of the shoreline</strong> similar across your community?",
       answersIfYes: [
         "Shoreline Setbacks",
         "Shoreline District",
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextQuestionIndex: 20,
     },
     {
-      question: "Priorities: Is it a priority for your community to <strong>preserve or create access to the shoreline?</strong>",
+      question: "Priorities:<br>Is it a priority for your community to <strong>preserve or create access to the shoreline?</strong>",
       answersIfYes: [
         "Shoreline Setbacks", 
         "Land Division Regulations",
