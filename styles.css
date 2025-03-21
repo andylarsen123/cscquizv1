@@ -152,16 +152,17 @@ button:hover {
   opacity: 0.8;
 }
 
-/* Video background */
 #video-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: calc(100vh - 60px); /* Reduces the height of the video by 60px */
+  height: 100vh;
   object-fit: cover;
+  object-position: center;
   z-index: -2; /* Ensure video stays in the far back */
   pointer-events: none;
+  clip-path: inset(0 0 60px 0); /* Crops the bottom 60px */
 }
 
 /* Dark Overlay */
