@@ -78,10 +78,10 @@ button:hover {
 }
 
 #results {
-  margin-top: 20px;
+  margin-top: 10px; /* Reduce space between question and answers */
   width: 100%;
-  text-align: center; /* Ensures the section itself is centered */
-  font-size: 18px
+  text-align: center;
+  font-size: 18px;
 }
 
 #results-heading {
@@ -249,15 +249,12 @@ button:hover {
   border-radius: 5px;
 }
 
-
 #answers-list {
   list-style-type: none;
   padding: 0;
-  text-align: left; /* Left-aligns the answers */
-  width: 90%; /* Prevents it from being too wide */
-  max-width: 400px; /* Keeps it readable */
-  margin-left: auto;
-  margin-right: auto; /* Ensures the list stays centered in the container */
+  margin: 0; /* Remove bottom margin */
+  text-align: left;
+  width: 100%;
   font-size: 16px;
 }
 
