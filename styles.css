@@ -100,7 +100,7 @@ button:hover {
 /* Answer container with scrolling */
 #answers-container {
   max-height: 200px; /* Adjust this value as needed */
-  overflow-y: scroll; /* Forces scrollbar to always be visible */
+  overflow-y: auto; /* Enables scrolling */
   width: 100%; /* Full width of the container */
   background: white;
   border-radius: 1px;
@@ -109,8 +109,6 @@ button:hover {
   padding-left: 0px; 
   padding-bottom: 10px;
   text-align: left; /* Ensures the answers are aligned to the left */
-  
-  /* Make sure the scrollbar is always visible */
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #51818d #f1f1f1; /* Firefox: thumb color and track color */
 }
@@ -127,6 +125,7 @@ button:hover {
 
 #answers-container::-webkit-scrollbar-track {
   background-color: #f1f1f1; /* Track color */
+}
 }
 
 /* Buttons container */
